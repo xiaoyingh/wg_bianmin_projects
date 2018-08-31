@@ -1,0 +1,350 @@
+/*
+Template Name: Velonic Dashboard build with Bootstrap v3.3.6
+Template Version: 2.2
+Author: CoderThemes
+Email: coderthemes@gmail.com
+Date: Jan 2015
+Last Update: Jan 2016
+*/
+
+
+/* TABLE OF CONTENTS
+    1) General
+        1.1 Loader
+    2) Left Panel
+        2.1 Logo
+        2.2 Navigation
+        2.3 Sub-menu
+    3) Top Header
+    4) Content Area
+    5) Footer
+    6) Panel-Tab-Accordions
+    7) Portlets
+    8) Widgets
+    9) Chat / Todo
+   10) Calendar
+   11) Forms
+       11.1 Form wizard
+   12) Datatable
+   13) Chart
+   14) Mail
+   15) Maps
+   16) Profile
+   17) Timeline
+   18) Pages (Log-in,Register Etc....)
+
+   ======= Version 1.1 ======
+   19) Flot-chart / Rickshaw
+
+
+   ====== Version 2.0 =====
+   - Responsive
+
+*/
+
+@font-face {
+	font-family: 'iconfont';
+	src: url('../../fonts/iconfont.eot');
+	src: url('../../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../../fonts/iconfont.woff') format('woff'), url('../../fonts/iconfont.ttf') format('truetype'), url('../../fonts/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.widget-style-t,
+.widget-style-f,
+.widget-style-i {
+	position: relative;
+}
+
+i.icon-t {
+	position: absolute;
+	font-size: 16px;
+	right: 1rem;
+	bottom: 1rem;
+	color: #1da1f2;
+	font-size: 2rem;
+	right: 20px;
+	bottom: 10px;
+}
+
+i.icon-f {
+	position: absolute;
+	font-size: 16px;
+	right: 1rem;
+	bottom: 1rem;
+	color: rgb(72, 103, 170);
+	font-size: 2rem;
+	right: 20px;
+	bottom: 10px;
+}
+
+i.icon-i {
+	position: absolute;
+	font-size: 16px;
+	right: 1rem;
+	bottom: 1rem;
+	color: rgb(161, 54, 150);
+	font-size: 2rem;
+	right: 20px;
+	bottom: 10px;
+}
+
+.thumb-lg {
+	height: 84px;
+	width: 84px;
+}
+
+.bx-s {
+	-webkit-box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+	-moz-box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+}
+
+.text-muted {
+	color: #98a6ad;
+}
+
+.media-main .info h4 {
+	/*padding-top: 10px;*/
+	margin-top: 5px;
+	font-size: .9vw;
+}
+
+.media-main a.pull-left {
+	width: 100px;
+}
+
+
+/*.panel {
+	  padding: 20px 30px;
+    border: none;
+    border: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    box-shadow: 0 0px 8px 0 rgba(0,0,0,0.06),0 1px 0px 0 rgba(0,0,0,0.02);
+    cursor: pointer;
+}*/
+
+.panel_card {
+	padding: 20px 30px;
+	border: none;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	margin-bottom: 20px;
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+	cursor: pointer;
+	cursor: pointer;
+	padding: 20px 10px;
+}
+
+.media-main .info {
+	overflow: hidden;
+	color: #000;
+	padding: 5px;
+}
+
+
+/*添加重点网民样式*/
+
+.notice-list .avatar {
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	width: 55px;
+	height: 55px;
+	overflow: hidden;
+	text-align: center;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+}
+
+.notice-list .avatar {
+	width: 45px;
+	height: 45px;
+}
+
+.notice-list a {
+	display: block;
+	position: relative;
+	padding: 14px 15px 14px 85px;
+	min-height: 75px;
+}
+
+.notice-list a {
+	min-height: 60px;
+	padding: 10px 20px 10px 85px;
+}
+
+.notice-list li {
+	border-bottom: 1px solid #eaedef;
+}
+
+.notice-list {
+	list-style: none;
+	padding: 0px;
+}
+
+.notice-list .name {
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 500;
+	color: #212121;
+	transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-webkit-transition: all 0.4s ease;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	display: block;
+}
+
+.notice-list .name,
+.notice-list .desc {
+	line-height: 20px;
+	overflow: hidden;
+}
+
+.notice-list .desc {
+	color: #90a4ae;
+	font-size: 13px;
+	line-height: 23px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+	display: block;
+}
+
+.notice-list .time {
+	font-size: 12px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	color: #aab2bd;
+	position: absolute;
+	right: 20px;
+	top: 17px;
+}
+
+.notice-list .time {
+	font-size: 20px;
+	top: 6px;
+	right: 10px;
+}
+
+.notice-list .time {
+	font-size: 12px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	color: #aab2bd;
+	position: absolute;
+	right: 20px;
+	top: 17px;
+}
+
+.notice-list .time {
+	font-size: 20px;
+	top: 6px;
+	right: 10px;
+}
+
+
+/**小卡片*/
+
+.panel_card-mini {
+	padding: 0;
+	width: 100%;
+	margin: 0;
+	background: transparent;
+	box-shadow: none;
+	border: none;
+	border-bottom: 1px solid #D9D9D9;
+}
+
+.panel_card-mini:hover,
+.panel_card-mini.active {
+	background: #d9d9d9;
+	/*border: 1px solid rgb(186, 224, 239);
+	box-shadow: 0 0 20px rgb(204, 238, 251);*/
+}
+
+/*.panel_card-mini:hover .mini-card-img,
+.panel_card-mini.active .mini-card-img {
+	background: rgb(204, 238, 251);
+}*/
+
+.mini-card {
+	width: 100%;
+}
+
+.mini-card-img {
+	width: 100px;
+	text-align: center;
+	height: 86px;
+	/*background: rgb(246, 246, 246);*/
+}
+
+.mini-card-img .user-image_sm {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	top: 50%;
+	margin-top: -30px;
+}
+
+.mini-card-content {
+	width: 200px;
+}
+
+.media-main .mini-card .info h4 {
+	font-size: 16px;
+	margin-bottom: 8px;
+	word-break:break-all;
+	height: 20px;
+}
+
+.media-main .mini-card .info h5 {
+	font-size: 14px;
+	font-weight: 100;
+	color: #808080;
+	margin-bottom: 4px;
+}
+
+.panel_card-mini .btn-group-sm>.btn {
+	padding: 0;
+}
+
+#account_info .panel-body {
+	background: rgb(230, 230, 230);
+}
+
+
+
+/*添加关注*/
+.grxx_zb{color: #fff;font-size: 30px;}
+
+.grxx_zb .icon_{border-right: 1px solid #fff;}
+.jtgz,.qxjtgz{width: 72px;height: 72px;background: #17a293 url(../../img/sm/ygz.png) no-repeat center 18px;line-height: 72px;text-align: center;float: right;cursor: pointer;background-size: 61%;}
+.qxjtgz>div{}
+.jtgz{background: #adadad;}
+.jtgz:hover{background: #f5761b;}
+.qxjtgz:hover{background: #cc2929 url(../../img/sm/tjgz.png) no-repeat center 18px;background-size: 59%;}
+.fszb{height: 72px;line-height: 72px;float: right;margin-right: 15px;background: #feae00;}
+.fszb>div{text-align: center;padding: 0 18px;float: left;}
+.gzzb{height: 72px;line-height: 72px;float: right;margin-right: 15px;background: #f5761b;}
+.gzzb>div{text-align: center;padding: 0 18px;float: left;}
+
+/*twitter icon*/
+
+.Icon--gz:before {
+	content: "\f216"
+}

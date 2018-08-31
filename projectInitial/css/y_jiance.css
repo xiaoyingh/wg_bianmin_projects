@@ -1,0 +1,29 @@
+[data-manage="bMessage"] #myTab>li.active>a {background: #fff;border-bottom-color: transparent;}
+#ui-datepicker-div {z-index: 99999 !important;}
+.tabActive {background-color: #21a3e1;}
+.tabActive a {color: white;}
+.addrow,.deltrow {cursor: pointer;}
+.btn-primary:hover{background:#1d84df;}
+.btn-default:hover{background:#fff;}
+.btn{padding:6px 12px;}
+.modal-title{color:#000;}
+.groupName{font-weight:normal;}
+
+#myTabContent .btn_abs{position:absolute;padding:0 5px;right:10px;top:8px;}
+.text-primary{cursor: pointer;}
+.text-danger1{cursor: pointer;}
+.text_right{text-align: right;padding-right: 0px;line-height: 23px;}
+.text_right .control-label{color:#000;}
+.keywordgroup{width: 100%;float: left;}
+.zhuti_contain{float: left;margin-top: 5px;}
+.zhuti_con_input{width: 200px!important;float: left;}
+.zhuti_uncontain{float: left;margin-top: 5px;margin-left: 2px;}
+.zhuti_uncon_input{width: 200px!important;float: left;}
+.zhuti_addrow{margin-top:6px;margin-left:5px;float: left;}
+.custom-tab{background: rgba(255,255,255,0.6);}
+
+
+
+
+
+

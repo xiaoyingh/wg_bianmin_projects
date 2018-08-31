@@ -1,0 +1,526 @@
+/*twitter 官方样式*/
+
+.ProfileAvatar {
+    background: #fff;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    height: 130px;
+    position: relative;
+    width: 130px;
+    margin: 0 auto;
+}
+.ProfileAvatar-image, .ProfileAvatar-placeholderImage {
+    -moz-force-broken-image-icon: 1;
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.ProfileHeaderCard-name{font-size: 24px;margin: 0;}
+.ProfileHeaderCard-screenname{margin: 0;font-size: 20px}
+.ProfileHeaderCard-nameLink {
+    color: #657786;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 28px;
+    margin-right: 2px;
+    word-wrap: break-word;
+}
+
+.u-textInheritColor {
+    color: inherit!important;
+}
+.ProfileHeaderCard-screennameLink, .ProfileHeaderCard-screennameLink:hover {
+    color: #657786;
+    font-size: 14px
+}
+.TweetTextSize.TweetTextSize--jumbo {
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: .01em;
+}
+
+.tweet .js-tweet-text {
+    white-space: pre-wrap;
+}
+.tweet p {
+    word-wrap: break-word;
+}
+.metadata, .metadata button.btn-link, .metadata a {
+    font-size: 14px;
+    color: #657786;
+}
+.tweet .stats {
+	padding: 0;
+    margin-top: 10px;
+    border-bottom: 1px solid #e6ecf0;
+    border-top: 1px solid #e6ecf0;
+    width: 100%;
+}
+.stats {
+    overflow: hidden;
+}
+.stats li {
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+
+.stats a {
+    float: left;
+    padding: 7px 28px 0 0;
+    color: #657786;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: bold;
+}
+.enhanced-mini-profile .stats a {
+    padding: 0;
+}
+.tweet .stats a {
+    padding-top: 12px;
+    width: auto;
+}
+.stats .stat-count a {
+    font-size: 14px;
+    font-weight: normal;
+    padding-right: 0;
+}
+
+.stats li:first-child a {
+    border-left: 0;
+}
+
+.tweet .stats li:first-child a {
+    padding-left: 0;
+}
+.stats .stat-count strong {
+    color: #14171a;
+    display: inline;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.tweet .stats .avatar-row a {
+    padding: 11px 0;
+}
+.avatar-row .avatar {
+    float: left;
+    margin-right: 5px;
+}
+.size24 {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+.stats .avatar-row a:first-child {
+    /*padding-left: 12px;
+    border-left: 1px solid #e6ecf0;*/
+    padding: 6px 20px !important;
+}
+
+.EdgeButton{
+	min-width: 100%;
+	    text-align: center;
+	    border-color: #1DA1F2;
+    color: #1DA1F2;
+    background-color: #fff;
+    border: 1px solid #1da1f2;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 6px 16px;
+        border-radius: 100px;
+    box-shadow: none;
+    cursor: pointer;
+        white-space: nowrap;
+            font-weight: 100;
+                background: transparent;
+    transition: box-shadow .15s ease-in-out;
+    margin-top: 20px;
+}
+.EdgeButton.code{
+	border-color: #c7254e;
+    color: #c7254e;
+}
+.EdgeButton:hover, .EdgeButton:active {
+    background-color: #E8F5FD;
+}
+.EdgeButton.code:hover, .EdgeButton.code:active {
+    background-color: #f9f2f4;
+}
+
+.EdgeButton, .EdgeButton:hover, .EdgeButton:focus, .EdgeButton:active {
+    border-color: #1DA1F2;
+    color: #1DA1F2;
+    outline: none;
+}
+
+.EdgeButton.code, .EdgeButton.code:hover, .EdgeButton.code:focus, .EdgeButton.code:active {
+	border-color: #c7254e;
+    color: #c7254e;
+}
+.stream-item-header .account-group {
+    color: #657786;
+}
+.stream-item-header .account-group {
+    color: #657786;
+}
+.fullname {
+    color: #14171a;
+    font-size: 14px;
+    font-weight: bold;
+}
+.account-group .username, .time1, .time1 a, .created-via {
+    font-size: 14px;
+    color: #657786;
+}
+ .time1{
+    font-size: 14px;
+    color: #657786;
+}
+.TweetTextSize {
+    font-size: 14px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.stream .stream-item-footer {
+    display: table;
+    width: 100%;
+}
+.tweet .stream-item-footer {
+    font-size: 12px;
+    padding-top: 1px;
+}
+.ProfileTweet-actionList {
+    font-size: 0;
+    height: 18px;
+    line-height: 1;
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+
+.ProfileTweet-action {
+    display: inline-block;
+    min-width: 80px;
+}
+.ProfileTweet-actionButton, .ProfileTweet-actionButtonUndo {
+    color: #657786;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 2px;
+    position: relative;
+    background: transparent;
+    border: 0;
+}
+.IconContainer {
+    display: inline-block;
+    line-height: 0;
+    position: relative;
+    vertical-align: middle;
+}
+.ProfileTweet-actionCount {
+    color: #657786;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 6px;
+    position: relative;
+    vertical-align: text-bottom;
+}
+.u-dir[dir="ltr"] {
+    direction: ltr!important;
+    text-align: left!important;
+    unicode-bidi: embed;
+}
+
+/*单条样式*/
+/*
+ * 2017-04-10 
+ * zhiyiwei 
+ * 单篇详情样式
+*/
+
+/*tab*/
+.crossMedia_detail .nav-tabs{background: #EBF0F3;height: 40px;border-bottom: 1px solid #aaa;padding: 0 25px;}
+.crossMedia_detail .nav-tabs>li>a{padding: 5px 15px;font-size: 14px;margin-top: 8px;}
+.skin-1 .crossMedia_detail .nav.nav-tabs>li>a{background: #72889F;color: #fff;}
+.skin-1 .crossMedia_detail .nav.nav-tabs>li.active>a,.skin-1 .crossMedia_detail .nav.nav-tabs>li:hover>a {
+    color: #4B4B4B;
+    border-color: #aaa #aaa #fff;
+    background: #fff;
+}
+
+/*覆盖之前默认样式*/
+/*@media (max-width: 1360px)
+body.skin-1 {
+    overflow-x: scroll !important;
+}*/
+
+/*body.skin-1 {
+	background: #f3f3f3;
+	overflow-x: auto;*/
+}
+
+/*#wrapper {
+	width: 1366px;
+	margin: 0 auto;*/
+}
+
+.skin-1 #page-wrapper {
+	background: #f3f3f3;
+}
+
+.ibox-content {
+	border: none !important;
+}
+
+.btn-default {
+	/*padding: 5px;
+	font-size: 14px;*/
+}
+
+#adopt_info_list thead tr th:nth-child(2) {
+    width: 27% !important;
+}
+
+/*整体*/
+
+.custom-ibox-title {
+	border-bottom: 1px solid #dfe0e2;
+	height: 36px;
+	position: relative;
+}
+
+.custom-ibox-title h5 {
+	font-size: 17px;
+	float: left;
+	position: absolute;
+	padding: 0 10px 10px 10px;
+	margin-bottom: 0;
+	border-bottom: 2px solid #f7ac5b;
+	color: rgb(103, 106, 108);
+	
+}
+
+
+/*单条*/
+
+#main {
+	/*background: #fff;
+	margin-top: 15px;
+	border-top: 1px solid #ddd;
+	font-family: "微软雅黑";*/
+}
+
+#main .dt-title {
+	color: #1aafc3;
+	font-size: 18px;
+	text-align: center;
+}
+
+#main .dt-content1 {
+	line-height: 36px;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-orient text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	margin-bottom: 20px;
+}
+
+#main .dt-content2 {
+	line-height: 36px;
+}
+
+#main .dt-label {
+	display: inline-block;
+	width: 85%;
+}
+
+#main .dt-label span {
+	margin-right: 10px;
+	color: #0095d0;
+}
+
+.dt-more {
+	float: right;
+	margin-right: 20px;
+	/*text-decoration: underline;*/
+	color: #0095d0;
+}
+
+.dt-more-scroll {
+	max-height: 400px !important;
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
+}
+
+.dataTables_wrapper {
+	padding: 0;
+}
+
+.dataTables_wrapper>.row:first-of-type>.col-sm-6 {
+	width: 25%;
+}
+
+.modal-title {
+	/*float: right;*/
+	cursor: pointer;
+	font-size: 15px;
+	color: #ababab;
+	margin: 0 !important;
+}
+
+.modal_title_1 {
+	color: #3e3e3e;
+}
+
+.shu_ {
+	float: right;
+	margin: 0 10px;
+}
+
+.ctml-lebal {
+	font-size: 14px;
+	margin-top: 20px;
+	text-align: center;
+	width: 108%;
+	margin-left: -24px;
+	color: rgb(44, 44, 44);
+}
+
+.ctml-orange {
+	color: #fc7509;
+	font-size: 22px;
+}
+
+.title1 {
+	/*width: 140px;*/
+	width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    text-align: left;
+}
+
+.name1 {
+	/*width: 87px;*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+
+/*.type1{width: 50px;overflow: hidden;text-overflow: ellipsis;display: inline-block;}
+.region{width: 50px;overflow: hidden;text-overflow: ellipsis;display: inline-block;}
+.club1{width: 50px;overflow: hidden;text-overflow: ellipsis;display: inline-block;}*/
+
+.title2 {
+	width: 350px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	text-align: left;
+}
+
+.name2 {
+	width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+.title3 {
+	width: 440px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	text-align: left;
+}
+
+.zhishu_table td {
+	line-height: 18px !important;
+}
+
+.dt-title a{font-size: 13px;border-right: 1px solid #ccc;padding:0 10px;display: inline-block;margin-top: 10px;}
+.dt-title a:nth-of-type(3){border: 0;}
+
+
+#adopt_info_list tr th:nth-of-type(7){display: none;}
+#adopt_info_list tr td:nth-of-type(6){display: none;}
+
+
+
+
+
+/*table*/
+.pingfen h1{font-size: 100px;text-align: center;    font-family: 'arial';color: #2490BF;font-weight: 600;}
+.pingfen h4{text-align: center;font-size: 18px;}
+
+
+
+
+
+/*统计分析*/
+#echarts_ .col-md-6>p{font-size: 16px;text-align: center;}
+
+
+.number_{font-size: 15px;text-align: center;}
+.number_ span{margin-right: 25px;color: #C83228;font-size: 15px;}
+.number_ span:last-child{margin: 0;}
+
+
+ 
+#main.crossMedia_detail .dt-label {
+	width: 75%;
+}
+.crossMedia_detail .title1 {
+	width: 300px;
+}
+
+
+/*2017年8月17日 11:13:05*/
+
+table.sajl_table tbody {  
+    display:block;  
+    max-height:235px;  
+    overflow-y:auto;  
+}  
+  
+  
+table.sajl_table thead, tbody.sajl_table tr {  
+    display:table;  
+    width:100%;  
+    table-layout:fixed;  
+}  
+  
+  
+table.sajl_table thead {  
+    /*width: calc( 100% - 1em )*/  
+}  
+.sajl_table tbody tr{width: 100%;display: flex;}
+.sajl_table tr td:nth-of-type(1){flex: 2;
+}
+.sajl_table tr td:nth-of-type(2){flex: 5;
+}
+.sajl_table tr td:nth-of-type(3){flex: 3;
+}
+.sajl_table tr:nth-child(even){background: rgba(237, 245, 249, 0.54);}
+
+.biaozhu>div {
+    width: 55px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    margin-top: 36px;
+}

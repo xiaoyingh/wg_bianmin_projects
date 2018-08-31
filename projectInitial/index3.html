@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>国办政务云</title>
+    <link rel="stylesheet" href="css/wf_base.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/wf_fonts.css">
+    <link rel="stylesheet" href="css/jquery.lineProgressbar.min.css">
+    <link rel="stylesheet" href="css/wf_index.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/tendina.js"></script>
+
+    <!-- bootstarp 字体图标加入 -->
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/vendor/themify-icons/css/themify-icons.css">
+    <!-- my fonts 字体图标加入 -->
+
+    <link rel="stylesheet" href="css/myfonts.css">
+    <script src="js/echarts.min.js"></script>
+    <!-- bootstarp table  组件加载 -->
+    <link rel="stylesheet" href="css/dataTables/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/topic_style.css">
+    <script src="js/bootstrap-table.js"></script>
+
+    <!-- table 组件加入 -->
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script src="js/jquery.dataTables.min.js"></script>
+    <!-- 3d词云插件加载 -->
+    <script src="js/jquery.svg3dtagcloud.min.js"></script>
+
+    <!-- echarts 地图加入 -->
+    <script src="js/world.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/china.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- 进度调插件加入 -->
+    <script src="js/jquery.lineProgressbar.js"></script>
+    <!-- 萝卜图加载 -->
+    <script type="text/javascript" src="js/carrotsearch.foamtree.html5.min.js"></script>
+    <!-- 时间插件加入 -->
+    <link rel="stylesheet" type="text/css" href="js/datepicker/daterangepicker-bs3.css" />
+    <script src="js/datepicker/moment.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/datepicker/daterangepicker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap-daterangepicker/option.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .service_box {
+            background: #fff;
+        }
+
+        /* 采集刻画小图标 */
+
+        .caiIcon {
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            background: url("img/cai.png") no-repeat;
+        }
+
+        /* 系统退出 */
+
+        .sign_out {
+            float: right;
+            margin-right: 30px;
+            color: #989d9c;
+        }
+
+        .sign_out span {
+            font-size: 16px;
+        }
+
+        .theme {
+            height: 50px;
+            width: 100%;
+            background: #fff;
+            display: flex;
+            line-height: 50px;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .theme .theme_msg {
+            flex: 0 0 80px;
+            text-align: right;
+            font-size: 16px;
+            color: #5594d4;
+            line-height: 50px;
+        }
+
+        .theme .theme_list {
+            padding: 10px 0;
+        }
+
+        .active {
+            background: #0077ae !important;
+            color: #fff !important;
+        }
+
+        .theme .theme_list li {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            padding: 0px 10px;
+            border-radius: 5px;
+            color: #aca8a2;
+            cursor: pointer;
+            margin-right: 10px;
+            background: #eeeeee;
+        }
+
+        .addMain {
+            height: 24px;
+            width: 24px;
+            color: #0077aa;
+            font-size: 27px;
+            display: inline-block;
+            margin-top: 11px;
+        }
+
+        .service_box {
+            margin-top: -6px;
+        }
+
+        .zk {
+            position: absolute;
+            right: 20px;
+            color: #0077aa;
+        }
+
+        /* 信息统计 */
+
+        .card_box {
+            margin-top: 22px;
+            margin-bottom: 16px;
+        }
+
+        .card_box li {
+            width: 18%;
+            float: left;
+            margin: 0% 1%;
+            height: 100px;
+            border-radius: 2px;
+            /* line-height: 100px; */
+        }
+
+        .card_box li:nth-child(1) {
+            background: #eb7f3e;
+        }
+
+        .card_box li:nth-child(2) {
+            background: #cb3740;
+        }
+
+        .card_box li:nth-child(3) {
+            background: #037fbe;
+        }
+
+        .card_box li:nth-child(4) {
+            background: #73ae47;
+        }
+
+        .card_box li:nth-child(5) {
+            background: #f4c12d;
+        }
+
+        .card_box li .icon {
+            float: left;
+            text-align: center;
+        }
+
+        .card_box li .icon span:nth-child(1) {
+            display: block;
+            width: 32px;
+            height: 32px;
+            font-size: 36px;
+            color: #fff;
+            margin-top: 24px;
+            margin-left: 39%;
+        }
+
+        .card_box li .icon span:nth-child(2) {
+            display: block;
+            font-size: 20px;
+            color: #fff;
+            margin-top: 6px;
+        }
+
+        .card_box li .total {
+            float: left;
+            text-align: center;
+            font-size: 40px;
+            color: #fff;
+            line-height: 100px;
+        }
+
+        .icon-fm:before {
+            color: #fff;
+        }
+
+        .panel .panel-heading .panel-title {
+            font-size: 16px;
+            color: #000;
+            line-height: 22px;
+            border-left: 5px solid #037fc0;
+            padding-left: 8px;
+        }
+
+        /* 主题列表 */
+
+        .war_list,
+        .warning_list {
+            height: 36px;
+            line-height: 36px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .warning_list {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .war_list span:nth-child(1),
+        .warning_list span:nth-child(1) {
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            border-radius: 2px;
+            line-height: 18px;
+            margin-right: 14px;
+            text-align: center;
+            vertical-align: 13px;
+        }
+
+        .war_list span:nth-child(2),
+        .warning_list span:nth-child(2) {
+            display: inline-block;
+            margin-right: 10%;
+            width: 65%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #408ee3;
+        }
+
+        .warning_list span:nth-child(2) {
+            color: #333;
+        }
+
+        .war_list span:nth-child(3) {
+            float: right;
+            margin-right: 10%;
+            position: relative;
+            color: #fde566;
+        }
+
+        .warning_list span:nth-child(3) {
+            float: right;
+        }
+
+        /* 正面观点css */
+
+        .viewpoint li {
+            display: flex;
+            height: 36px;
+            line-height: 36px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .viewpoint li span:nth-child(1) {
+            margin-left: 3%;
+            flex: 5;
+            color: #037fbe;
+        }
+
+        .viewpoint li span:nth-child(2) {
+            flex: 2;
+            text-align: center;
+        }
+
+        .viewpoint li span:nth-child(3) {
+            flex: 2;
+            text-align: center;
+            color: #037fbe;
+        }
+
+        /* 情感倾向 */
+
+        .widget {
+            border: 1px solid #f1f1f1;
+            padding: 10px 25px;
+        }
+
+        .widget-metric_3 {
+            border: none;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 0;
+            text-align: center;
+        }
+
+        .widget-metric_3 .text-muted {
+            color: #a0aeba;
+        }
+
+        .widget-metric_3 .value {
+            display: block;
+        }
+
+        .widget-metric_3 .fb {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .fb_zheng {
+            color: #0395ce;
+        }
+
+        .fb_zhong {
+            color: #fbb115;
+        }
+
+        .fb_fu {
+            color: #eb8461;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="header clearfix">
+        <div class="logo">
+            <img src="img/logo.png" alt="" width="48" height="48">
+        </div>
+        <p class="header-msg">政务综合数据辅助决策系统</p>
+    </div> -->
+
+    <!-- 侧边栏 -->
+    <div class="main">
+        <div class="sidebar">
+            <div class="title">
+                <p>LOGO</p>
+            </div>
+            <div class="list">
+                <ul id="menu">
+                    <li>
+                        <a href="./index.html">
+                            <span class="glyphicon icon-fl"></span>留言舆情分析</a>
+                    </li>
+                    <li>
+                        <a href="./index1.html">
+                            <span class="glyphicon glyphicon-search"></span>个性化推送管理</a>
+                    </li>
+                    <li>
+                        <a href="./index2.html">
+                            <span class="glyphicon icon-tb" style="font-size: 18px;"></span>日志管理</a>
+
+                    </li>
+                    <li style="background: #3697c9;position:relative;">
+                        <span style="position:absolute;height:100%;width:5px;display:block;background:#f5b96c;"></span>
+                        <a href="./index3.html">
+                            <span class="glyphicon icon-rl"></span>服务分析</a>
+
+                    </li>
+                    <li>
+                        <a href="./index4.html">
+                            <span class="glyphicon icon-cj"></span>用户刻画</a>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 主题内容 -->
+        <div class="content" style="padding: 0 15px;">
+            <div class="content-show">
+                <div class="title">
+                    <span class="glyphicon glyphicon-th-list" style="color:#7ea3c6;font-size: 16px;"></span>
+                    <p>欢迎访问管理系统</p>
+                    <div class="sign_out">
+                        <span class="icon-fh"></span>
+                        <span>退出系统</span>
+                    </div>
+                </div>
+
+                <div class="theme">
+                    <div class="theme_msg">主题：</div>
+                    <div class="theme_list">
+                        <ul>
+                            <li class="active">菏泽市长江路烧烤</li>
+                            <li>菏泽丹阳派出所</li>
+                            <li>丹阳</li>
+                            <li>丹阳派出所</li>
+                            <li>奥林花园</li>
+                            <li>林展馆集会</li>
+                            <li>交通事故</li>
+                        </ul>
+                    </div>
+                    <span class="fa fa-plus-square addMain"></span>
+
+                    <div class="zk">
+                        <span>展开</span>
+                        <span class="fa fa-angle-double-down"></span>
+                    </div>
+                </div>
+
+                <div class="service_box clearfix">
+                    <div class="card_box clearfix">
+                        <ul>
+                            <li>
+                                <div class="icon col-md-6 pl0 pr0">
+                                    <span class="fa fa-edit"></span>
+                                    <span>留言总量</span>
+                                </div>
+                                <div class="total col-md-6">
+                                    <span>10000</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon col-md-6 pl0 pr0">
+                                    <span class="icon-sj"></span>
+                                    <span>渠道来源总量</span>
+                                </div>
+                                <div class="total col-md-6">
+                                    <span>100</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon col-md-6 pl0 pr0">
+                                    <span class="icon-zm"></span>
+                                    <span>正面指数</span>
+                                </div>
+                                <div class="total col-md-6">
+                                    <span>10000</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon col-md-6 pl0 pr0">
+                                    <span class="icon-fm"></span>
+                                    <span>负面指数</span>
+                                </div>
+                                <div class="total col-md-6">
+                                    <span>100</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon col-md-6 pl0 pr0">
+                                    <span class="fa fa-users"></span>
+                                    <span>用户总量</span>
+                                </div>
+                                <div class="total col-md-6">
+                                    <span>10000</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 主题列表 -->
+                    <div class="col-md-6 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">主题列表</h3>
+                                <!-- 主题列表 -->
+                            </div>
+                            <div class="panel-body" style="padding-top: 0px;">
+                                <ul>
+                                    <li class="war_list">
+                                        <span style="width:28px;">序号</span>
+                                        <span style="text-align: center;color: #333;">内容</span>
+                                        <span style="left:8px;color: #333;">热度</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ff7e00">1</span>
+                                        <span>RNG孙大永首谈亚运会: 中国队想要夺冠, 需要释放内心的野性!(图2) RNG孙大永首谈亚运会: 中国队想要夺冠, 需要释放内心的野性!(图4) 原标题：RNG孙大永首谈亚运会:
+                                            中国队想要夺冠, 需要释放内心的野性! LPL夏季赛的比赛快要结束了，因为这两天要进行亚运会，因此WE、RNG和EDG三支队伍在最近都没有比赛，LPL也进入了一个为期5天的休赛期，等到9月份再把剩下的比赛打完。
+                                            而在昨天，随队出征的RNG教练孙大永首次
+                                        </span>
+                                        <span style="color:#fd4d4a;">高</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#43c8f1">2</span>
+                                        <span>原标题：5年内,人工智能肿瘤诊疗水准或超人类 　　恶性肿瘤是威胁人类健康的主要“杀手”之一,“谈癌色变”是不少患者及家人的共同感受。人工智能新技术对肿瘤治疗有何帮助?用人工智能辅助治疗肿瘤还有多远?近日在京举行的2018全国医学物理大会上,来自美国斯坦福大学、中国医学科学院肿瘤医院、复旦大学附属肿瘤医院等机构的专家学者共聚一堂,为人们“勾画”了一幅未来肿瘤治疗的智能新图景</span>
+                                        <span style="color:#fd4d4a;">高</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#85bd7c">3</span>
+                                        <span>新华社北京8月28日电（记者施雨岑、胡浩）记者28日获悉，教育部、国家卫生健康委员会共同起草的综合防控儿童青少年近视实施方案已结束向社会公开征求意见。据了解，方案近期将正式印发实施。
+                                            一双双明亮的眼睛，决定着精彩世界在孩子心中的样子，影响着他们身心健康，关系着国家和民族未来。为防控青少年近视
+                                        </span>
+                                        <span style="color:#fd4d4a;">高</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">4</span>
+                                        <span>在美国钢铝关税和汽车关税的施压下，全球汽车销售今年同比增长预计仅有1.8%，远不及2010年来5%的平均增速。中欧都在推进更严格的尾气排放标准，车企对年内利润前景均不乐观。
+                                            2010年以来，全球汽车销售每年以超过5%的增速稳步扩张。然而汽车咨询机构LMC Automotive.预计，今年全球汽车销售的同比增长只有1.8%。 </span>
+                                        <span style="color:#fd4d4a;">高</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">5</span>
+                                        <span>华社杭州8月28日电(记者马剑)27日,杭州主城区出让4宗地块,含3宗宅地和1宗商地。其中,3宗宅地分别以约2%、3%、0%的低溢价成交。杭州望江门已10年未出宅地,此次出让的望江地块可建面积87323.4平方米,容积率2.7,起拍楼面价29403元/平方米,须配建公共租赁住房与幼儿园。</span>
+                                        <span>低</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">6</span>
+                                        <span>新华社北京8月28日电（记者施雨岑、胡浩）记者28日获悉，教育部、国家卫生健康委员会共同起草的综合防控儿童青少年近视实施方案已结束向社会公开征求意见。</span>
+                                        <span>低</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">7</span>
+                                        <span>质量监督、安全监督、施工许可将实现“一表申请” 东莞时间网讯（记者 潘少婷）从9月1日起，施工许可证办理时限将由原来的10个工作日缩减至5个工作日，相关单位可“一表申请”办理。同时，施工和监理承接业务登记、施工安全措施备案等有关业务不再受理新的项目。</span>
+                                        <span>低</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">8</span>
+                                        <span>在美国钢铝关税和汽车关税的施压下，全球汽车销售今年同比增长预计仅有1.8%，远不及2010年来5%的平均增速。</span>
+                                        <span>低</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">9</span>
+                                        <span>全站搜索 用户名：密码： 数字报： -----------</span>
+                                        <span>低</span>
+                                    </li>
+                                    <li class="war_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">10</span>
+                                        <span>央行连续第6个交易日暂停逆回购操作 2018/08/29 09:15收藏(0)字体：宋 央行连续第6个交易日未开展逆回购操作，因今日无逆回购到期，当日实现零投放零回笼。
+                                            表情您至少需输入5个字 评论(0)</span>
+                                        <span>低</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 预警信息 -->
+                    <div class="col-md-6 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="fa fa-rotate-right" style="float:right;width:24px;height:20px;text-align: center;line-height: 20px;background:#155f97;color:#fff;border-radius:4px;"></span>
+                                <h3 class="panel-title">预警信息</h3>
+                                <!-- 预警信息 -->
+                            </div>
+                            <div class="panel-body" style="padding-top: 0px;">
+                                <ul>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ff7e00">1</span>
+                                        <span>RNG孙大永首谈亚运会: 中国队想要夺冠, 需要释放内心的野性!(图2) RNG孙大永首谈亚运会: 中国队想要夺冠, 需要释放内心的野性!(图4) 原标题：RNG孙大永首谈亚运会:
+                                            中国队想要夺冠, 需要释放内心的野性! LPL夏季赛的比赛快要结束了，因为这两天要进行亚运会，因此WE、RNG和EDG三支队伍在最近都没有比赛，LPL也进入了一个为期5天的休赛期，等到9月份再把剩下的比赛打完。
+                                            而在昨天，随队出征的RNG教练孙大永首次
+                                        </span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#43c8f1">2</span>
+                                        <span>原标题：5年内,人工智能肿瘤诊疗水准或超人类 　　恶性肿瘤是威胁人类健康的主要“杀手”之一,“谈癌色变”是不少患者及家人的共同感受。人工智能新技术对肿瘤治疗有何帮助?用人工智能辅助治疗肿瘤还有多远?近日在京举行的2018全国医学物理大会上,来自美国斯坦福大学、中国医学科学院肿瘤医院、复旦大学附属肿瘤医院等机构的专家学者共聚一堂,为人们“勾画”了一幅未来肿瘤治疗的智能新图景</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#85bd7c">3</span>
+                                        <span>新华社北京8月28日电（记者施雨岑、胡浩）记者28日获悉，教育部、国家卫生健康委员会共同起草的综合防控儿童青少年近视实施方案已结束向社会公开征求意见。据了解，方案近期将正式印发实施。
+                                            一双双明亮的眼睛，决定着精彩世界在孩子心中的样子，影响着他们身心健康，关系着国家和民族未来。为防控青少年近视
+                                        </span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">4</span>
+                                        <span>在美国钢铝关税和汽车关税的施压下，全球汽车销售今年同比增长预计仅有1.8%，远不及2010年来5%的平均增速。中欧都在推进更严格的尾气排放标准，车企对年内利润前景均不乐观。
+                                            2010年以来，全球汽车销售每年以超过5%的增速稳步扩张。然而汽车咨询机构LMC Automotive.预计，今年全球汽车销售的同比增长只有1.8%。 </span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">5</span>
+                                        <span>华社杭州8月28日电(记者马剑)27日,杭州主城区出让4宗地块,含3宗宅地和1宗商地。其中,3宗宅地分别以约2%、3%、0%的低溢价成交。杭州望江门已10年未出宅地,此次出让的望江地块可建面积87323.4平方米,容积率2.7,起拍楼面价29403元/平方米,须配建公共租赁住房与幼儿园。</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">6</span>
+                                        <span>新华社北京8月28日电（记者施雨岑、胡浩）记者28日获悉，教育部、国家卫生健康委员会共同起草的综合防控儿童青少年近视实施方案已结束向社会公开征求意见。</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">7</span>
+                                        <span>质量监督、安全监督、施工许可将实现“一表申请” 东莞时间网讯（记者 潘少婷）从9月1日起，施工许可证办理时限将由原来的10个工作日缩减至5个工作日，相关单位可“一表申请”办理。同时，施工和监理承接业务登记、施工安全措施备案等有关业务不再受理新的项目。</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">8</span>
+                                        <span>在美国钢铝关税和汽车关税的施压下，全球汽车销售今年同比增长预计仅有1.8%，远不及2010年来5%的平均增速。</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">9</span>
+                                        <span>全站搜索 用户名：密码： 数字报： -----------</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                    <li class="warning_list">
+                                        <span style="color:#fff;font-size:700;border-radius: 5px;background:#ddd;">10</span>
+                                        <span>央行连续第6个交易日暂停逆回购操作 2018/08/29 09:15收藏(0)字体：宋 央行连续第6个交易日未开展逆回购操作，因今日无逆回购到期，当日实现零投放零回笼。
+                                            表情您至少需输入5个字 评论(0)</span>
+                                        <span>2018-08-16 20:35:46</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 正面观点 -->
+                    <div class="col-md-6 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">正面观点</h3>
+                                <!-- 正面观点 -->
+                            </div>
+                            <div class="panel-body viewpoint" style="padding-top: 0px;">
+                                <ul>
+                                    <li>
+                                        <span style="color:#333;">观点</span>
+                                        <span>对象</span>
+                                        <span style="color:#333;">比例</span>
+                                    </li>
+                                    <li>
+                                        <span>敬礼</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>所以请中央关心一下我们普通农民</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>所以请中央关心一下我们基层百姓吧</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>这是最基本的保障要有吧</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>有苦说不出啊</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>中央正常是光明的</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>可能说的不是太详细</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>这是最基本的保障要有吧</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>所以请中央关心一下我们普通农民</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>所以请中央关心一下我们基层百姓吧</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>有苦说不出啊</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 负面观点 -->
+                    <div class="col-md-6 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">负面观点</h3>
+                                <!-- 负面观点 -->
+                            </div>
+                            <div class="panel-body viewpoint" style="padding-top: 0px;">
+                                <ul>
+                                    <li>
+                                        <span style="color:#333;">观点</span>
+                                        <span>对象</span>
+                                        <span style="color:#333;">比例</span>
+                                    </li>
+                                    <li>
+                                        <span>出了事信用社说王刚不是他们专员</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>王刚和秦绍信到底是什么关系</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>到今天也没有结果</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>在找银行不给管的情况下</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>银行根本不当回事</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>就这样部门像推到了银行起诉了我们</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>在公安局网站上访起诉</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>控告人强烈要求追究王伯宪的刑事责任</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>或者用本节规定上网其他方式无法送达的</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>就这样部门像推到了银行起诉了我们</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                    <li>
+                                        <span>银行根本不当回事</span>
+                                        <span>其他</span>
+                                        <span>12.5%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 热词分布 -->
+                    <div class="col-md-7 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">热词分布</h3>
+                                <!-- 热词分布 -->
+                            </div>
+                            <div class="panel-body" id="hot_words" style="height:400px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 情感倾向分析 -->
+                    <div class="col-md-5 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">情感倾向分析</h3>
+                                <!-- 情感倾向分析 -->
+                            </div>
+                            <div class="panel-body" id="emotion">
+                                <ul class="list-unstyled list-widget-horizontal row">
+                                    <li class="col-md-4">
+                                        <div class="widget-metric_3">
+                                            <span class="text-muted">正面</span>
+                                            <!--正面  -->
+                                            <span class="value percentage referral fb fb_zheng"></span>
+                                        </div>
+                                    </li>
+                                    <li class="col-md-4">
+                                        <div class="widget-metric_3">
+                                            <span class="text-muted">中立</span>
+                                            <!--中立  -->
+                                            <span class="value organic fb fb_zhong"></span>
+                                        </div>
+                                    </li>
+                                    <li class="col-md-4">
+                                        <div class="widget-metric_3">
+                                            <span class="text-muted">负面</span>
+                                            <!-- 负面 -->
+                                            <span class="value percentage direct fb fb_fu"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div id="main_point_result" style="height:300px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 态势分析 -->
+                    <div class="col-md-7 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">态势分析</h3>
+                                <!-- 态势分析 -->
+                            </div>
+                            <div class="panel-body" id="trend" style="height:300px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 渠道排行 -->
+                    <div class="col-md-5 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">渠道排行</h3>
+                                <!-- 渠道排行 -->
+                            </div>
+                            <div class="panel-body" id="rankings" style="height:300px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 弹窗添加内容 -->
+
+    <div id="addTask"></div>
+    <script>
+        $('#menu').tendina();
+
+        // 态势分析
+        var trendData = {
+            data: ["498", "694", "813", "832", "861", "767", "659", "701", "842", "865", "762", "768", "658", "599", "593", "666", "910", "882", "611"],
+            time: ["2018-07-29", "2018-07-30", "2018-07-31", "2018-08-01", "2018-08-02", "2018-08-03", "2018-08-04", "2018-08-05", "2018-08-06", "2018-08-07", "2018-08-08", "2018-08-09", "2018-08-10", "2018-08-11", "2018-08-12", "2018-08-13", "2018-08-14", "2018-08-15", "2018-08-16"]
+        }
+        var myChart = echarts.init(document.getElementById('trend'));
+        var option = {
+            color: ['#55acee', '#42505a', "#4fa4eb", "#3b840c", "#910d0b", "#7de6f2", "#a08f28", "#3a59c0"],
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                x: 50,
+                y: 30,
+                x2: 10,
+                y2: 40
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: { title: "下载" }
+                },
+                right: 0
+            },
+            xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                splitLine: { show: false },
+                data: trendData.time
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                //name : '数据量',
+                name: '数据量',
+                type: 'line',
+                smooth: true,
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+                            type: 'default',
+                            color: '#ec645f'
+                        },
+                        color: '#ec645f'
+                    }
+                },
+                data: trendData.data
+            }]
+        };
+        // drawStatisticChart('trend_analysis_result', option);
+        myChart.clear();
+        myChart.setOption(option);
+
+
+        // 渠道排行
+        var rankingsData = [
+            { num: "72735", account: "搜狐网" },
+            { num: "37791", account: "新浪网" },
+            { num: "32817", account: "东方网" },
+            { num: "24027", account: "凤凰网" },
+            { num: "23790", account: "人民网" },
+            { num: "23652", account: "ZAKER新闻" },
+            { num: "21047", account: "金融界" },
+            { num: "18670", account: "大众网" },
+            { num: "14729", account: "东方财富网" },
+            { num: "10649", account: "中国网" }
+        ]
+        var news_data = [];
+        var data_name = [];
+        rankingsData.forEach(function (v, i) {
+            news_data.push(parseInt(v.num));
+            data_name.push(v.account);
+        })
+        var myChart1 = echarts.init(document.getElementById('rankings'));
+        var option1 = {
+            color: ['#037fc0'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                top: '8%',
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'value',
+                    minInterval: 1
+                }
+            ],
+            yAxis: [
+                {
+
+                    type: 'category',
+                    data: data_name.reverse(),
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    splitLine: { show: false },
+                    axisLabel: {
+                        interval: 0,//横轴信息全部显示  
+                        // rotate:-30,//-30度角倾斜显示  
+                    }
+                }
+            ],
+            series: [
+                {
+                    //name:'数据量',
+                    name: '数据量',
+                    type: 'bar',
+                    barWidth: 10,
+                    data: news_data.reverse()
+                }
+            ]
+        };
+
+        myChart1.clear();
+        myChart1.setOption(option1);
+
+
+        // 情感倾向分析
+        var emotionData = {
+            line: {
+                time: ["2018-07-29", "2018-07-30", "2018-07-31", "2018-08-01", "2018-08-02", "2018-08-03", "2018-08-04", "2018-08-05", "2018-08-06", "2018-08-07", "2018-08-08", "2018-08-09", "2018-08-10", "2018-08-11", "2018-08-12", "2018-08-13", "2018-08-14", "2018-08-15", "2018-08-16", "2018-08-17", "2018-08-18", "2018-08-19", "2018-08-20", "2018-08-21", "2018-08-22", "2018-08-23", "2018-08-24", "2018-08-25", "2018-08-26", "2018-08-27", "2018-08-28", "2018-08-29"],
+                fu: ["7526", "22608", "22702", "22598", "23507", "24411", "14698", "12541", "26261", "24672", "24320", "23786", "24265", "11558", "9406", "17930", "16333", "15834", "17343", "16075", "8027", "7599", "13332", "5728", "5477", "5672", "5763", "2536", "1870", "3041", "1683", "354"],
+                zheng: ["18373", "75586", "79529", "83967", "82279", "89543", "43850", "35455", "83438", "82527", "87390", "86302", "80078", "34240", "26944", "60982", "55906", "55229", "58547", "51598", "24304", "23444", "45740", "21982", "21726", "21917", "22465", "8461", "5911", "12150", "6600", "1107"],
+                zhong: ["4043", "16252", "12052", "5480", "10333", "4140", "2606", "1966", "3030", "3077", "2980", "3100", "2842", "1972", "1723", "2394", "2621", "2763", "2511", "2447", "1812", "1608", "2526", "1936", "1961", "2009", "2333", "1414", "1753", "2278", "1996", "620"]
+            },
+            pie: [
+                { doc_count: 1487570, key: 1 },
+                { doc_count: 439455, key: 2 },
+                { doc_count: 110578, key: 3 }
+            ]
+        }
+        var time = emotionData.line.time;
+        var myChart2 = echarts.init(document.getElementById('main_point_result'));
+        var option2 = {
+            color: ["#0395ce", "#fbb115", "#f58157", "#54d9ff"],
+            tooltip: {
+                trigger: 'axis',
+                textStyle: {
+                    align: 'left'
+                },
+            },
+            legend: {
+                //data : ['正面', '中立', '负面']
+                data: ['正面', '中立', '负面']
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                },
+                right: 60
+            },
+            xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                data: time
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                //name : '正面',
+                name: '正面',
+                type: 'line',
+                smooth: true,  //false为硬折线 true为平滑折线
+                data: emotionData.line.zheng
+
+            }, {
+                //name : '中立',
+                name: '中立}',
+                type: 'line',
+                smooth: true,  //false为硬折线 true为平滑折线
+                data: emotionData.line.zhong
+            }, {
+                //name : '负面',
+                name: '负面',
+                type: 'line',
+                smooth: true,  //false为硬折线 true为平滑折线
+                data: emotionData.line.fu
+            }]
+        };
+        myChart2.clear();
+        myChart2.setOption(option2);
+
+        var jarry = {};
+        for (var i = 0; i < emotionData.pie.length; i++) {
+            var obj = {};
+            var obj_ = {}
+            if (emotionData.pie[i].key == "1") {
+                //obj.name = "正面";
+                obj.name = "正面";
+                obj.value = emotionData.pie[i].doc_count;
+                jarry.zm = obj
+            } else if (emotionData.pie[i].key == "3") {
+                //obj.name = "中立";
+                obj.name = "中立";
+                obj.value = emotionData.pie[i].doc_count;
+                jarry.zl = obj
+            } else if (emotionData.pie[i].key == "2") {
+                //obj.name = "负面";
+                obj.name = "负面";
+                obj.value = emotionData.pie[i].doc_count;
+                jarry.fm = obj
+            }
+        }
+        var total = jarry.zm.value + jarry.zl.value + jarry.fm.value
+        if (total != 0) {
+            var total_zheng = (Math.round(jarry.zm.value / total * 10000) / 100 + "%");
+            var total_zhong = (Math.round(jarry.zl.value / total * 10000) / 100 + "%");
+            var total_fu = (Math.round(jarry.fm.value / total * 10000) / 100 + "%");
+        } else {
+            var total_zheng = '--';
+            var total_zhong = '--';
+            var total_fu = '--';
+        }
+        $(".referral").html(total_zheng);
+        $(".organic").html(total_zhong);
+        $(".direct").html(total_fu);
+
+
+        // 热词分布
+        var hotData = [{
+            "path": "医院",
+            "label": "医院",
+            "value": 9
+        }, {
+            "path": "骗子",
+            "label": "骗子",
+            "value": 7
+        }, {
+            "path": "静脉曲张",
+            "label": "静脉曲张",
+            "value": 5
+        }, {
+            "path": "Chinese",
+            "label": "物流",
+            "value": 5
+        }, {
+            "path": "吕梁",
+            "label": "吕梁",
+            "value": 4
+        }, {
+            "path": "礼物",
+            "label": "礼物",
+            "value": 4
+        }, {
+            "path": "财经",
+            "label": "财经",
+            "value": 4
+        }, {
+            "path": "火锅",
+            "label": "火锅",
+            "value": 4
+        }, {
+            "path": "信息网",
+            "label": "信息网",
+            "value": 4
+        }, {
+            "path": "状元",
+            "label": "状元",
+            "value": 3
+        }, {
+            "path": "打手",
+            "label": "打手",
+            "value": 3
+        }, {
+            "path": "女士",
+            "label": "女士",
+            "value": 3
+        }, {
+            "path": "公司",
+            "label": "公司",
+            "value": 3
+        }, {
+            "path": "复合",
+            "label": "复合",
+            "value": 3
+        }, {
+            "path": "加盟",
+            "label": "加盟",
+            "value": 3
+        }, {
+            "path": "sanctions",
+            "label": "sanctions",
+            "value": 3
+        }, {
+            "path": "suspend",
+            "label": "suspend",
+            "value": 3
+        }];
+
+        var foamtree = new CarrotSearchFoamTree({
+            id: 'hot_words',
+            dataObject: { "groups": hotData }
+        })
+        foamtree.set({
+            //颜色定制
+            groupColorDecorator: function (opts, params, vars) {
+            },
+            groupLabelDecorator: function (opts, params, vars) {
+            },
+            //titlebar 大小
+            maxLabelSizeForTitleBar: 0,
+            //相对大小变化步长
+            aspectRatioImprovementSteps: 30,
+            //权重拉伸---作用不大
+            //groupWeightScaling:3,
+            //背景颜色，宽度，弧度等全局定义
+            backgroundColor: "rgba(0,0,0,0)",
+            borderWidth: 0.1,
+            borderRadius: 0.35,
+            groupBorderWidth: 5,
+            groupBorderRadius: 0,
+            groupFontFamily: "微软雅黑",
+        });
+        // var myChart = echarts.init(document.getElementById('hot_words'));
+        // option3 = {
+        //     // tooltip: {
+        //     //     formatter: function (info) {
+        //     //         var value = info.value;
+        //     //         var treePathInfo = info.treePathInfo;
+        //     //         var treePath = [];
+
+        //     //         for (var i = 1; i < treePathInfo.length; i++) {
+        //     //             treePath.push(treePathInfo[i].name);
+        //     //         }
+
+        //     //         return [
+        //     //             '<div class="tooltip-title">' + formatUtil.encodeHTML(treePath.join('/')) + '</div>',
+        //     //             //'Disk Usage: ' + formatUtil.addCommas(value) + ' KB',
+        //     //         ].join('');
+        //     //     }
+        //     // },
+        //     color: ["rgba(255,66,66,1)", "rgba(255,164,66,1)", "rgba(198,255,64,1)", "#44C1FF", "#83FF44", "#58FF4C", "#48FF70", "#EBFF3B", "#FFBC69", "#B7FF42", "#67FFDC", "#67FFB3", "#42C0FF", "#44C1FF", "#7383FF", "#5B3AFF", "#923FFF", "#C532FF", "rgba(204,67,255,1)", "rgba(204,67,255,1)"],
+        //     series: [
+        //         {
+        //             name: 'Disk Usage',
+        //             type: 'treemap',
+        //             visibleMin: 300,
+        //             breadcrumb: {
+        //                 show: false
+        //             },
+        //             width: '100%',
+        //             height: '100%',
+        //             label: {
+        //                 normal: {
+        //                     //fontStyle:'italic',
+        //                     fontSize: 28,
+        //                     color: "rgba(0,0,0,.8)",
+        //                     //textBorderColor:"#fff",
+        //                     //textBorderWidth:1,
+        //                     textShadowColor: "#fff",
+        //                     textShadowBlur: 50,
+        //                     textShadowOffsetX: 0,
+        //                     // backgroundColor:"rgba(0,0,0,.1)",
+        //                     textShadowOffsetY: 0
+        //                 }
+        //             },
+        //             roam: false,
+        //             nodeClick: false,
+        //             /* label: {
+        //                 show: true,
+        //                 formatter: '{b}'
+        //             }, */
+        //             itemStyle: {
+        //                 normal: {
+        //                     borderColor: 'rgba(0,0,0,0)'
+        //                 }
+        //             },
+        //             data: hotData
+        //         }
+        //     ]
+        // }
+
+        // myChart.clear();
+        // myChart.setOption(option3);
+    </script>
+</body>
+
+</html>

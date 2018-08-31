@@ -1,0 +1,179 @@
+/*-------------公开网站监测预警     模块-----------------*/
+/*热点发现*/
+body.dark .new_content p{
+	word-wrap:break-word;
+}
+body.dark .ibox-content{
+	/*padding: 10px 10px 15px 10px;*/
+	padding: 10px 10px 0px 10px;
+}
+
+/*主题监测*/
+body.dark .new_conf_tags .yy_sel {
+    background: #17a293;
+}
+
+/*重点人物监测*/
+body.dark .leader_category_tags .yy_sel {
+    background: #17a293;
+}
+body.dark .leader_name_tags .yy_sel {
+    background: #17a293;
+}
+body.dark .ibox-content .widget{
+	background: #2e353e;
+}
+/*简报制作管理*/
+body.dark  #common_tasks_container_select_change{
+    background: #272c32;
+    border-color: #3e4753 !important;
+    /*border-radius: 5px;*/
+    color: #c8c8c8;
+    
+}
+body.dark #natizen_ranking {
+    border-color: #191c21 !important;
+    background: #2e353e;
+}
+body.dark #natizen_ranking .list-widget-horizontal>li {
+    border-right: 1px solid #191c21 !important;
+}
+body.dark #accordion .gai_xinxi_list {
+    background: #272c32 !important;
+}
+body.dark #BulletinAll_article_left .gai_xinxi_list{
+	background: #272c32 !important;
+}
+body.dark #trend_analysis_result ,body.dark #main_point_result{
+	background: rgba(0,0,0,0) !important;
+}
+body.dark .new_xuxian{background: #2e353e !important;}
+/*-------------专题事件分析研判     模块-----------------*/
+
+/*****************专题分析***************/
+/*1、概况*/
+body.dark .selectmenu a{
+    background: #2e353e;
+    color: #fff;
+}
+body.dark .selectmenu a.hover {
+    background: #17a293;
+    color: #fff;
+}
+body.dark .heise{color:#fff}
+
+body.dark .event_nav{
+	border-color: #191c21;
+    background: #272c32;
+}
+body.dark .event_nav li a{color:#fff}
+
+/*2、信息汇总*/
+body.dark .informationlist h1 span{color: #c5c5c5 !important;}
+body.dark .informationlist h1 a{color: #c5c5c5 !important;}
+
+body.dark .informationlist .description{color:#a9abad;}
+body.dark .zhuliu_tab,body.dark .zhongdian_tab{
+	background: rgba(0,0,0,0);
+	border-top: 1px solid #191c21;
+}
+body.dark .zhuliu_tab ul,body.dark .zhongdian_tab ul{padding-top: 7px;}
+body.dark .zhuliu_tab li,body.dark .zhongdian_tab li{
+    background: rgb(62,70,82);
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    margin-top: 8px;
+	
+}
+body.dark .zhuliu_tab .tab_active, body.dark .zhongdian_tab .tab_active{
+    background: #17a293;
+}
+body.dark .event_table .table .table_thead{
+	background: rgb(63,69,70);
+    color: rgb(210,210,210);
+}
+
+/*4、态势演化及溯源*/
+body.dark .gai_suyuan_con h3 font{color: #c5c5c5}
+body.dark .gai_suyuan_con p{color: #a9abad;}
+body.dark #event_evolution_charts_interval{    
+	background: #272c32;
+    border-color: #3e4753;
+    color: #5e6773;
+}
+body.dark #event_evolution_charts_interval:focus {
+    border-color: #3e4753;
+    outline: 0;
+}
+/*6、网民互动分析*/  
+body.dark .wangminhudong{
+	border-color: #191c21;
+}
+
+/*8、专题报告*/
+body.dark .classproject_management{background: #191c21;}
+  /*查看详情*/
+body.dark .main-bgao h3{background: none;}
+body.dark .main-bgao h3 span{background: #191c21;}
+body.dark .main-nesw h2 span{color: #a9abad;}
+body.dark .main-nesw-bd{
+	background: #191c21;
+	border: 1px solid #3e4753;
+}
+body.dark .ibox,body.dark .border1{background: none;}
+body.dark .title1{
+	border-color: #191c21;
+    background: #272c32;
+}
+body.dark .title1 p{color: #a9abad;}
+body.dark .jb_con h1{background: #272c32;}
+body.dark .jb_con h1 p{background: rgba(0,0,0,0);color: #a9abad;}
+
+body.dark .jb_con .jb_text{border-color: #3e4753;}
+body.dark .jb_con_right>div{border-color: #3e4753 !important;}
+body.dark .jb_con_right .table .th{
+    background: rgb(63,69,70) !important;
+    color: rgb(210,210,210);
+    border-color: #272c32;
+}
+body.dark .jb_con_right .table .td, body.dark .jb_con_right .table td{
+	background-color: #2e353e !important;
+    border-color: #272c32;
+    color: #a9abad;
+}
+body.dark .table .td:hover span{
+	background-color:rgba(0,0,0,0)
+}
+
+
+/*****************专题配置***************/
+body.dark .y_shaixuan{
+	color: #fff !important;
+}
+
+
+body.dark .box ,body.dark .box-t-bd{
+	background: #272c32;
+    border-color: #3e4753;
+}
+body.dark .box-bd .txts{
+	background: #272c32;
+    border-color: #3e4753;
+    color: #a9abad;
+}
+
+body.dark .panel .content{
+	border-color: #3e4753 !important;
+}
+body.dark .box-bd .nes{
+	background: #272c32;
+    border-color: #3e4753;
+}
+
+
+/*点收藏后页面 fullText_al/mod2 里的 弹窗*/
+body.dark .renwu .list_address1>span ,body.dark .renwu .list_people1>span,body.dark .renwu .list_org1>span{
+	background: #2e353e !important;
+} 

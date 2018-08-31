@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>国办政务云</title>
+    <link rel="stylesheet" href="css/wf_base.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/wf_fonts.css">
+    <link rel="stylesheet" href="css/jquery.lineProgressbar.min.css">
+    <link rel="stylesheet" href="css/wf_index.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/tendina.js"></script>
+
+    <!-- bootstarp 字体图标加入 -->
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/vendor/themify-icons/css/themify-icons.css">
+    <!-- my fonts 字体图标加入 -->
+
+    <link rel="stylesheet" href="css/myfonts.css">
+    <script src="js/echarts.min.js"></script>
+    <!-- bootstarp table  组件加载 -->
+    <link rel="stylesheet" href="css/dataTables/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/topic_style.css">
+    <script src="js/bootstrap-table.js"></script>
+
+    <!-- table 组件加入 -->
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script src="js/jquery.dataTables.min.js"></script>
+    <!-- 3d词云插件加载 -->
+    <script src="js/jquery.svg3dtagcloud.min.js"></script>
+
+    <!-- echarts 地图加入 -->
+    <script src="js/world.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/china.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- 进度调插件加入 -->
+    <script src="js/jquery.lineProgressbar.js"></script>
+
+    <!-- 时间插件加入 -->
+    <link rel="stylesheet" type="text/css" href="js/datepicker/daterangepicker-bs3.css" />
+    <script src="js/datepicker/moment.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/datepicker/daterangepicker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap-daterangepicker/option.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .service_box {
+            background: #fff;
+        }
+
+        /* 采集刻画小图标 */
+
+        .caiIcon {
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            background: url("img/cai.png") no-repeat;
+        }
+
+        /* 系统退出 */
+
+        .sign_out {
+            float: right;
+            margin-right: 30px;
+            color: #989d9c;
+        }
+
+        .sign_out span {
+            font-size: 16px;
+        }
+
+        .panel-heading {
+            background: #c1e2fa;
+        }
+
+        .panel-heading .panel-title {
+            color: #2e68ad;
+        }
+
+        .panel-body {
+            border: 1px solid #e5e5e5;
+            border-top: 0;
+        }
+
+        table.dataTable thead th {
+            text-align: center;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table.dataTable tbody td {
+            text-align: center;
+        }
+
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #example .cityList tr:nth-child(1) {
+            color: #fa005c;
+        }
+
+        #example .cityList tr:nth-child(2) {
+            color: #fca903;
+        }
+
+        #example .cityList tr:nth-child(3) {
+            color: #a0cf3c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="header clearfix">
+        <div class="logo">
+            <img src="img/logo.png" alt="" width="48" height="48">
+        </div>
+        <p class="header-msg">政务综合数据辅助决策系统</p>
+    </div> -->
+
+    <!-- 侧边栏 -->
+    <div class="main">
+        <div class="sidebar">
+            <div class="title">
+                <p>LOGO</p>
+            </div>
+            <div class="list">
+                <ul id="menu">
+                    <li>
+                        <a href="./index.html">
+                            <span class="glyphicon icon-fl"></span>留言舆情分析</a>
+                    </li>
+                    <li>
+
+                        <a href="./index1.html">
+                            <span class="glyphicon glyphicon-search"></span>个性化推送管理</a>
+                    </li>
+                    <li>
+                        <a href="./index2.html">
+                            <span class="glyphicon icon-tb" style="font-size: 18px;"></span>日志管理</a>
+
+                    </li>
+                    <li>
+                        <a href="./index3.html">
+                            <span class="glyphicon icon-rl"></span>服务分析</a>
+
+                    </li>
+                    <li style="background: #3697c9;position:relative;">
+                        <a href="./index4.html">
+                            <span style="position:absolute;height:100%;width:5px;display:block;background:#f5b96c;top:0;left:0;"></span>
+                            <span class="glyphicon icon-cj"></span>用户刻画</a>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 主题内容 -->
+        <div class="content" style="padding: 0 15px;">
+            <div class="content-show">
+                <div class="title">
+                    <span class="glyphicon glyphicon-th-list" style="color:#7ea3c6;font-size: 16px;"></span>
+                    <p>欢迎访问管理系统</p>
+                    <div class="sign_out">
+                        <span class="icon-fh"></span>
+                        <span>退出系统</span>
+                    </div>
+                </div>
+                <div class="service_box clearfix">
+                    <!-- 终端缓比 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">终端缓比</h3>
+                                <!-- 终端缓比 -->
+                            </div>
+                            <div class="panel-body" id="terminal" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 境内外占比 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">境内外占比</h3>
+                                <!-- 境内外占比 -->
+                            </div>
+                            <div class="panel-body" id="border_" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 兴趣分布 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">兴趣分布</h3>
+                                <!-- 兴趣分布 -->
+                            </div>
+                            <div class="panel-body" id="Interest" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 性别比例 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">性别比例</h3>
+                                <!-- 性别比例 -->
+                            </div>
+                            <div class="panel-body" id="sex" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 年龄分布 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">年龄分布</h3>
+                                <!-- 年龄分布 -->
+                            </div>
+                            <div class="panel-body" id="age" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 职业分布 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">职业分布</h3>
+                                <!-- 职业分布 -->
+                            </div>
+                            <div class="panel-body" id="occupation" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 用户地域分布 -->
+                    <div class="col-md-6 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">用户地域分布</h3>
+                                <!-- 用户地域分布 -->
+                            </div>
+                            <div class="panel-body" id="user_area" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 访问趋势 -->
+                    <div class="col-md-6 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">访问趋势</h3>
+                                <!-- 访问趋势 -->
+                            </div>
+                            <div class="panel-body" id="in_trend" style="height:350px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 访问城市 -->
+                    <div class="col-md-12 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">访问城市</h3>
+                                <!-- 访问城市 -->
+                            </div>
+                            <div class="panel-body">
+                                <table id="example" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="textC">#</th>
+                                            <th class="textC wid20">城市</th>
+                                            <th class="textC wid20">阅读次数(PV)</th>
+                                            <th class="textC wid20">阅读时长(秒)</th>
+                                            <th class="textC wid20">趋势</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cityList">
+                                        <tr>
+                                            <td class="textL">1</td>
+                                            <td>Beijing</td>
+                                            <td>3647</td>
+                                            <td>1370</td>
+                                            <td><span class="fa fa-area-chart" style="color:#1bb495;font-size: 18px;"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">2</td>
+                                            <td>Shanghai</td>
+                                            <td>3647</td>
+                                            <td>1370</td>
+                                            <td><span class="fa fa-area-chart" style="color:#1bb495;font-size: 18px;"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">3</td>
+                                            <td>Guangzhou</td>
+                                            <td>3647</td>
+                                            <td>1370</td>
+                                            <td><span class="fa fa-area-chart" style="color:#1bb495;font-size: 18px;"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">4</td>
+                                            <td>Nanning</td>
+                                            <td>3647</td>
+                                            <td>1370</td>
+                                            <td><span class="fa fa-area-chart" style="color:#1bb495;font-size: 18px;"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>weifang</td>
+                                            <td>3647</td>
+                                            <td>1370</td>
+                                            <td><span class="fa fa-area-chart" style="color:#1bb495;font-size: 18px;"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 活跃用户 -->
+                    <div class="col-md-12 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">活跃用户</h3>
+                                <!-- 活跃用户 -->
+                            </div>
+                            <div class="panel-body" id="user_active">
+                                <table id="user_active_list" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="textC"></th>
+                                            <th>用户名</th>
+                                            <th>访问次数(PV)</th>
+                                            <th>总浏览时长(秒)</th>
+                                            <th>登陆地点</th>
+                                            <th>浏览模板</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cityList">
+                                        <tr>
+                                            <td class="textL">1</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">2</td>
+                                            <td>China Guangdong 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">3</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">4</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">5</td>
+                                            <td>China Beijing 匿名用户</td>
+                                            <td>138</td>
+                                            <td>412</td>
+                                            <td>China</td>
+                                            <td>英文</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 弹窗添加内容 -->
+
+    <div id="addTask"></div>
+    <script>
+        $('#menu').tendina();
+        // 终端比例
+        var myChart = echarts.init(document.getElementById('terminal'));
+        option1 = {
+            title: {
+                text: ''
+            },
+            grid: {
+                left: 50,
+                top: 20,
+                right: 40,
+                bottom: 40
+            },
+            tooltip: {
+                show: false,
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: { title: "下载" }
+                },
+                right: 0
+            },
+            radar: {
+                // shape: 'circle',
+                indicator: [
+                    { name: 'Windows', max: 6500 },
+                    { name: 'Windows7', max: 16000 },
+                    { name: 'IOS', max: 30000 },
+                    { name: 'Mac OS', max: 38000 },
+                    { name: 'Windows8', max: 52000 },
+                    { name: 'Windows Yota', max: 25000 },
+                    { name: 'dows 10', max: 52000 },
+                    { name: 'WindowsXP', max: 52000 },
+                    { name: 'Windows8', max: 52000 },
+                    { name: 'Cheome OS', max: 52000 },
+                    { name: 'Android', max: 52000 },
+                ]
+            },
+            series: [{
+                name: '',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                data: [
+                    {
+                        value: [4300, 0, 0, 0, 50000, 0, 4300, 0, 0, 35000, 3, 0, 0],
+                        name: '系统使用数据量'
+                    }
+                ]
+            }]
+        };
+
+        myChart.clear();
+        myChart.setOption(option1);
+
+        // 境内外占比
+        var myChart = echarts.init(document.getElementById('border_'));
+        option2 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['境内用户量', '境外用户量', '境内访问量', '境外访问量']
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    selectedMode: 'single',
+                    radius: [0, '50%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data: [
+                        { value: 335, name: '境内用户量', selected: true },
+                        { value: 1539, name: '境外用户量' },
+                    ]
+                },
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: ['70%', '90%'],
+
+                    data: [
+                        { value: 335, name: '境内访问量' },
+                        { value: 310, name: '境外访问量' },
+                    ]
+                }
+            ]
+        };
+
+        myChart.clear();
+        myChart.setOption(option2);
+
+        // 兴趣分布
+        var interestData = [
+            { "name": "英文", value: 6368 },
+            { "name": "中文", value: 268 },
+            { "name": "欧洲子网", value: 2 },
+            { "name": "美洲子网", value: 4 },
+            { "name": "非洲子网", value: 6 },
+            { "name": "英文论坛", value: 7 },
+            { "name": "中文论坛", value: 31 },
+            { "name": "天下专利", value: 1 },
+            { "name": "双语", value: 0 },
+            { "name": "手机客户端", value: 0 },
+        ]
+        var nameArr = [];
+        var dataArr = [];
+        var myChart = echarts.init(document.getElementById('Interest'));
+        interestData.forEach(function (v, i) {
+            nameArr.push(v.name);
+            dataArr.push(v.value);
+        })
+        option3 = {
+            xAxis: {
+                axisLabel: {
+                    interval: 0,
+                    rotate: 40
+                },
+                type: 'category',
+                data: nameArr
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: dataArr,
+                type: 'bar'
+            }]
+        };
+
+
+        myChart.clear();
+        myChart.setOption(option3);
+
+        // 性别比例
+        var sexData = [{ name: "男", value: 2400 }, { name: "女", value: 1200 }];
+
+        var myChart = echarts.init(document.getElementById('sex'));
+        option4 = {
+            color: ['#48a7dc', '#e6b65d'],
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                left: 10,
+                top: 20,
+                bottom: 20,
+                data: ['男', '女'],
+            },
+            series: [
+                {
+                    name: '性别比例',
+                    type: 'pie',
+                    data: sexData,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: "{b} {d}%"
+                        }
+                    },
+                }
+            ]
+        };
+        myChart.clear();
+        myChart.setOption(option4);
+
+
+
+        // 年龄分布
+        var myChart = echarts.init(document.getElementById('age'));
+        option5 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['18周岁以前', '18-35周岁', '35-50周岁', '50周岁以上']
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: ['70%', '90%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data: [
+                        { value: 335, name: '18周岁以前' },
+                        { value: 310, name: '18-35周岁' },
+                        { value: 234, name: '35-50周岁' },
+                        { value: 500, name: '50周岁以上' }
+                    ]
+                }
+            ]
+        };
+        myChart.clear();
+        myChart.setOption(option5);
+
+
+        // 职业分布
+        var myChart = echarts.init(document.getElementById('occupation'));
+        option6 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['技术支持/维护', '其他', '人物/行政/后勤', '专业人士(法医/医药/翻译等)', '财会/审计/统计', '系统程序员/开发', '市场营销/策划/公关']
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show: false,
+                            textStyle: {
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    roseType: 'area',
+                    data: [
+                        { value: 1035, name: '技术支持/维护' },
+                        { value: 310, name: '其他' },
+                        { value: 234, name: '人物/行政/后勤' },
+                        { value: 23, name: '专业人士(法医/医药/翻译等)' },
+                        { value: 43, name: '财会/审计/统计' },
+                        { value: 134, name: '系统程序员/开发' },
+                        { value: 433, name: '市场营销/策划/公关' }
+                    ]
+                }
+            ]
+        };
+        myChart.clear();
+        myChart.setOption(option6);
+
+        // 用户地域分布
+
+        var userData = [
+            { name: '新疆', value: 2 },
+            { name: '西藏', value: 321 },
+            { name: '上海', value: 312 },
+            { name: '内蒙古', value: 333 },
+            { name: '河北', value: 543 },
+            { name: '广东', value: 444 },
+            { name: '陕西', value: 312 },
+            { name: '福建', value: 23 },
+            { name: '浙江', value: 222 },
+            { name: '四川', value: 66 },
+        ];
+
+        var myChart = echarts.init(document.getElementById('user_area'));
+        var userDataArr = [];
+        userData.forEach(function (v, i) {
+            userDataArr.push(v.value);
+        })
+        var max = Math.max.apply(null, userDataArr);
+        var min = Math.min.apply(null, userDataArr);
+        option7 = {
+            // title: {
+            //     text: '企业销量',
+            //     subtext: '纯属虚构',
+            //     left: 'center'
+            // },
+            // tooltip: {
+            //     show: false,
+            //     trigger: 'item'
+            // },
+            // grid: {
+            //     left: 0,
+            //     top: 0,
+            //     right: 0,
+            //     bottom: 0
+            // },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+            },
+            visualMap: {
+                min: min,
+                max: max,
+                left: '10%',
+                top: 'bottom',
+                inRange: {
+                    color: ['#9aa0ff', '#13bca4']
+                },
+                // text: ['高','低'],
+                calculable: true
+            },
+            series: [
+                {
+                    type: 'map',
+                    mapType: 'china',
+                    roam: false,
+                    label: {
+                        normal: {
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    showLegendSymbol: false,
+                    layoutCenter: ['50%', '50%'],
+                    layoutSize: "650px",
+                    data: userData
+                }
+            ]
+        };
+        myChart.clear();
+        myChart.setOption(option7);
+
+        // 访问趋势
+        var timeData = {
+            data: ["228", "656", "765", "694", "813", "832", "861", "767", "659", "701"],
+            time: ["2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"]
+        };
+        var myChart = echarts.init(document.getElementById('in_trend'));
+        var option8 = {
+            color: ['#55acee', '#42505a', "#4fa4eb", "#3b840c", "#910d0b", "#7de6f2", "#a08f28", "#3a59c0"],
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                x: 45,
+                y: 30,
+                x2: 30,
+                y2: 40
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: { title: "下载" }
+                },
+                right: 0
+            },
+            xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                data: timeData.time
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                //name : '数据量',
+                name: '数据量',
+                type: 'line',
+                smooth: true,
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+                            type: 'default',
+                            color: "#e6f8fd"
+                        },
+                        color: "#61cdea"
+                    }
+                },
+                data: timeData.data
+            }]
+        };
+        myChart.clear();
+        myChart.setOption(option8);
+
+        ////////热门城市访问
+        $(function () {
+            $("#example").DataTable({
+                "filter": false,
+                "lengthChange": false,
+                "ordering": false,
+                "paging": false,
+                "language": {
+                    "processing": '<div class="panel-overlay-content unselectable"><span class="panel-overlay-icon text-dark"><i class="fa fa-spinner fa-2x fa-spin"></i></span><h4 class="panel-overlay-title">数据加载中...</h4></div>',
+                    "lengthMenu": "显示 _MENU_ 项结果",
+                    "zeroRecords": "没有匹配结果",
+                    "info": "",
+                    "infoEmpty": "",
+                    "infoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "infoPostFix": "",
+                    "search": "搜索:",
+                    "searchPlaceholder": "搜索...",
+                    "url": "",
+                    "emptyTable": "暂无数据",
+                    "loadingRecords": "载入中...",
+                    "infoThousands": ",",
+                    "paginate": {
+                        "first": "首页",
+                        "previous": "上页",
+                        "next": "下页",
+                        "last": "末页"
+                    }
+                }
+            });
+        });
+        // user_active_list
+
+
+        ////////活跃用户
+        $(function () {
+            $("#user_active_list").DataTable({
+                "filter": false,
+                // "lengthChange": false,
+                // "ordering": false,
+                // "paging": false,
+                "language": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "paginate": {
+                        "first": "首页",
+                        "previous": "上页",
+                        "next": "下页",
+                        "last": "末页"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

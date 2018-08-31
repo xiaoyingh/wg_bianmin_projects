@@ -1,0 +1,166 @@
+
+html, body {
+    height:100%;
+}
+/* 清楚bootstarp默认样式 */
+p { margin:0;}
+/* 清楚bootstarp默认样式结束 */
+.header {
+    height: 58px;
+    width:100%;
+    background-color: rgb(1, 84, 137);
+}
+
+.logo {
+    float:left;
+    position: relative;
+    left:12px;
+    top:12px;
+}
+
+.header-msg {
+    float:left;
+    padding-left:25px;
+    height: 100%;
+    line-height: 58px;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}
+.main {
+    display: -webkit-box; 
+    display: -moz-box;  
+    display: -ms-flexbox; 
+    display: -webkit-flex; 
+    display: flex;
+    height: 100%;
+}
+/* 侧边栏 */
+
+.sidebar {
+    flex: 0 0 200px;
+    height:100%;
+    background: -webkit-repeating-linear-gradient(#14337c, #037fbe 20%,#037fbe);
+    /* background-color: #104288 #037fbe; */
+}
+
+.sidebar .title {
+    height: 96px;
+    padding-top:16px;
+    box-sizing: border-box;
+}
+
+.sidebar .title p{
+    color: #cfdae7;
+    text-align: center;
+    font-size: 32px;
+    border: 2px solid #d0d6e5;
+    padding: 5px 0px;
+    margin: 0px 16px 4px 16px;
+}
+
+.sidebar .title p:nth-child(1) {
+    margin-bottom: 5px;
+}
+
+
+/* 侧边栏下拉列表 */
+
+.list #menu li{
+    /* padding:10px 0 ; */
+    background-color:transparent;
+    border-bottom: 1px solid #8fc8e6;
+}
+.list #menu li:hover {
+    background: #3697c9;
+}
+
+
+.list #menu li a {
+    display: inline-block;
+    width:100%;
+    padding:18px 0 ;
+    color: #fff;
+    padding-left:35px;
+    font-size: 16px;
+}
+.list #menu li a .glyphicon {
+    margin-left: -10px;
+    margin-right: 20px;
+}
+.list #menu li a:hover {
+    text-decoration: none;
+}
+.list #menu .child-con li:last-child{
+    border-bottom:0; 
+}
+
+.list #menu .child-con li a {
+    padding-left:42px;
+}
+
+/* 下拉三角旋转 */
+.icon-select-d {
+    display: inline-block;
+    transform: rotate(-90deg);
+    margin-right: 6px;
+}
+/* 主题内容部分 */
+
+.content {
+    width: calc(100% - 200px);
+    height:100%;
+    background-color: #f3f3f4;
+    overflow: auto;
+}
+
+.content .title {
+    height:64px;
+    line-height: 64px;
+    padding-left: 16px;
+}
+
+.content .title p{
+    padding:5px;
+    display: inline-block;
+    color:#5b738c;
+    font-size: 16px;
+    padding-left: 18px;
+}
+
+.region {
+    width:100%;
+    background: #fff;
+    margin-top: -2px;
+    margin-bottom: 6px;
+    padding-bottom: 20px;
+}
+
+
+.region-con {
+    text-align: center;
+}
+
+
+/* 通用组件header */
+.panel-heading {
+    border-bottom: 1px solid #ededed;
+}
+.panel-heading  .glyphicon {
+    display: inline-block;
+    background:#1ab394;
+    width: 34px;
+    height: 26px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 26px;
+    color:#fff;
+    border-radius: 4px;
+}
+.panel-heading  .panel-title {
+    display: inline-block;
+    color:#5a768e;
+    font-size: 18px;
+    margin-left:10px;
+    position: relative;
+    top: 2px;
+}

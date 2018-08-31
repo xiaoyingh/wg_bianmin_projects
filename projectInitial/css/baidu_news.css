@@ -1,0 +1,53 @@
+
+
+/*#timeTrend_container_one li {
+	overflow: hidden;
+	color: #37474f;
+	background: transparent;
+	-webkit-transition: color .3s;
+	transition: color .3s
+}*/
+
+#timeTrend_container_one li::before,
+#timeTrend_container_one li::after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: -webkit-transform .3s;
+	transition: transform .3s;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, .125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, .125, 1)
+}
+
+#timeTrend_container_one li::before {
+	background: #85a9e8;
+	background: #76cac0;
+}
+
+#timeTrend_container_one li::after {
+	background: #18448e;
+	background: #17a293;
+}
+
+#timeTrend_container_one li:hover {
+	background: #18448e\9!important
+}
+
+#timeTrend_container_one li:hover::before,
+#timeTrend_container_one li:hover::after,
+.hotwords-slide::before,
+.hotwords-slide::after {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0)
+}
+
+#timeTrend_container_one li:hover::after {
+	-webkit-transition-delay: .175s;
+	transition-delay: .175s
+}
+
+#timeTrend_container_one li span{position: relative;z-index: 10;}

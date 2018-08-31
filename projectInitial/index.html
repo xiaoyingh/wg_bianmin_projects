@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>国办政务云</title>
+    <link rel="stylesheet" href="css/wf_base.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/wf_fonts.css">
+    <link rel="stylesheet" href="css/jquery.lineProgressbar.min.css">
+    <link rel="stylesheet" href="css/wf_index.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/tendina.js"></script>
+
+    <!-- bootstarp 字体图标加入 -->
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/vendor/themify-icons/css/themify-icons.css">
+    <!-- my fonts 字体图标加入 -->
+
+    <link rel="stylesheet" href="css/myfonts.css">
+
+    <script src="js/echarts.min.js"></script>
+    <!-- bootstarp table  组件加载 -->
+    <link rel="stylesheet" href="css/dataTables/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/topic_style.css">
+    <script src="js/bootstrap-table.js"></script>
+
+    <!-- table 组件加入 -->
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script src="js/jquery.dataTables.min.js"></script>
+    <!-- 3d词云插件加载 -->
+    <script src="js/jquery.svg3dtagcloud.min.js"></script>
+
+    <!-- echarts 地图加入 -->
+    <script src="js/world.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/china.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- 进度调插件加入 -->
+    <script src="js/jquery.lineProgressbar.js"></script>
+
+    <!-- 时间插件加入 -->
+    <link rel="stylesheet" type="text/css" href="js/datepicker/daterangepicker-bs3.css" />
+    <script src="js/datepicker/moment.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/datepicker/daterangepicker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap-daterangepicker/option.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        tr>td {
+            color: #666b6c;
+        }
+
+        .control-label {
+            color: #666b6c;
+        }
+
+        .fixed-table-loading {
+            display: none;
+        }
+
+        #table1 thead {
+            background: #eeeeef;
+        }
+
+        .table>thead>tr>th {
+            border: 0;
+            color: #728aa1;
+            padding: 10px 0;
+        }
+        table.dataTable.no-footer {
+            border-bottom:1px solid #ddd;
+        }
+        /* 采集刻画小图标 */
+        .caiIcon {
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            background: url("img/cai.png") no-repeat;
+        }
+        /* 系统退出 */
+        .sign_out {
+            float: right;
+            margin-right:30px;
+            color:#989d9c;
+        }
+
+        .sign_out span {
+            font-size: 16px;
+        }
+        #table1>tbody>tr>td {
+            padding: 15px;
+        }
+
+        #table1 {
+            margin-bottom: 0px;
+        }
+
+        .textC {
+            text-align: center;
+            color: #728aa1;
+        }
+
+        .textL {
+            text-align: left!important;
+        }
+
+        .wid20 {
+            width: 40%;
+            color: #666b6c;
+        }
+
+        #btn {
+            float: right;
+            background: #359acd;
+            color: #fff;
+            border-radius: 4px;
+            padding: 6px 18px;
+            outline-style: none;
+        }
+
+        .panel-heading .addIcon {
+            font-size: 12px;
+            background: transparent;
+            font-weight: 400;
+            width: 24px;
+        }
+
+        /* #table1  */
+        table.dataTable thead th {
+            text-align: center;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table.dataTable tbody td {
+            text-align: center;
+        }
+
+        #task thead {
+            background: #eeeeef;
+        }
+
+        .all {
+            cursor:pointer;
+        }
+
+        .cityList tr td:last-child {
+            color:#0ea285;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        /* 模态框 */
+        .selectCor {
+            color: #ababab;
+        }
+
+        .inputtit {
+            max-width: 635px;
+        }
+        textarea.form-control {
+            height:440px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- <div class="header clearfix">
+        <div class="logo">
+            <img src="img/logo.png" alt="" width="48" height="48">
+        </div>
+        <p class="header-msg">政务综合数据辅助决策系统</p>
+    </div> -->
+
+    <!-- 侧边栏 -->
+    <div class="main">
+        <div class="sidebar">
+            <div class="title">
+                <p>LOGO</p>
+            </div>
+            <div class="list">
+                <ul id="menu">
+                    <li style="background: #3697c9;position:relative;">
+                        <span style="position:absolute;height:100%;width:5px;display:block;background:#f5b96c;"></span>
+                        <a href="./index.html">
+                            <span class="glyphicon icon-fl"></span>留言舆情分析</a>
+                    </li>
+                    <li>
+                        <a href="./index1.html">
+                            <span class="glyphicon glyphicon-search"></span>个性化推送管理</a>
+                    </li>
+                    <li>
+                        <a href="./index2.html">
+                            <span class="glyphicon icon-tb" style="font-size: 18px;"></span>日志管理</a>
+
+                    </li>
+                    <li>
+                        <a href="./index3.html">
+                            <span class="glyphicon icon-rl"></span>服务分析</a>
+
+                    </li>
+                    <li>
+                        <a href="./index4.html">
+                            <span class="glyphicon icon-cj"></span>用户刻画</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content" style="padding: 0 10px;">
+            <div class="content-show">
+                <div class="title">
+                    <span class="glyphicon glyphicon-th-list" style="color:#7ea3c6;font-size: 16px;"></span>
+                    <p>欢迎访问管理系统</p>
+                    <div class="sign_out">
+                        <span class="icon-fh"></span>
+                        <span>退出系统</span>
+                    </div>
+                </div>
+                <div class="col-md-6 pl0">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="glyphicon fa fa-file-text-o"></span>
+                            <h3 class="panel-title">任务筛选</h3>
+                            <!-- 任务筛选 -->
+                        </div>
+                        <div class="panel-body ">
+                            <div class="ibox-content">
+                                <div class="row form-group">
+                                    <!-- 名称 -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">名称：</label>
+                                            </div>
+                                            <div class="col-md-9  col-xs-8">
+                                                <input type="text" class="form-control" style="border:1px solid #e6e6e6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 推送日期 -->
+                                <div class="row form-group">
+                                    <!-- 推送日期 -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">推送日期：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <input type="text" class="form-control" id="time_s1" style="border:1px solid #e6e6e6">
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <input type="text" class="form-control" id="time_e1" style="border:1px solid #e6e6e6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 类型   -->
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">类型：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <select class="form-control warning_category" style="border:1px solid #e6e6e6">
+                                                    <option value="0" sid="0" checked="checked">全部</option>
+                                                    <option value="1" sid="1">类型1</option>
+                                                    <option value="2" sid="2">类型2</option>
+                                                    <option value="3" sid="4">类型3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 用户群体 -->
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">用户群体：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <select class="form-control warning_category" style="border:1px solid #e6e6e6">
+                                                    <option value="0" sid="0" checked="checked">全部</option>
+                                                    <option value="1" sid="1">新华区</option>
+                                                    <option value="2" sid="2">潍城区</option>
+                                                    <option value="2" sid="2">广海区</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 推动定时 -->
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">推动定时：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <select class="form-control warning_category" style="border:1px solid #e6e6e6">
+                                                    <option value="0" sid="0" checked="checked">全部</option>
+                                                    <option value="1" sid="1">定时</option>
+                                                    <option value="2" sid="2">立即</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pl0">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="glyphicon fa fa-file-text-o"></span>
+                            <h3 class="panel-title">回执查阅</h3>
+                            <!-- 任务筛选 -->
+                        </div>
+                        <div class="panel-body ">
+                            <div class="ibox-content">
+                                <table data-toggle="table" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th class="textC">标题</th>
+                                            <th class="textC wid20">状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="textL">李克强主持召开国务院常务会议 听取吉林长春长生公司</td>
+                                            <td>已读</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">这些烦恼你的“证明”，国务院出硬招清理</td>
+                                            <td>未读</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">胡春华主持召开2019北京世园会组委会会议</td>
+                                            <td>未读</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textL">王毅回见巴基斯坦参议院主席桑吉拉尼</td>
+                                            <td>未读</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 pl0">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="glyphicon fa fa-file-text-o"></span>
+                            <h3 class="panel-title">任务管理</h3>
+                            <div id="btn">
+                                <span class="glyphicon glyphicon-plus addIcon"></span>添加任务</div>
+                            <!-- 任务筛选 -->
+                        </div>
+                        <div class="panel-body ">
+                            <div class="ibox-content">
+                                <table id="tb_departments">
+                                        <table id="task" class="display" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="textC all">全选</th>
+                                                        <th class="textC">名称</th>
+                                                        <th class="textC">推送定时</th>
+                                                        <th class="textC">推送日期</th>
+                                                        <th class="textC">类型</th>
+                                                        <th class="textC">用户群体</th>
+                                                        <th class="textC">操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="cityList">
+                                                    <tr>
+                                                        <td><input type="checkbox"></td>
+                                                        <td class="textL">李克强主持召开国务院常务会议 听取吉林长春长生公司</td>
+                                                        <td>定时</td>
+                                                        <td>2018-08-31 00:01:01</td>
+                                                        <td>类型1</td>
+                                                        <td>新华区</td>
+                                                        <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL">这些烦恼你的“证明”，国务院出硬招清理</td>
+                                                            <td>立即</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型2</td>
+                                                            <td>潍城区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL" >胡春华主持召开2019北京世园会组委会会议</td>
+                                                            <td>定时</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型1</td>
+                                                            <td>广海区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox"></td>
+                                                        <td class="textL">李克强主持召开国务院常务会议 听取吉林长春长生公司</td>
+                                                        <td>定时</td>
+                                                        <td>2018-08-31 00:01:01</td>
+                                                        <td>类型1</td>
+                                                        <td>新华区</td>
+                                                        <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL">这些烦恼你的“证明”，国务院出硬招清理</td>
+                                                            <td>立即</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型2</td>
+                                                            <td>潍城区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL" >胡春华主持召开2019北京世园会组委会会议</td>
+                                                            <td>定时</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型1</td>
+                                                            <td>广海区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox"></td>
+                                                        <td class="textL">李克强主持召开国务院常务会议 听取吉林长春长生公司</td>
+                                                        <td>定时</td>
+                                                        <td>2018-08-31 00:01:01</td>
+                                                        <td>类型1</td>
+                                                        <td>新华区</td>
+                                                        <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL">这些烦恼你的“证明”，国务院出硬招清理</td>
+                                                            <td>立即</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型2</td>
+                                                            <td>潍城区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL" >胡春华主持召开2019北京世园会组委会会议</td>
+                                                            <td>定时</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型1</td>
+                                                            <td>广海区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox"></td>
+                                                        <td class="textL">李克强主持召开国务院常务会议 听取吉林长春长生公司</td>
+                                                        <td>定时</td>
+                                                        <td>2018-08-31 00:01:01</td>
+                                                        <td>类型1</td>
+                                                        <td>新华区</td>
+                                                        <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL">这些烦恼你的“证明”，国务院出硬招清理</td>
+                                                            <td>立即</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型2</td>
+                                                            <td>潍城区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL" >胡春华主持召开2019北京世园会组委会会议</td>
+                                                            <td>定时</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型1</td>
+                                                            <td>广海区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td  class="textL">李克强主持召开国务院常务会议 听取吉林长春长生公司</td>
+                                                            <td>定时</td>
+                                                            <td>2018-08-31 00:01:01</td>
+                                                            <td>类型1</td>
+                                                            <td>新华区</td>
+                                                            <td>从新发送</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="region clearfix">
+                    <div class="col-lg-4 region-con"></div>
+                    <div class="col-lg-4 "></div>
+                    <div class="col-lg-4 sd_situation"></div>
+                </div>
+                <div class="title">
+                    <p>民意诉求发布态势</p>
+                </div>
+                <div class="situation">
+
+                </div>
+                <div class="title">
+                    <p>热点聚焦</p>
+                </div>
+                <div class="focusing">
+                    <div class="col-lg-6 radish"></div>
+                    <div class="col-lg-6 "></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗添加内容 -->
+
+    <div id="addTask">
+            <div id="addDepartmentModal" class="modal fade in" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" style="width:840px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="opacity: 1">×</button>
+                                <h4 class="modal-title" id="myModalLabel" style="text-align:left">添加推送任务</h4>
+                            </div>
+                            <div class="modal-body form-horizontal-body" style="padding:20px">
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">推送名称：</label>
+                                            </div>
+                                            <div class="col-md-9  col-xs-8">
+                                                <input type="text" class="form-control name" style="border:1px solid #e6e6e6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">推动定时：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <select class="form-control warning_category selectCor time" style="border:1px solid #e6e6e6">
+                                                    <option value="0" sid="0" checked="checked">全部</option>
+                                                    <option value="1" sid="1">定时</option>
+                                                    <option value="2" sid="2">立即</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">用户群体：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <select class="form-control warning_category selectCor user" style="border:1px solid #e6e6e6">
+                                                    <option value="0" sid="0" checked="checked">全部</option>
+                                                    <option value="1" sid="1">新华区</option>
+                                                    <option value="2" sid="2">潍城区</option>
+                                                    <option value="3" sid="2">广海区</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">推送类型：</label>
+                                            </div>
+                                            <div class="col-md-4  col-xs-8">
+                                                <select class="form-control warning_category selectCor type" style="border:1px solid #e6e6e6">
+                                                    <option value="0" sid="0" checked="checked">全部</option>
+                                                    <option value="1" sid="1">类型1</option>
+                                                    <option value="2" sid="2">类型2</option>
+                                                    <option value="3" sid="3">类型3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-2  col-xs-3 text_right" style="margin-top:200px;padding-right:0px;text-align:right;">
+                                                <label class="control-label">推送正文：</label>
+                                            </div>
+                                            <div class="col-md-10  col-xs-8">
+                                                    <textarea type="text" id="" name="event_abstra" class="input inputtit event_abstra form-control" value=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <strong class='result' style="display:none;color:red;"></strong>
+                                </div>
+                                <div class="modal-footer" style="clear: both;text-align: center;">
+                                    <button type="button" id="btn-primary" class="btn" style="background-color: #357ab6; color: #e3ffff">保存
+                                    </button>
+                                    <button type="button" class="btn btn-default " data-dismiss="modal" style="background-color: #357ab6; color: #e3ffff">取消
+                                    </button>
+                                    <input type="text" hidden id="b_id" />
+                                </div>
+                            </div>
+                        </div>
+            </div>
+    </div>
+    <script>
+        $('#menu').tendina();
+        // $("#addTask").load('./add.html');
+
+        $("#btn").unbind().click(function () {
+            $("#addDepartmentModal").modal("show");
+        })
+        // 任务筛选
+        
+        // // 格式化类型
+        // function typeFormatter(value, row, index) {
+        //     if (value === 'menu') {
+        //         return '菜单';
+        //     }
+        //     if (value === 'button') {
+        //         return '按钮';
+        //     }
+        //     if (value === 'api') {
+        //         return '接口';
+        //     }
+        //     return '-';
+        // }
+
+        // // 格式化状态
+        // function statusFormatter(value, row, index) {
+        //     if (value === 1) {
+        //         return '<span class="label label-success">正常</span>';
+        //     } else {
+        //         return '<span class="label label-default">锁定</span>';
+        //     }
+        // }
+
+        //  时间插件
+        var daterangepicker_minute_ = {
+            startDate: moment().format("YYYY-MM-DD 00:00:00"),
+            //								endDate: moment(),
+            minDate: moment().subtract(3, 'months'),
+            maxDate: moment(),
+            timePickerIncrement: 1,
+            "timePicker": true,
+            timePicker12Hour: false,
+            timePickerSeconds: true,
+            "singleDatePicker": true,
+            "alwaysShowCalendars": true,
+            showDropdowns: true,
+
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-small btn-primary',
+            cancelClass: 'btn-small',
+            separator: daterangepicker_separator,
+            "format": "YYYY-MM-DD HH:mm:ss",
+        }
+        var daterangepicker_minute_end = {
+            startDate: moment().subtract(-3, 'days').format("YYYY-MM-DD 23:59:59"),
+            //								endDate: moment(),
+            minDate: moment(),
+            maxDate: moment().subtract(-3, 'months'),
+            timePickerIncrement: 1,
+            "timePicker": true,
+            timePicker12Hour: false,
+            timePickerSeconds: true,
+            "singleDatePicker": true,
+            "alwaysShowCalendars": true,
+            showDropdowns: true,
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-small btn-primary',
+            cancelClass: 'btn-small',
+            separator: daterangepicker_separator,
+            "format": "YYYY-MM-DD HH:mm:ss",
+        }
+        $('#time_s1').daterangepicker(daterangepicker_minute_, function () { })
+        $('#time_e1').daterangepicker(daterangepicker_minute_end, function () { })
+
+
+          ////////任务
+          $(function () {
+            $("#task").DataTable({
+                "filter": false,
+                "lengthChange": false,
+                "ordering": false,
+                // "paging": false,
+                "language": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "paginate": {
+                        "first": "首页",
+                        "previous": "上页",
+                        "next": "下页",
+                        "last": "末页"
+                    }
+                }
+            });
+        });
+
+        ///// 任务全选
+        $("#task .all").unbind().click(function(){
+            $("#task [type='checkbox']").attr("checked","checked");
+        })
+
+
+        ///////  添加任务
+        $("#addDepartmentModal").find("#btn-primary").unbind().click(function(){
+            var name =  $("#addDepartmentModal .name").val();
+            var time = $("#addDepartmentModal .time option:selected").text();
+            var user = $("#addDepartmentModal .user option:selected").text();
+            var type = $("#addDepartmentModal .type option:selected").text();
+            $("#addDepartmentModal").modal("hide");
+            var str = $(".cityList").html();
+            var str1 = `<tr>
+                                         <td><input type="checkbox"></td>
+                                         <td class="textL">${name}</td>
+                                        <td>${time}</td>
+                                        <td>2018-08-31 00:01:01</td>
+                                        <td>${user}</td>
+                                        <td>${type}</td>
+                                         <td>从新发送</td>
+                    </tr>`;
+            str1+=str;
+            $(".cityList").html(str1);                 
+        })
+
+    </script>
+</body>
+
+</html>

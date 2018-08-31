@@ -1,0 +1,122 @@
+.mod1-more{
+	font-family: '宋体';
+	width: 1200px;
+	margin: 0 auto;
+}
+.mod1-more-title{
+	width: 100%;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 5px;
+}
+.mod1-more-title h5{
+	width: 147px;
+	height: 33px;
+	border-bottom: 2px solid #1da1f2;
+	line-height: 33px;
+	margin: 0;
+	text-align: center;
+}
+.mod1-more-search{
+	width: 100%;
+	height: 70px;
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+.mod1-more-search-in input{
+	border: none;
+	height: 29px;
+	float: left;
+}
+.mod1-more-search-in{
+	width: 373px;
+	height: 31px;
+	border: 1px solid #d4d9dd;
+	border-radius: 2px;
+}
+.mod1-more-search-in input{
+	text-indent: 10px;
+	width: 320px;
+}
+.mod1-more-search-in span{
+	width: 45px;
+	height: 31px;
+	display: inline-block;
+	float: right;
+	font-size: 20px; 
+	color: #d0d0d0;
+	text-align: center;
+	line-height: 31px;
+}
+.mod1-more-search-in span:hover{
+	cursor: pointer;
+}
+.mod1-list-h{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 1px;
+}
+.mod1-list-h h5{
+	display: inline-block;
+	line-height: 40px;
+	float: left;
+	width: 160px;
+	text-align: center;
+}
+.mod1-list-h h5:nth-of-type(1){
+	text-align: left;
+	text-indent: 5px;
+	width: 100px;
+}
+.mod1-list-h h5:last-of-type{
+	text-align: right;
+	width: 100px;
+}
+.mod1-zheng,.mod1-fu,.mod1-zhong{
+	width: 100px;
+	height: 14px;
+	background: #e2e2e2;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: auto auto;
+	margin-top: 12px;
+}
+.mod1-zheng p,.mod1-fu p,.mod1-zhong p{
+	width: 80px;
+	height: 14px;
+	background: #faa24b;
+}
+.mod1-fu p{
+	background: #5bb6ed;
+}
+.mod1-zhong p{
+	background: #6bca6b;
+}
+.mod1-list-ul li{
+	float: left;
+	width: 160px;
+	line-height: 40px;
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 14px;
+	font-family: '宋体';
+	color: #7d7d7d;
+}
+.mod1-list-ul li:nth-of-type(1){
+	text-align: left;
+	text-indent: 5px;
+	width: 100px;
+}
+.mod1-list-ul li:last-of-type{
+	text-align: right;
+	width: 100px;
+}
+.mod1-list-ul ul{
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 1px;
+}
+.mod1-list-ul:nth-of-type(even){
+	
+}

@@ -1,0 +1,81 @@
+body{overflow-x: hidden;
+    font-weight: 400;
+    padding-bottom: 100px;
+    background-color: #2b6e80 20%;
+    background-image: radial-gradient(farthest-side ellipse at 10% 0, #2b6e80 20%, #0c3252);
+    background-image: -webkit-radial-gradient(10% 0, farthest-side ellipse, #2b6e80 20%, #0c3252);
+    background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, #2b6e80 20%, #0c3252);
+    background-attachment: fixed, fixed;
+}   
+/*html{background: #ecf0f5;}*/
+a:hover{text-decoration: none;}
+ul,li{padding: 0;margin: 0;list-style-type: none;}
+.new_title{border-bottom: 1px solid #ddd;height: 40px;line-height: 40px;}
+.new_title span{border-bottom: 2px solid #0088cc;padding: 0 15px;height: 40px;line-height: 40px;display: inline-block;font-size: 18px;font-weight: 700;}
+
+.fixed-navbar {position: fixed;	top: 0px;	left: 0px;	z-index: 200;	right: 0px;	padding: 0px 60px 0px 60px;	background: linear-gradient(to right,#0095d7,#00b0a0);}
+.fixed-navbar .ico-item {	display: inline-block;	position: relative;	margin-left: 15px;	cursor: pointer;	font-size: 19px;	line-height: 60px;color: #c7e5ff}
+
+#wrapper{margin-top: -28px;}
+.new_pic_title{text-align: center;}
+.new_title em{cursor: pointer;}
+.new_pie{height:180px;}
+.new_clear{clear: both;}
+.fn-s-refresh {float: right;font-size: 22px;background: 0 0;border: none;margin: 5px 10px;color: rgba(0,0,0,.5);}
+.fn-s-refresh .fa{transition: all .3s linear;}
+.fn-s-refresh:hover .fa{transform: rotate(360deg);}
+
+.new_media{}
+.new_media li{float: left;width:100%;height:80px;overflow: hidden;}
+.media_shuzi{float: left;}
+.media_shuzi span{width:20px;heigth:20px;border-radius:100px;background: #ddd;float: left;text-align: center;}
+.media_pic{float: left;}
+.media_pic img{max-height: 60px;margin-top: 10px;float: left;}
+.media_content{float: left;}
+.media_content h3{}
+.media_content h3 a{color: #333;line-height: 1.5;height: 36px;overflow: hidden;font-size: 13px;}
+.media_content h3 a:hover{text-decoration: none;color: #0088cc;}
+
+.new_white{background: #fff;border-radius: 3px;margin-bottom: 30px;box-sizing: content-box;padding: 12px 17px;color: #606060;}
+.new_show{display: none;}
+
+
+
+
+
+/*************tree****************/
+.tree,.tree ul,.tree li{list-style:none;margin:0;padding:0;zoom: 1;}
+.tree ul{margin-left:8px;}
+.tree li a{color:#555;padding:.1em 7px .1em 27px;display:block;text-decoration:none;border:1px dashed #fff;background:url(images/icon-file.gif) 5px 50% no-repeat;}
+.tree li a.tree-parent{background:url(images/icon-folder-open.gif) 5px 50% no-repeat;}
+.tree li a.tree-parent-collapsed{background:url(images/icon-folder.gif) 5px 50% no-repeat;}
+.tree li a:hover,.tree li a.tree-parent:hover,.tree li a:focus,.tree li a.tree-parent:focus,.tree li a.tree-item-active{color:#000;border:1px solid#eee;background-color:#fafafa;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.tree li a:focus,.tree li a.tree-parent:focus,.tree li a.tree-item-active{border:1px solid #e2f3fb;background-color:#f2fafd;}
+.tree ul.tree-group-collapsed{display:none;}
+
+
+.news_info{margin-top: 0px;}
+.zTreeDemoBackground{max-height: 900px;overflow-y: hidden;overflow-x: hidden;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

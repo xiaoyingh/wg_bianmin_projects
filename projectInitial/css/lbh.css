@@ -1,0 +1,267 @@
+[data-manage="bMessage"]{
+    /*width: 1200px;
+    margin: 0 auto;*/
+}
+/*[data-manage="bMessage"] .ibox {
+    clear: both;
+    margin-bottom: 10px;
+}
+[data-manage="bMessage"] .ibox-title {
+    height: 36px;
+    position: relative;
+    border: 0;
+    border-bottom: 1px solid #dfe0e2;
+    min-height: 39px;
+    padding:14px 0 7px;
+}
+[data-manage="bMessage"] .ibox-content {
+    color: inherit;
+    border:none;
+    padding-top: 10px;
+}
+[data-manage="bMessage"] .ibox-title h5 {
+    font-size: 15px;
+    float: left;
+    margin-bottom: 0;
+    /*position: absolute;*/
+    padding: 0 6px 6px 6px;
+    border-bottom: 2px solid #1E9FF4;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+[data-manage="bMessage"] .ibox-tools {
+    float: right;
+    top:-9px;
+
+}
+/* [data-manage="bMessage"] .ibox-tools>button {
+    font-size: 15px;
+    padding: 4px 8px;
+    margin-top: 2px;
+    color: #4092C5;
+    background: #fff;
+    padding-right: 0px;
+} */
+[data-manage="bMessage"] .ibox-tools>button>span{
+    margin-right: 5px;
+    font-weight:bold;
+}*/
+/*表格样式*/
+[data-manage="bMessage"] table>thead>tr>th,table>tbody>tr>td{/*每一列样式*/
+    text-align: center;
+    vertical-align: middle!important;
+    border-bottom: 1px solid #dfe0e2;
+    font-size:13px;
+}
+/*状态的样式*/
+[data-manage="bMessage"] span.status{/*状态的共有样式*/
+    display: inline-block;
+    padding: 6px 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+}
+[data-manage="bMessage"] span.status.inDate{
+    background: #83C88B;
+    transition: all .3s linear;
+}
+[data-manage="bMessage"] span.status.outDate{
+    background: #ED8B7E;
+    transition: all .3s linear;
+}
+/*热度的样式*/
+[data-manage="bMessage"] table>tbody>tr>td div.column{/*外面div*/
+    width: 108px;
+    height: 15px;
+    margin: 0 auto;
+    background: #E9E9E9;
+    border: 1px solid transparent;
+    border-radius:6px;
+}
+[data-manage="bMessage"] table>tbody>tr>td div.column>div.span{/*百分比div*/
+    height:100%;
+    background:#FCA271;
+    border-radius:6px;
+    width:0px;
+    transition:width .8s linear;
+}
+[data-manage="bMessage"] table>tbody>tr>td div.column>div.span.addWidth0{
+    width: 80%;
+}
+[data-manage="bMessage"] table>tbody>tr>td div.column>div.span.addWidth1{
+    width: 75%;
+}
+[data-manage="bMessage"] table>tbody>tr>td div.column>div.span.addWidth2{
+    width: 50%;
+}
+[data-manage="bMessage"] table>tbody>tr>td div.column>div.span.addWidth3{
+    width: 20%;
+}
+[data-manage="bMessage"] table>tbody>tr>td div.column>div.span.addWidth4{
+    width: 60%;
+}
+/*操作样式*/
+[data-manage="bMessage"]  [data-operate='operate']{
+    width: 50px;
+    height: 25px;
+    margin: 0 auto;
+    margin-top:3px;
+    border-radius:25px;
+    padding: 3px;
+    position:relative;
+}
+[data-manage="bMessage"] div.die{
+    background: #ED8B7E;
+     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: all .3s linear;
+}
+[data-manage="bMessage"] div.live{
+    background:#56C362;
+    transition: all .3s linear;
+}
+[data-manage="bMessage"]  div>div.normal{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius:20px;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+    position:absolute;
+    top:3px;
+    left:3px;
+    transition:all .3s linear;
+}
+[data-manage="bMessage"]  div>div.normal.wrongful{
+	top:3px;
+    left:27px;
+    transition:all .3s linear;
+}
+
+
+[data-manage="bMessage"] .paging{
+    float: right;
+}
+/*下半部分*/
+[data-manage="bMessage"] .ibox-bigTitle{
+    width: 300px;
+    margin: 0 auto;
+    padding:6px 0;
+    background: #fff;
+    text-align: center;
+}
+[data-manage="bMessage"] .ibox-bigTitle>span{
+    font: bold 25px "Microsoft YaHei";
+}
+[data-manage="bMessage"] .set-details{
+    width: 80%;
+}
+[data-manage="bMessage"] textarea{
+    padding: 10px;
+}
+[data-manage="bMessage"] .set-details>textarea{
+    width: 100%;
+    height: 200px;
+}
+[data-manage="bMessage"] .set-keywords{
+    font-weight:700;
+    font-size:14px;
+    height: 200px;
+    line-height: 200px;
+}
+/*配置页面*/
+[data-manage="bMessage"] span.distanceSpan{
+    padding: 4px;
+}
+[data-manage="bMessage"] div.my-group {
+    margin-bottom: 20px;
+    text-align:left;
+
+}
+[data-manage="bMessage"] div.my-group label{
+    width: 150px;
+    text-align: right;
+    font:600 13px 'Microsoft YaHei';
+}
+/*[data-manage="bMessage"] div.my-group input,select,textarea{
+    width: 57%;
+    padding:6px 12px;
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    font-size: 14px;*/
+}
+[data-manage="bMessage"] div.my-group input:focus,select:focus,textarea:focus { 
+	border-color:#1AB394
+} 
+[data-manage="bMessage"] div.my-group textarea{
+    width: 60%;
+    height: 60px;
+     border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+
+}
+[data-manage="bMessage"] div.my-group textarea:focus{
+   border-color:#1AB394
+
+}
+[data-manage="bMessage"] div.my-group.three>input,select{
+    /*width: 150px;
+    padding:6px 12px;*/
+}
+
+[data-manage="bMessage"] #address{
+    position: relative;
+}
+[data-manage="bMessage"] #address span{
+    position: absolute;
+    top: -37px;
+    left: 58px;
+}
+
+/*修改*/
+.btn-pri {
+    color: #fff;
+    background-color: #328EC5;
+    border-color: #328EC5;
+}
+.ibox-content:last-child {
+    border-style: none!important;width:100%;
+
+}
+[data-manage="bMessage"] ul.operateList {
+    width:100%;
+    margin:0 auto;
+    box-sizing: border-box;
+    padding-left: 33px;
+}
+[data-manage="bMessage"] ul.operateList li{
+    float:left;
+    margin-right:10px;
+}
+/*
+[data-manage="bMessage"] ul.operateList li:nth-child(2){
+    margin-left:30px;
+}
+[data-manage="bMessage"] ul.operateList li:last-child{
+    float:right;
+}*/
+/*表单*/
+[data-manage="bMessage"] div.text-align-r{
+	text-align:right;
+}
+[data-manage="bMessage"] div.text-align-l{
+	text-align:left;
+}
+[data-manage="bMessage"] span.orNot{
+	font-size:13px;
+	height:34px;
+	line-height:34px;
+}
+
+ 

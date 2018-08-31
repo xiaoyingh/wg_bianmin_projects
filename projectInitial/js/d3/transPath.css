@@ -1,0 +1,117 @@
+path.link {
+	fill: none;
+	stroke: #e528f0;
+	stroke-width: 1px;
+}
+
+marker#licensing {
+	fill: #e528f0;
+}
+
+marker#tt {
+	fill: red;
+}
+marker#suit{
+	fill:#444
+}
+path.link.licensing {
+	fill: none;
+	stroke: #e528f0;
+	stroke-width: 1px;
+}
+
+path.link.tt { 
+	 stroke: red;
+}
+path.link.resolved {
+	stroke-dasharray: 0, 2 1;
+}
+circle {
+	fill: #ccc;
+	stroke: #333;
+	stroke-width: 1.5px;
+}
+
+text {
+	font:10px 微软雅黑 ;
+	fill:#000
+}
+
+text.shadow {
+}
+.bd{border:1px solid #ccc;padding:1px}
+.d3-tip {
+ width:400px;
+ height:100px;
+  border:1px rgb(243, 120, 23) solid;
+   padding: 0px; 
+  background: #fff;
+  color: black;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgb(247, 192, 111);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.tipTitle{
+fill:red;
+padding:0 0 0;
+margin:0 0 0 ;
+background:rgb(247, 192, 111);
+}
+.time{
+float:right;
+font-size:10px;
+}
+
+/*点击事件的提示框*/
+#tooltip {
+	position: absolute;
+	width: 400px;
+	height: auto;
+	padding: 10px;
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+}
+
+#tooltip .TipTitle {
+	font-weight:bold;
+	fill: red;
+	padding: 0 0 0;
+	margin: 0 0 0;
+	background: rgb(247, 192, 111);
+}
+
+#tooltip.hidden {
+	display: none;
+}
+
+#tooltip .TipTime {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+}

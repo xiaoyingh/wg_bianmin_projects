@@ -1,0 +1,185 @@
+span.tiaoshu{font-weight: bold;
+font-size: 20px;
+font-family: 微软雅黑;
+color: rgb(148, 22, 22);}
+div.fawen{background-color: #DCECF1;
+margin: 5px 10px;
+line-height: 30px;
+font-size: 15px;
+font-family: 微软雅黑;}
+.highLight{
+     fill:steelblue;
+     stroke:lightsteelblue;
+     stroke-width:.5px;
+     font:20px sans-serif;	
+}
+/*
+path.link {
+	fill: none;
+	stroke: #ccc;
+	stroke-width: 0.5px;
+}
+*/
+marker#licensing {
+	fill: rgb(114,206,231);
+}
+
+marker#tt {
+	fill: #a9f0ff;
+}
+
+marker#suit {
+	fill: #a9f0ff
+}
+
+.licensing {
+	fill: none;
+	stroke: rgb(212,169,169);
+	stroke-width: 2.5px;
+}
+
+path.link.tt {
+	stroke: #a9f0ff;
+}
+
+path.link.resolved {
+	stroke-dasharray: 0, 1 1;
+	stroke-width: 1.5px;
+	stroke: rgb(114,206,231);
+}
+
+circle {
+	fill: #ccc;
+	stroke: #333;
+	stroke-width: 1.5px;
+	 transition:-webkit-transform 0.5s, fill 0.5s;
+}
+/*circle:hover {
+      fill: #000;
+      -webkit-transform: scale(2, 2);
+      transform-origin: center center;
+}*/
+text {
+	font: 16px 微软雅黑;
+	pointer-events: none;
+	font-weight: bold;
+	fill: #e3fcff;
+	position:absolute;
+	filter:glow(color=#896c66,strength=8);
+
+}
+
+text.shadow {
+	
+}
+
+.bd {
+	border-radius: 20px;
+	margin:6px 4px;
+}
+
+
+div.tooltip {
+  font-size: 20px;
+  font-family: 微软雅黑;
+  position: absolute;	
+  /**text-align: center;*/	
+  min-width: 120px;	
+  height: auto;		
+  padding: 2px;	
+  font: 12px sans-serif;	
+  background: #fff;	
+  border: 1px #ddd solid;
+  color:black;				
+  border-radius: 2px;line-height:20px;
+ /*  pointer-events: none;	This line needs to be removed */
+	
+}
+
+.d3-tip {
+	width: 400px;
+	height: auto;
+	border: 1px rgb(243, 120, 23) solid;
+	padding: 0px;
+	background: #fff;
+	color: black;
+	border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+	box-sizing: border-box;
+	display: inline;
+	font-size: 10px;
+	width: 100%;
+	line-height: 1;
+	color: rgb(247, 192, 111);
+	content: "\25BC";
+	position: absolute;
+	text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+	margin: -1px 0 0 0;
+	top: 100%;
+	left: 0;
+}
+
+.tipTitle {
+	font-weight: bold;
+	font-size: 20px;
+	font-family: 微软雅黑;
+	fill: red;
+	padding: 0 0 0;
+	margin: 0 0 0;
+	background: #44A0FD;
+	padding:3px 6px;
+	color:#fff;
+}
+
+.time {
+	float: right;
+	font-size: 10px;
+}
+
+/*点击事件的提示框*/
+#tooltip {
+	position: absolute;
+	width: 400px;
+	height: auto;
+	padding: 10px;
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	pointer-events: none;border:1px solid #ddd;
+}
+
+#tooltip .TipTitle {
+	font-weight:bold;
+	fill: red;
+	padding: 0 0 0;
+	margin: 0 0 0;
+	background: #44A0FD;
+}
+
+#tooltip.hidden {
+	display: none;
+}
+
+#tooltip .TipTime {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+}
+#play {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: -4px 0 0 0;
+}

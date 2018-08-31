@@ -1,0 +1,266 @@
+
+/*公用*/
+body.dark .modal-footer{
+	border-top:1px solid #191C21!important;
+}
+body.dark .navbar-form input{
+	border:1px solid #3E4753!important;
+	color:#5B646F!important;
+	background:transparent!important;
+}
+body.dark .navbar-form button{
+	color:#fff!important;
+	background:transparent!important;
+}
+
+/*账号注册   mod6*/
+body.dark .progress-bar-addon-percentage{
+	background:#2E353E;
+	box-shadow:none;
+	border-color:#3E4753;
+}
+body.dark .progress-bar-box .progress-bar-percentage{
+	background:#2E353E;
+	border-left-color:#3E4753;
+}
+body.dark #state-choice{
+	/*box-shadow: 0 0 2px #aaa;*/
+	color:#D2D2B7;
+	background:#3f4546!important;
+}
+body.dark .state-platform-select-width{
+	color:#D2D2B7;
+	background:transparent!important;
+}
+
+/*账号管理   mod1*/
+body.dark .panel_head h3{
+	background:#3F4546;
+	color:#D2D2D2;
+}
+body.dark .new_xuxian1{
+	background:#2E353E;
+	border-bottom: 1px solid #272C32;
+}
+body.dark .new_xuxian2{
+	background:#2E353E;
+	border-bottom: 1px solid #272C32;
+}
+body.dark .ibox-content1{
+	background:#191C21;
+}
+body.dark .ibox-content{
+	background:none!important;
+}
+body.dark #admin-content-task{
+	background:#272C32!important;
+}
+body.dark .libox{
+	background:#2E353E!important;
+	border-bottom:2px solid #272C32;
+}
+body.dark .libox span{
+	color:#A9ABAD!important;
+}
+body.dark .liClor h3{
+	border-bottom: none;
+	margin-top:0px;
+}
+body.dark #labes ol li{
+	background:#2E353E;
+	color:#A9ABAD;
+	border-right:1px solid #272C32;
+	border-bottom:1px solid #272C32;
+}
+body.dark #labes ol li:last-child{
+	border-right:none;
+}
+body.dark #labes ol li:hover{
+	cursor: pointer;
+	color:#17a293;
+}
+body.dark #labes ol li.labesLiActive{
+	color:#17a293;
+}
+body.dark #accordion li{
+	background:#2E353E!important;
+	border-bottom: 1px solid #191C21!important;
+}
+body.dark #accordion li.liClor{
+	background:#272C32!important;
+}
+body.dark #accordion li:hover{
+	background:#272C32!important;
+}
+body.dark #state-choice-select{
+	/*box-shadow: 0 0 2px #aaa;*/
+	color:#D2D2B7;
+	background:#3f4546!important;
+}
+
+/*账号活跃   mod5*/
+body.dark #acccountWaitpublishDv div.acccountWaitpublishDiv{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21!important;
+}
+body.dark #issueWaitpublish div{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21!important;
+}
+body.dark .accoutInfoDIv{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21!important;
+}
+body.dark .searchAccount{
+	background:#191C21;
+	color:#999999!important;
+}
+body.dark .issueInfoDiv{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21!important;
+}
+body.dark .new_xuxian11{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21;
+}
+body.dark .new_xuxian22{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21;
+}
+body.dark .fa-address-card-o{
+	color:#fff!important
+}
+
+/*余财库   mod3*/
+body.dark .new_xuxian111{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21;
+}
+body.dark .new_xuxian222{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21;
+}
+
+/*引导主题  mod2*/
+body.dark .panelBox{
+	background:#191C21!important;
+}
+body.dark .theme_name{
+	color:#D9D9D9!important;
+}
+body.dark .theme_icon_box{
+	background:#191C21!important;
+}
+body.dark .theme_icon_body{
+	background:#272C32!important;
+}
+body.dark .info_div li{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21!important;
+}
+body.dark .info_div li font{
+	color:#D9D9D9!important;
+}
+body.dark #yindao_list li:hover {
+	background: #272C32;
+	cursor: pointer;
+}
+body.dark #yindao_list li.active_id{
+	background:#272C32;
+}
+body.dark .zhuti_yindao a{
+	color:#888888!important;
+}
+body.dark .contentBigBox{
+	background:#2E353E;
+	border-bottom: 1px solid #191C21;
+}
+body.dark #oldest_btn{
+	border:none!important;
+}
+body.dark #newest_btn{
+	border:none!important;
+}
+body.dark #pre_btn{
+	border:none!important;
+}
+body.dark #next_btn{
+	border:none!important;
+}
+body.dark .info_dele{
+	background:#2E353E!important;
+}
+body.dark .info_edit{
+	background:#2E353E!important;
+}
+body.dark .glyphicon{
+	color:#fff!important;
+}
+body.dark .accountBorder,body.dark .yucaiBorder{
+	border-right:1px solid #191c21!important;
+}
+body.dark .info_div h5 span.startTimeSpan {
+    color: #a9abad!important;
+}
+body.dark .info_div h5 span.endTimeSpan {
+    color: #a9abad!important;
+}
+body.dark #operationBoxDivNone{
+	background:#272C32!important
+}
+
+/*舆情引导  mod4*/
+body.dark .panel-body-box{
+	background: none!important;
+}
+body.dark .panel-body-box h2{
+	color:#A9ABA1!important;
+}
+body.dark #accordion .yindao_active{
+	background: #272C32!important;
+}
+body.dark #accordion li.guidanceBox:hover{
+	cursor: pointer;
+	background: #272C32!important;
+}
+body.dark #operationBox div.operationBox11{
+	background:#272C32!important;
+}
+body.dark #operationBoxDiv{
+	border-left: 1px solid #2E353E!important;
+}
+body.dark #operationBoxDiv span{
+	background:#272C32!important;
+	border: 1px solid #2E353E!important;
+}
+body.dark .input-sm{
+	background: #272c32!important;
+  	border-color: #3e4753!important;
+}
+body.dark .input-sm{
+	background: #272c32!important;
+  	border-color: #3e4753!important;
+}
+body.dark .notice-list li{
+	background:#272C32!important;
+	border-bottom: 1px solid #2E353E!important;
+}
+body.dark .notice-list li a .name{
+	color:#9FA2A4!important;
+}
+
+body.dark .operation-pinglun{
+	color: #BFBFBF;
+	background:#2E353E;
+	border-top:1px solid #191C21;
+	border-left:1px solid #191C21;
+	border-bottom:1px solid #191C21;
+}
+body.dark .operation-dianzan{
+	color: #BFBFBF;
+	background:#2E353E;
+	border:1px solid #191C21;
+}
+body.dark .accountBorderSen,body.dark .yucaiBorderSen{
+	border-right:1px solid #191c21!important;
+}

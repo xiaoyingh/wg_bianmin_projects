@@ -1,0 +1,249 @@
+/*
+ * 2017-04-10 
+ * zhiyiwei 
+ * 单篇详情样式
+*/
+
+/*tab*/
+.crossMedia_detail .nav-tabs{background: #EBF0F3;height: 40px;border-bottom: 1px solid #aaa;padding: 0 25px;}
+.crossMedia_detail .nav-tabs>li>a{padding: 5px 15px;font-size: 14px;margin-top: 8px;}
+.skin-1 .crossMedia_detail .nav.nav-tabs>li>a{background: #72889F;color: #fff;}
+.skin-1 .crossMedia_detail .nav.nav-tabs>li.active>a,.skin-1 .crossMedia_detail .nav.nav-tabs>li:hover>a {
+    color: #4B4B4B;
+    border-color: #aaa #aaa #fff;
+    background: #fff;
+}
+
+/*覆盖之前默认样式*/
+/*@media (max-width: 1360px)
+body.skin-1 {
+    overflow-x: scroll !important;
+}*/
+
+body.skin-1 {
+	background: #f3f3f3;
+	overflow-x: auto;
+}
+
+#wrapper {
+	width: 1366px;
+	margin: 0 auto;
+}
+
+.skin-1 #page-wrapper {
+	background: #f3f3f3;
+}
+
+.ibox-content {
+	border: none !important;
+}
+
+.btn-default {
+	padding: 5px;
+	font-size: 14px;
+}
+
+#adopt_info_list thead tr th:nth-child(2) {
+    width: 27% !important;
+}
+
+/*整体*/
+
+.custom-ibox-title {
+	border-bottom: 1px solid #dfe0e2;
+	height: 36px;
+	position: relative;
+}
+
+.custom-ibox-title h5 {
+	font-size: 17px;
+	float: left;
+	position: absolute;
+	padding: 0 10px 10px 10px;
+	margin-bottom: 0;
+	border-bottom: 2px solid #f7ac5b;
+	color: rgb(103, 106, 108);
+	
+}
+
+
+/*单条*/
+
+#main {
+	background: #fff;
+	margin-top: 15px;
+	border-top: 1px solid #ddd;
+	font-family: "微软雅黑";
+}
+
+#main .dt-title {
+	color: #1aafc3;
+	font-size: 18px;
+	text-align: center;
+}
+
+#main .dt-content1 {
+	line-height: 36px;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-orient text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	margin-bottom: 20px;
+}
+
+#main .dt-content2 {
+	line-height: 36px;
+}
+
+#main .dt-label {
+	display: inline-block;
+	width: 85%;
+}
+
+#main .dt-label span {
+	margin-right: 10px;
+	color: #0095d0;
+}
+
+.dt-more {
+	float: right;
+	margin-right: 20px;
+	/*text-decoration: underline;*/
+	color: #0095d0;
+}
+
+.dt-more-scroll {
+	max-height: 400px !important;
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
+}
+
+.dataTables_wrapper {
+	padding: 0;
+}
+
+.dataTables_wrapper>.row:first-of-type>.col-sm-6 {
+	width: 25%;
+}
+
+.modal-title {
+	float: right;
+	cursor: pointer;
+	font-size: 15px;
+	color: #ababab;
+	margin: 0 !important;
+}
+
+.modal_title_1 {
+	color: #3e3e3e;
+}
+
+.shu_ {
+	float: right;
+	margin: 0 10px;
+}
+
+.ctml-lebal {
+	font-size: 14px;
+	margin-top: 20px;
+	text-align: center;
+	width: 108%;
+	margin-left: -24px;
+	color: rgb(44, 44, 44);
+}
+
+.ctml-orange {
+	color: #fc7509;
+	font-size: 22px;
+}
+
+.title1 {
+	/*width: 140px;*/
+	width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    text-align: left;
+}
+
+.name1 {
+	/*width: 87px;*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+
+/*.type1{width: 50px;overflow: hidden;text-overflow: ellipsis;display: inline-block;}
+.region{width: 50px;overflow: hidden;text-overflow: ellipsis;display: inline-block;}
+.club1{width: 50px;overflow: hidden;text-overflow: ellipsis;display: inline-block;}*/
+
+.title2 {
+	width: 350px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	text-align: left;
+}
+
+.name2 {
+	width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+.title3 {
+	width: 440px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	text-align: left;
+}
+
+table td {
+	line-height: 18px !important;
+}
+
+.dt-title a{font-size: 13px;border-right: 1px solid #ccc;padding:0 10px;display: inline-block;margin-top: 10px;}
+.dt-title a:nth-of-type(3){border: 0;}
+
+
+#adopt_info_list tr th:nth-of-type(7){display: none;}
+#adopt_info_list tr td:nth-of-type(6){display: none;}
+
+
+
+
+
+/*table*/
+.zhishu_table td{padding: 0px 0;
+     border: 1px solid #e1e1e1; 
+    font-size: 14px;}
+.pingfen h1{font-size: 100px;text-align: center;    font-family: 'arial';color: #2490BF;font-weight: 600;}
+.pingfen h4{text-align: center;font-size: 18px;}
+
+
+
+
+
+/*统计分析*/
+#echarts_ .col-md-6>p{font-size: 16px;text-align: center;}
+
+
+.number_{font-size: 15px;text-align: center;}
+.number_ span{margin-right: 25px;color: #C83228;font-size: 15px;}
+.number_ span:last-child{margin: 0;}
+
+
+ 
+#main.crossMedia_detail .dt-label {
+	width: 75%;
+}
+.crossMedia_detail .title1 {
+	width: 300px;
+}

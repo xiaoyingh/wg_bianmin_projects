@@ -1,0 +1,4 @@
+.dark .daterangepicker .daterangepicker_start_input label,.dark .daterangepicker .daterangepicker_end_input label{
+    color: #fff;
+    text-shadow:none;
+}

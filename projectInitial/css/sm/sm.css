@@ -1,0 +1,26 @@
+/********************/
+.x_panel { position: relative; width: 100%; margin-bottom: 10px; padding: 10px 17px; display: inline-block; background: #fff; border: 1px solid #E6E9ED; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; opacity: 1; -moz-transition: all .2s ease; -o-transition: all .2s ease; -webkit-transition: all .2s ease; -ms-transition: all .2s ease; transition: all .2s ease; }
+.x_title { color:#488DD5; border-bottom: 2px solid #307779;/**E6E9ED**/ padding: 1px 5px 3px; margin-bottom: 10px; }
+.x_title .filter { width: 40%; float: right; }
+.x_title h2 { margin: 5px 0 6px; float: left; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-weight:bold; }
+.x_title h2 small { margin-left: 10px; }
+.x_title span { color: #BDBDBD; }
+.x_content { padding: 0 5px 6px; position: relative; width: 100%; float: left; clear: both; margin-top: 5px; }
+.x_content h4 { font-size: 16px; font-weight: 500; }
+
+
+/*******业务主题词*******/
+.bar_bj {width: 100%;}
+.bar_du { border: 3px #fff solid; height: 10px; border-radius: 20px; float: left; width: 0; height: 100%; font-size: 12px; color: white; text-align: center; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); background-color: #0E90D2; background-image: -moz-linear-gradient(top, #149BDF, #0480BE); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149BDF), to(#0480BE) ); background-image: -webkit-linear-gradient(top, #149BDF, #0480BE); background-image: -o-linear-gradient(top, #149BDF, #0480BE); background-image: linear-gradient(to bottom, #029AE8, #029AE8); background-repeat: repeat-x; filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr = '#ff149bdf', endColorstr = '#ff0480be', GradientType = 0 ); -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15); box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15); -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: width 0.6s ease; -moz-transition: width 0.6s ease; -o-transition: width 0.6s ease; transition: width 0.6s ease; height: 15px; }
+
+/*******行数截取*******/
+.line_feed_1{
+	display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+#weibo_01{background:url("../img/mblog_trend.png");background-size:100% 100%;}
+#weibo_02{background:url("../img/mblog_trend.png");background-size:100% 100%;}

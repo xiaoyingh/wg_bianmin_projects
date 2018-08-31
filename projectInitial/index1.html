@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>国办政务云</title>
+    <link rel="stylesheet" href="css/wf_base.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/wf_fonts.css">
+    <link rel="stylesheet" href="css/jquery.lineProgressbar.min.css">
+    <link rel="stylesheet" href="css/wf_index.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/tendina.js"></script>
+    <!-- bootstarp 字体图标加入 -->
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/vendor/themify-icons/css/themify-icons.css">
+    <!-- my fonts 字体图标加入 -->
+
+    <link rel="stylesheet" href="css/myfonts.css">
+    <script src="js/echarts.min.js"></script>
+    <!-- bootstarp table  组件加载 -->
+    <link rel="stylesheet" href="css/dataTables/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/topic_style.css">
+    <script src="js/bootstrap-table.js"></script>
+
+    <!-- 时间插件加入 -->
+    <link rel="stylesheet" type="text/css" href="js/datepicker/daterangepicker-bs3.css" />
+    <script src="js/datepicker/moment.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/datepicker/daterangepicker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap-daterangepicker/option.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        .service_box {
+            background: #fff;
+        }
+
+        .search_btn {
+            font-size: 18px;
+            color: #fff;
+            background: #33a0d6;
+            border: 0;
+            padding: 9px 14px;
+            margin-top: 9px;
+            border-radius: 6px;
+        }
+
+        .tip {
+            padding-left: 20px;
+            margin-bottom: 4px;
+        }
+
+        .tip li {
+            float: left;
+            color: #9cb0ba;
+        }
+
+        .tip li {
+            margin-right: 20px;
+        }
+
+        .tip li:nth-child(1) {
+            margin-right: 0px;
+        }
+
+        /* 采集刻画小图标 */
+
+        .caiIcon {
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            background: url("img/cai.png") no-repeat;
+        }
+
+        /* 系统退出 */
+
+        .sign_out {
+            float: right;
+            margin-right: 30px;
+            color: #989d9c;
+        }
+
+        .sign_out span {
+            font-size: 16px;
+        }
+
+        /* 服务列表 */
+
+        .service_list li {
+            float: left;
+            width: 19.5%;
+            height: 56px;
+            text-align: center;
+            line-height: 56px;
+            color: #ffffff;
+            margin-right: 0.2%;
+            margin-bottom: 0.2%;
+        }
+
+        .service_list .glyphicon {
+            font-size: 30px;
+            position: relative;
+            top: 7px;
+        }
+
+        .service_list li span:nth-child(2) {
+            margin-left: 6px;
+        }
+
+        /* 服务详细列表 */
+
+        .search_service ul,
+        .rankings ul {
+            margin-top: 15px;
+        }
+
+        .search_service li,
+        .rankings li {
+            display: flex;
+            border-bottom: 1px dashed #9cb0ba;
+            margin-top: 15px;
+            padding-bottom: 30px;
+        }
+
+        .search_service li:nth-child(1) {
+            margin-top: 16px;
+        }
+
+        .idCard {
+            flex: 0 0 40px;
+        }
+
+        .idCard span {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            width: 20px;
+            border-radius: 2px;
+            background: #005490;
+            color: #fff;
+            text-align: center;
+        }
+
+        .ser_content {
+            flex: 1;
+        }
+
+        .ser_content .title {
+            height: 38px;
+            line-height: 21px;
+            padding: 0;
+        }
+
+        .ser_content .title p {
+            padding: 0px;
+            color: #383833;
+        }
+
+        .ser_content .msg {
+            display: flex;
+        }
+
+        .ser_content .msg span {
+            color: #9d9e99;
+            flex: 1;
+        }
+
+        .ser_content .msg p {
+            color: #9d9e99;
+            flex: 10;
+
+        }
+
+        .ser_content .msg .sign span {
+            display: inline-block;
+            border: 1px solid #c9cecc;
+            border-radius: 4px;
+            padding: 0px 2px;
+            color: #383833;
+        }
+
+        /* 服务排行 */
+
+        .rankings .ser_content .msg span {
+            flex: 2;
+        }
+
+        /* 热词服务 */
+
+        #timeTrend_container_one .a13_10 {
+            top: 49%;
+            height: 49%;
+        }
+
+        #timeTrend_container_one .a13_11 {
+            height: 46%;
+        }
+
+        #timeTrend_container_one .a13_6 {
+            top: 100%;
+            height: 100%;
+        }
+
+        #timeTrend_container_one .a13_1 {
+            height: 96%;
+        }
+
+        #timeTrend_container_one .a13_2 {
+            top: 111%;
+            height: 89%;
+        }
+
+        #timeTrend_container_one .a13_5 {
+            height: 107%;
+        }
+
+        #timeTrend_container_one {
+            height: 130px;
+        }
+
+        .artist .a9_1 {
+            background: #ffb706;
+        }
+
+        .artist .a9_2 {
+            background: #3499da;
+        }
+
+        .artist .a9_3 {
+            background: #67c2ef;
+        }
+
+        .artist .a9_4 {
+            background: #9b59b5;
+        }
+
+        .artist .a9_5 {
+            background: #ffb706;
+        }
+
+        .artist .a9_6 {
+            background: #677adc;
+        }
+
+        .artist .a9_7 {
+            background: #ff5453;
+        }
+
+        .artist .a9_8 {
+            background: #65c4eb;
+        }
+
+        .artist .a9_9 {
+            background: #67c2ef;
+        }
+
+        .artist .a9_1 label {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="header clearfix">
+        <div class="logo">
+            <img src="img/logo.png" alt="" width="48" height="48">
+        </div>
+        <p class="header-msg">政务综合数据辅助决策系统</p>
+    </div> -->
+
+    <!-- 侧边栏 -->
+    <div class="main">
+        <div class="sidebar">
+            <div class="title">
+                <p>LOGO</p>
+            </div>
+            <div class="list">
+                <ul id="menu">
+                    <li>
+                        <a href="./index.html">
+                            <span class="glyphicon icon-fl"></span>留言舆情分析</a>
+                    </li>
+                    <li style="background: #3697c9;position:relative;">
+                        <span style="position:absolute;height:100%;width:5px;display:block;background:#f5b96c;"></span>
+                        <a href="./index1.html">
+                            <span class="glyphicon glyphicon-search"></span>个性化推送管理</a>
+                    </li>
+                    <li>
+                        <a href="./index2.html">
+                            <span class="glyphicon icon-tb" style="font-size: 18px;"></span>日志管理</a>
+
+                    </li>
+                    <li>
+                        <a href="./index3.html">
+                            <span class="glyphicon icon-rl"></span>服务分析</a>
+
+                    </li>
+                    <li>
+                        <a href="./index4.html">
+                            <span class="glyphicon icon-cj"></span>用户刻画</a>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 主题内容 -->
+        <div class="content" style="padding: 0 15px;">
+            <div class="content-show">
+                <div class="title">
+                    <span class="glyphicon glyphicon-th-list" style="color:#7ea3c6;font-size: 16px;"></span>
+                    <p>欢迎访问管理系统</p>
+                    <div class="sign_out">
+                        <span class="icon-fh"></span>
+                        <span>退出系统</span>
+                    </div>
+                </div>
+                <div class="service_box clearfix">
+                    <div class="row form-group">
+                        <!-- 搜索 -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-11  col-xs-11 text_right" style="margin-top:8px;padding-right:0px;text-align:right;">
+                                    <input type="text" class="form-control" style="border:1px solid #e6e6e6;height:46px;">
+                                </div>
+                                <div class="col-md-1  col-xs-1">
+                                    <button class="search_btn">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 服务提示 -->
+                    <div class="tip clearfix">
+                        <ul>
+                            <li>服务热词：</li>
+                            <li>医疗卫生</li>
+                            <li>教育</li>
+                            <li>家政服务</li>
+                            <li>科技发展</li>
+                        </ul>
+                    </div>
+                    <!-- 热门服务 搜索 -->
+                    <div class="col-md-8 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">热门服务</h3>
+                                <!-- 热门服务 -->
+                            </div>
+                            <div class="panel-body service_list">
+                                <ul>
+                                    <li>
+                                        <span class="glyphicon icon-cy"></span>
+                                        <span>就业创业</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon icon-yl"></span>
+                                        <span>医疗卫生</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon icon-zf"></span>
+                                        <span>租房保障</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon icon-cy"></span>
+                                        <span>就业创业</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon icon-yl"></span>
+                                        <span>医疗卫生</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon fa fa-address-card-o"></span>
+                                        <span>户籍人口</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon fa fa-car"></span>
+                                        <span>交通运输</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon icon-cy"></span>
+                                        <span>就业创业</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon icon-yl"></span>
+                                        <span>医疗卫生</span>
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon fa fa-car"></span>
+                                        <span>交通运输</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">搜索服务列表</h3>
+                                <!-- 搜索服务列表 -->
+                            </div>
+                            <div class="panel-body search_service">
+                                <ul>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>1</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>全国投资项目在线申报和办理结果公示查询</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>其他</span>
+                                                </span>
+                                                <p>在线申报投资项目，查询全国申报项目情况和办理结果公示信息</p>
+                                                <span>
+                                                    <span>PV:</span>
+                                                    <span style="color:#ff8903">35w</span>
+                                                </span>
+                                                <span>
+                                                    <span>UV:</span>
+                                                    <span style="color:#ff8903">6</span>
+                                                </span>
+                                                <span>
+                                                    <span>排名:</span>
+                                                    <span style="color:#ff8903">3</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>2</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>企业及个人信用查询</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>其他</span>
+                                                </span>
+                                                <p>查询企业及个人守信红名单、黑名单、行政处罚等信息</p>
+                                                <span>
+                                                    <span>PV:</span>
+                                                    <span style="color:#ff8903">35w</span>
+                                                </span>
+                                                <span>
+                                                    <span>UV:</span>
+                                                    <span style="color:#ff8903">6</span>
+                                                </span>
+                                                <span>
+                                                    <span>排名:</span>
+                                                    <span style="color:#ff8903">3</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>3</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>税收计算机</p>
+                                                <span>山东</span>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>税收财务</span>
+                                                </span>
+                                                <p>算算您在山东省的应激税款和税后收入</p>
+                                                <span>
+                                                    <span>PV:</span>
+                                                    <span style="color:#ff8903">35w</span>
+                                                </span>
+                                                <span>
+                                                    <span>UV:</span>
+                                                    <span style="color:#ff8903">6</span>
+                                                </span>
+                                                <span>
+                                                    <span>排名:</span>
+                                                    <span style="color:#ff8903">3</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>4</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>投诉举报</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>消费维权</span>
+                                                </span>
+                                                <p>涉企收费投诉、诈骗短信举报、环境污染举报等</p>
+                                                <span>
+                                                    <span>PV:</span>
+                                                    <span style="color:#ff8903">35w</span>
+                                                </span>
+                                                <span>
+                                                    <span>UV:</span>
+                                                    <span style="color:#ff8903">6</span>
+                                                </span>
+                                                <span>
+                                                    <span>排名:</span>
+                                                    <span style="color:#ff8903">3</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>5</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>职业资格查询</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>就业创业</span>
+                                                </span>
+                                                <p>查询那些职业资格仍保留，那些已被取消</p>
+                                                <span>
+                                                    <span>PV:</span>
+                                                    <span style="color:#ff8903">35w</span>
+                                                </span>
+                                                <span>
+                                                    <span>UV:</span>
+                                                    <span style="color:#ff8903">6</span>
+                                                </span>
+                                                <span>
+                                                    <span>排名:</span>
+                                                    <span style="color:#ff8903">3</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 搜索服务列表 -->
+                    <div class="col-md-4 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">服务专题排行</h3>
+                                <!-- 服务专题排行 -->
+                            </div>
+                            <div class="panel-body rankings">
+                                <ul>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>1</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>税收计算机</p>
+                                                <span>山东</span>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>税收财务</span>
+                                                </span>
+                                                <p>算算您在山东省的应激税款和税后收入</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>2</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>职业资格查询</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>消费维权</span>
+                                                </span>
+                                                <p>涉企收费投诉、诈骗短信举报、环境污染举报等</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>3</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>职业资格查询</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>就业创业</span>
+                                                </span>
+                                                <p>查询那些职业资格仍保留，那些已被取消</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="idCard">
+                                            <span>4</span>
+                                        </div>
+                                        <div class="ser_content">
+                                            <div class="title">
+                                                <p>职业资格查询</p>
+                                            </div>
+                                            <div class="msg">
+                                                <span class="sign">
+                                                    <span>就业创业</span>
+                                                </span>
+                                                <p>查询那些职业资格仍保留，那些已被取消</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">热词服务</h3>
+                                <!-- 任务筛选 -->
+                            </div>
+                            <div class="panel-body artist" id="timeTrend_container_one">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 分析及服务端数据可视化 -->
+                    <div class="col-md-12 pl0">
+                        <div class="panel col-md-4 pl0" style="margin-bottom: 0;">
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">服务访问时长</h3>
+                                <!-- 服务访问时长 -->
+                            </div>
+                            <div class="panel-body" id="timeLength" style="height:350px;">
+
+                            </div>
+                        </div>
+                        <div class="panel col-md-4 pl0" style="margin-bottom: 0;">
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">服务使用操作系统</h3>
+                                <!-- 服务使用操作系统 -->
+                            </div>
+                            <div class="panel-body" id="system" style="height:350px;">
+
+                            </div>
+                        </div>
+                        <div class="panel col-md-4 pl0" style="margin-bottom: 0;">
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">服务访问终端</h3>
+                                <!-- 服务使用操作系统 -->
+                            </div>
+                            <div class="panel-body" id="terminal" style="height:350px;">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 服务访问趋势 -->
+                    <div class="col-md-12 pl0">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="glyphicon fa fa-file-text-o"></span>
+                                <h3 class="panel-title">服务访问趋势</h3>
+                                <!-- 服务访问趋势 -->
+                            </div>
+                            <div class="panel-body" id="trend" style="height:300px;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗添加内容 -->
+
+    <div id="addTask"></div>
+    <script>
+        $('#menu').tendina();
+        $(".service_list li").each(function (i, v) {
+            if ($(v).children().eq(1).html() == '就业创业') {
+                $(this).css({ "background": "#1e97b1" });
+            } else if ($(v).children().eq(1).html() == '医疗卫生') {
+                $(this).css({ "background": "#e0ac3c" });
+            } else if ($(v).children().eq(1).html() == '租房保障') {
+                $(this).css({ "background": "#1e5d99" });
+            } else if ($(v).children().eq(1).html() == '户籍人口') {
+                $(this).css({ "background": "#649cd2" });
+            } else {
+                $(this).css({ "background": "#3699cd" });
+            }
+        })
+        // 热词服务数据
+        var datas = [
+            {
+                hot: 20,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "重庆永川煤矿"
+            },
+            {
+                hot: 43,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "致15死全市"
+            },
+            {
+                hot: 22,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "生死求援重庆"
+            },
+            {
+                hot: 32,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "重庆金山沟煤"
+            },
+            {
+                hot: 16,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "重庆永川煤矿"
+            },
+            {
+                hot: 50,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "致15死全市"
+            },
+            {
+                hot: 32,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "致15死全市"
+            },
+            {
+                hot: 20,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "致15死全市"
+            },
+            {
+                hot: 15,
+                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+                kw: "致15死全市"
+            }
+        ]
+        // 热词服务加载
+        $("#timeTrend_container_one").empty();
+
+        var num = datas.length;
+
+        if (num > 15) { num = 15; }//最多显示20块
+
+        var data = [];//存放数据        模块的大小和颜色已经按照从1开始的顺序默认排序   如果有热度或者权重，最好提前按照从大到小排序
+
+        var daa = {};
+
+        $.each(datas, function (i, n) {
+
+            daa = {};
+
+            daa.img = 0;//是否显示图片
+
+            daa.content = n.kw;
+
+            daa.title = n.kw
+
+            //daa.title=n.kw.length>6?n.kw.substring(0,6):n.kw;
+
+            daa.idList = n.ids;
+
+            daa.kg = n.kg;
+
+            daa.kw = n.kw.replace(/\"/g, "**");
+
+            data.push(daa);
+
+        });
+        //调用函数
+
+        ShowTime(num, data, "#timeTrend_container_one");
+        function ShowTime(num, data, h) {
+            var appe = "";
+
+            for (var i = 0; i < num; i++) {
+
+                appe = "";
+
+                var k = num + "_" + (i + 1);
+
+                if (parseInt(data[i].img) == 1) {
+
+                    appe = '<li class="a' + k + '"><img  src="' + data[i].picpath + '" alt="' + data[i].title + '"  />' +
+
+                        '</li>';
+
+                } else {
+
+                    appe = '<li class="a' + k + '"><label><span style="cursor: pointer;"  class="nameInfo" idList="' + data[i].idList + '" kw="' + data[i].kw + '"  kg="' + data[i].kg + '"  tooltip="' + data[i].content.replace(new RegExp(/\"/g), '\'') + '">' + data[i].title + '</span></label>' +
+
+                        '</li>';
+
+                }
+
+                $(h).append(appe);
+
+                var divH = $("#timeTrend_container_one li").eq(i).height();
+
+                var $p = $("span", $("#timeTrend_container_one li").eq(i)).eq(0);
+
+                var $labelH = $("label", $("#timeTrend_container_one li").eq(i)).eq(0).height();
+
+                if ($p.outerHeight() > divH) {
+
+                    var lh = parseInt($("span", $("#timeTrend_container_one li").eq(i)).eq(0).css('line-height'))
+
+                    var clamp = parseInt($labelH / lh)
+
+                    $p.css('-webkit-line-clamp', JSON.stringify(clamp));
+
+                };
+
+            }
+
+        }
+
+
+        // 服务访问时长echarts 
+
+        var timeData = {
+            data: ["228", "656", "765", "694", "813", "832", "861", "767", "659", "701", "842", "865", "762", "768", "658", "599", "593", "666", "910", "882", "611"],
+            time: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+        };
+        var myChart = echarts.init(document.getElementById('timeLength'));
+        var option = {
+            color: ['#55acee', '#42505a', "#4fa4eb", "#3b840c", "#910d0b", "#7de6f2", "#a08f28", "#3a59c0"],
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                x: 50,
+                y: 30,
+                x2: 10,
+                y2: 40
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: { title: "下载" }
+                },
+                right: 0
+            },
+            xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                splitLine: { show: false },
+                axisTick: {
+                    show: false
+                },  
+                data: timeData.time
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }],
+            series: [{
+                //name : '数据量',
+                name: '数据量',
+                type: 'line',
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+                            type: 'default',
+                            color: "#e6f8fd"
+                        },
+                        color: "#61cdea"
+                    }
+                },
+                data: timeData.data
+            }]
+        };
+        myChart.clear();
+        myChart.setOption(option);
+        // 服务使用操作系统
+        var myChart = echarts.init(document.getElementById('system'));
+        option1 = {
+            title: {
+                text: ''
+            },
+            grid: {
+                left: 50,
+                top: 20,
+                right: 40,
+                bottom: 40
+            },
+            tooltip: {
+                show: false,
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: { title: "下载" }
+                },
+                right: 0
+            },
+            radar: {
+                // shape: 'circle',
+                indicator: [
+                    { name: 'Windows', max: 6500 },
+                    { name: 'Windows7', max: 16000 },
+                    { name: 'IOS', max: 30000 },
+                    { name: 'Mac OS', max: 38000 },
+                    { name: 'Windows8', max: 52000 },
+                    { name: 'Windows Yota', max: 25000 },
+                    { name: 'dows 10', max: 52000 },
+                    { name: 'WindowsXP', max: 52000 },
+                    { name: 'Windows8', max: 52000 },
+                    { name: 'Cheome OS', max: 52000 },
+                    { name: 'Android', max: 52000 },
+                ]
+            },
+            series: [{
+                name: '',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                data: [
+                    {
+                        value: [4300, 0, 0, 0, 50000, 0, 4300, 0, 0, 35000, 3, 0, 0],
+                        name: '系统使用数据量'
+                    }
+                ]
+            }]
+        };
+
+        myChart.clear();
+        myChart.setOption(option1);
+
+
+
+        // 服务访问终端
+        var myChart = echarts.init(document.getElementById('terminal'));
+
+        option2 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            grid: {
+                left: 50,
+                top: 40,
+                right: 40,
+                bottom: 40
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['1', '2', '3', '4', '5'],
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    splitLine: { show: false },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    splitLine: { show: false },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: '#afb4c3'
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '蒸发量',
+                    type: 'bar',
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#73c6e9"
+                        }
+                    },
+                    data: [2.0, 4.9, 7.0, 6.4, 3.3]
+                },
+                {
+                    name: '降水量',
+                    type: 'bar',
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#af8ed0"
+                        }
+                    },
+                    data: [2.6, 5.9, 4, 6.0, 2.3]
+                },
+                {
+                    "name": "已办结",
+                    "type": "bar",
+                    "barMaxWidth": "40",
+                    "barGap": "0%",
+                    "z": 10,
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#58d79d"
+                        }
+                    },
+                    "data": [2.0, 2.2, 3.3, 12.0, 6.2]
+                },
+                {
+                    name: '平均温度',
+                    type: 'line',
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#ff9080"
+                        }
+                    },
+                    data: [6.0, 7.2, 10.3, 12.0, 6.2]
+                }
+
+            ]
+        };
+
+        myChart.clear();
+        myChart.setOption(option2);
+
+
+        // 服务访问趋势
+
+        var myChart = echarts.init(document.getElementById('trend'));
+
+        option3 = {
+            grid: {
+                left: 50,
+                top: 40,
+                right: 40,
+                bottom: 40
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['5月11日', '5月12日', '5月13日', '5月14日', '5月15日', '5月16日', '5月17日', '5月18日', '5月19日', '5月20日', '5月21日', '5月22日', '5月23日'],
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '值',
+                }
+            ],
+            series: [
+                {
+                    name: '蒸发量',
+                    type: 'line',
+                    smooth: true,
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#b8a5e0"
+                        }
+                    },
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                        ]
+                    },
+                    data: [2.0, 4.9, 7.0, 6.4, 3.3, 2.0, 4.9, 7.0, 6.4, 3.3, 3.6, 6, 9]
+                },
+                {
+                    name: '降水量',
+                    type: 'line',
+                    smooth: true,
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#5ab2ef"
+                        }
+                    },
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                        ]
+                    },
+                    data: [2.6, 5.9, 4, 6.0, 2.3, 2.6, 5.9, 4, 6.0, 2.3, 6, 4, 1]
+                },
+                {
+                    "name": "已办结",
+                    "type": "line",
+                    smooth: true,
+                    "barMaxWidth": "40",
+                    "barGap": "0%",
+                    "z": 10,
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                        ]
+                    },
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#2dc8c7"
+                        }
+                    },
+                    "data": [2.0, 2.2, 3.3, 12.0, 6.2, 2.6, 5.9, 4, 6.0, 2.3, 9, 1, 8]
+                },
+                {
+                    name: '平均温度',
+                    type: 'line',
+                    smooth: true,
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                        ]
+                    },
+                    "itemStyle": {
+                        "normal": {
+                            "color": "#ffba81"
+                        }
+                    },
+                    data: [6.0, 7.2, 10.3, 12.0, 6.2, 13, 5.9, 4, 6.0, 2.3, 3, 7, 10]
+                }
+
+            ]
+        };
+
+        myChart.clear();
+        myChart.setOption(option3);
+    </script>
+</body>
+
+</html>

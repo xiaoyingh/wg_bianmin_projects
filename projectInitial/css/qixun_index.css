@@ -1,0 +1,259 @@
+.qi_box{
+	width: 1200px;
+	margin: 0 auto;
+	font-family: '宋体'!important;
+}
+.qi_box_left{
+	width: 800px;
+	float: left;
+	padding-bottom: 25px;
+}
+.qi_box_right{
+	width: 375px;
+	float: right;
+}
+.qi_name{
+	width: 42px;
+	height: 85px;
+	display: inline-block;
+	float: left;
+	box-sizing: border-box;
+	margin: 20px 0;
+	border-right: 1px solid #e8e8e8;
+	color: #94b7d3;
+	font-size: 14px;
+	line-height: 35px;
+	
+}
+.gain{
+	width:99%;
+	display: inline-block;
+	float: left;
+	box-sizing: border-box;
+	font-size: 14px;
+	padding: 25px 0 15px 18px;
+	position: relative;
+	padding-left: 0px;
+}
+.qi_details{
+	width:100%;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e8e8e8;
+	padding-right: 3px;
+	border-right: 1px solid #E8E8E8;
+}
+.gain p{
+	width: 670px;
+	height: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	color: #7a7a7a;
+	line-height: 16px;
+	margin-bottom: 16px;
+}
+.gain h5 img{
+	margin-left: 8px;
+}
+.gain h5{
+	margin-bottom: 16px;
+	    height: 16px;
+}
+.font_icon a{
+	color: #5699cd;
+	font-size: 10px;
+	margin-right: 16px;
+}
+.font_icon a,.xinlang{
+	display: inline-block;
+	float: left;
+}
+.xinlang_name{
+	font-size: 12px;
+	color: #6fb6ee;
+}
+.date{
+	font-size: 9px;
+	color: #86bfec;
+}
+.pingjia1,.pingjia2,.pingjia3{
+	width: 45px;
+	height: 17px;
+	display: inline-block;
+	border: 1px solid #d12929;
+	border-radius: 5px;
+	color: #d12929;
+	font-size: 12px;
+	text-align: center;
+	line-height: 17px;
+	margin-left: 15px;
+}
+.pingjia2{
+	border: 1px solid #399434;
+	color: #399434;
+}
+.pingjia3{
+	border: 1px solid #dbcb2d;
+	color: #dbcb2d;
+}
+.gain h5{
+	margin-bottom: 16px;
+	}
+.fenxi{
+	width: 66px;
+	height: 21px;
+	display: inline-block;
+	border: 1px solid #3585c2;
+	color: #3585c2;
+	border-radius:3px;
+	text-align: center;
+	line-height: 21px;
+	position: absolute;
+	top: 19px;
+	right: 16px;
+}
+.fenxi a{
+	width: 66px;
+	margin: 0;
+	font-size: 12px;
+	display: inline-block;
+	
+}
+.web_hot{
+	width: 100%;
+}
+.title-one{
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #dedede;
+}
+.web_hot_title{
+	height: 39px;
+	line-height: 39px;
+	padding-left: 3px;
+	font-size: 16px;
+	color: #7f7f7f;
+	display: inline-block;
+	float: left;
+	border-bottom: 2px solid #95bede;
+    
+}
+.file{
+	font-size: 14px;
+	height: 38px;
+	color: #7f7f7f;
+	display: inline-block;
+	float: right;
+	border: none;
+	margin: 0;
+}
+.list_title{
+	width: 100%;
+	height: 34px;
+	border-bottom: 1px solid #ebebeb;
+	background: #f9f9f9!important;
+}
+.list_title h5{
+	width: 20%;
+	display: inline-block;
+	font-size: 12px;
+	color: #8d8d8d;
+	text-align: center;
+	margin-top: 10px;
+}
+.list_title h5:nth-of-type(1){
+	width: 15%;
+}
+.list_title h5:nth-of-type(5){
+	width: 15%;
+}
+.list-ul{
+	width: 100%;
+	border-bottom: 1px solid #ebebeb;
+}
+.list-ul li{
+	width: 20%;
+	float: left;
+	text-align: center;
+	line-height: 37px;
+	font-size: 10px;
+}
+.list-ul li:nth-of-type(1){
+	width: 17%;
+}
+.list-ul li:nth-of-type(5){
+	width: 20%;
+	text-align: center;
+	text-indent: 15px;
+}
+.list-ul a{
+	display: block;
+}
+
+.hot-b{
+	width: 100%;
+	display: inline-block;
+	border-radius: 50%; 
+}
+.one{
+	display: inline-block;
+	width: 60%;
+	height: 11px;
+	background: #74b7eb;
+	border-radius: 5px 0px 0px 5px;
+}
+.two{
+	display: inline-block;
+	width: 20%;
+	height: 11px;
+	background: #ffcb7f;
+	
+}
+.three{
+	display: inline-block;
+	width: 20%;
+	height: 11px;
+	background: #8cc57e;
+	border-radius: 0px 5px 5px 0px;
+}
+.bar,.report_box{
+	width: 100%;
+	margin: 12px 0 0 10px;
+	position: relative;
+	border-bottom: 1px solid #dedede;
+}
+.bar_title,.report_title{
+	width: 100%;
+	height: 37px;
+	border-bottom: 1px solid #dedede;
+}
+.bar_title h5,.report_title h5{
+	height: 37px;
+    line-height: 37px;
+    font-size: 16px;
+    color: #7f7f7f;
+    display: inline-block;
+    border-bottom: 2px solid #95bede;
+}
+#main_pie{
+	width: 335px;
+	height: 328px;
+
+}
+.center{
+	width: 108px;
+	position: absolute;
+	color: #439ee5;
+	font-size: 14px;
+	top: 50%;
+	left: 50%;
+	margin-left: -54px;
+	margin-top: 8px;
+}
+.report_title h5{
+	color: #7d7d7d;
+}
+#main_{
+	width: 300px;
+	height: 300px;
+}
