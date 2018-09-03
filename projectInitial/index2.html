@@ -732,346 +732,369 @@
         $('#menu').tendina();
         $(".theme_list li").unbind().click(function () {
             $(this).addClass("active").siblings().removeClass("active");
+            getHotData();
+            getChannelData();
+            sexCharts();
+            getUserData();
         })
-
+        $(".theme_list li").eq(0).click();
 
         // 热点地域热词
-
-        var hotData = [
-            { view: "武汉 长沙", ids: "40205" },
-            { view: "天津 重庆", ids: "40205" },
-            { view: "连云港", ids: "40205" },
-            { view: "北京 上海", ids: "40205" },
-            { view: "深圳", ids: "40205" },
-            { view: "成都 桂林", ids: "40205" },
-            { view: "青岛 南宁 大连", ids: "40205" },
-            { view: "合肥 南京 黑龙江", ids: "40205" },
-            { view: "长春 哈尔滨", ids: "40205" },
-            { view: "徐州 青岛", ids: "40205" },
-        ]
-        var entries_ = [];
-        hotData.forEach(function (v, i) {
-            if (i < 3) {
-                entries_.push({
-                    label: v.view,
-                    "hot": 1
-                })
-            } else if (i < 6) {
-                entries_.push({
-                    label: v.view,
-                    "hot": 2
-                })
-            } else {
-                entries_.push({
-                    label: v.view
-                })
-            }
-
-        })
-        var settings = {
-            entries: entries_,
-            width: $("#hot_area").width(),
-            height: $("#hot_area").height(),
-            radius: '100%',
-            // radiusMin: 75,
-            bgDraw: false,
-            opacityOver: 1.00,
-            opacityOut: 0.05,
-            opacitySpeed: 6,
-            fov: 800,
-            speed: 0.5,
-            fontFamily: 'Oswald, Arial, sans-serif',
-            fontSize: '22',
-            fontColor: '#19aff9',
-            fontWeight: 'normal',
-            fontStyle: 'normal',
-            fontStretch: 'normal',
-            fontToUpperCase: true
-        };
-        $('#hot_area').svg3DTagCloud(settings);
+        function getHotData(){
+        	var hotData = [
+	            { view: "武汉 长沙", ids: "40205" },
+	            { view: "天津 重庆", ids: "40205" },
+	            { view: "连云港", ids: "40205" },
+	            { view: "北京 上海", ids: "40205" },
+	            { view: "深圳", ids: "40205" },
+	            { view: "成都 桂林", ids: "40205" },
+	            { view: "青岛 南宁 大连", ids: "40205" },
+	            { view: "合肥 南京 黑龙江", ids: "40205" },
+	            { view: "长春 哈尔滨", ids: "40205" },
+	            { view: "徐州 青岛", ids: "40205" },
+	        ]
+	        var entries_ = [];
+	        hotData.forEach(function (v, i) {
+	            if (i < 3) {
+	                entries_.push({
+	                    label: v.view,
+	                    "hot": 1
+	                })
+	            } else if (i < 6) {
+	                entries_.push({
+	                    label: v.view,
+	                    "hot": 2
+	                })
+	            } else {
+	                entries_.push({
+	                    label: v.view
+	                })
+	            }
+	
+	        });
+	        hotArea(entries_);
+        }
+        function hotArea(entries_){
+        	var settings = {
+	            entries: entries_,
+	            width: $("#hot_area").width(),
+	            height: $("#hot_area").height(),
+	            radius: '100%',
+	            // radiusMin: 75,
+	            bgDraw: false,
+	            opacityOver: 1.00,
+	            opacityOut: 0.05,
+	            opacitySpeed: 6,
+	            fov: 800,
+	            speed: 0.5,
+	            fontFamily: 'Oswald, Arial, sans-serif',
+	            fontSize: '22',
+	            fontColor: '#19aff9',
+	            fontWeight: 'normal',
+	            fontStyle: 'normal',
+	            fontStretch: 'normal',
+	            fontToUpperCase: true
+	        };
+	        $('#hot_area').svg3DTagCloud(settings);
+        }
+        
 
         //  访问渠道
+        function getChannelData(){
+        	var channelData = [
+	            { name: "朋友圈", value: 85376 },
+	            { name: "会话", value: 55376 },
+	            { name: "搜一搜", value: 25376 }
+	        ];
+	        channelDataCharts(channelData);
+        }
+        function channelDataCharts(channelData){
+        	var myChart = echarts.init(document.getElementById('channel'));
+	        option = {
+	            color: ['#5bbfe9', '#53cdc9', '#f6857a'],
+	            title: {
+	                text: '6251次',
+	                x: 'center',
+	                y: 'center',
+	                subtext: '3738人',
+	                textStyle: {
+	                    fontWeight: 'normal',
+	                    color: '#298fb8',
+	                    fontWeight: 'bold',
+	                    fontSize: '18'
+	                },
+	                subtextStyle: {
+	                    fontWeight: 'normal',
+	                    color: '#f08980',
+	                    fontWeight: 'bold',
+	                    fontSize: '18'
+	                }
+	            },
+	            tooltip: {
+	                trigger: 'item',
+	                formatter: "{a} <br/>{b}: {c} ({d}%)"
+	            },
+	            legend: {
+	                type: 'scroll',
+	                orient: 'vertical',
+	                right: 40,
+	                top: 20,
+	                bottom: 20,
+	                itemGap: 30,
+	                data: ["朋友圈", "会话", "搜一搜"],
+	                formatter: function (info) {
+	                    return '   74次    329人'
+	                }
+	            },
+	            series: [
+	                {
+	                    name: '访问来源',
+	                    type: 'pie',
+	                    radius: ['55%', '90%'],
+	                    labelLine: {
+	                        normal: {
+	                            show: true
+	                        }
+	                    },
+	                    itemStyle: { // 此配置
+	                        normal: {
+	                            borderWidth: 2,
+	                            borderColor: '#ffffff',
+	                        },
+	                        emphasis: {
+	                            borderWidth: 0,
+	                            shadowBlur: 2,
+	                            shadowOffsetX: 0,
+	                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+	                        }
+	                    },
+	                    data: channelData
+	                }
+	            ]
+	        };
+	        myChart.setOption(option);
 
-        var channelData = [
-            { name: "朋友圈", value: 85376 },
-            { name: "会话", value: 55376 },
-            { name: "搜一搜", value: 25376 }
-        ]
-        var myChart = echarts.init(document.getElementById('channel'));
-
-        option = {
-            color: ['#5bbfe9', '#53cdc9', '#f6857a'],
-            title: {
-                text: '6251次',
-                x: 'center',
-                y: 'center',
-                subtext: '3738人',
-                textStyle: {
-                    fontWeight: 'normal',
-                    color: '#298fb8',
-                    fontWeight: 'bold',
-                    fontSize: '18'
-                },
-                subtextStyle: {
-                    fontWeight: 'normal',
-                    color: '#f08980',
-                    fontWeight: 'bold',
-                    fontSize: '18'
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            legend: {
-                type: 'scroll',
-                orient: 'vertical',
-                right: 40,
-                top: 20,
-                bottom: 20,
-                itemGap: 30,
-                data: ["朋友圈", "会话", "搜一搜"],
-                formatter: function (info) {
-                    return '   74次    329人'
-                }
-            },
-            series: [
-                {
-                    name: '访问来源',
-                    type: 'pie',
-                    radius: ['55%', '90%'],
-                    labelLine: {
-                        normal: {
-                            show: true
-                        }
-                    },
-                    itemStyle: { // 此配置
-                        normal: {
-                            borderWidth: 2,
-                            borderColor: '#ffffff',
-                        },
-                        emphasis: {
-                            borderWidth: 0,
-                            shadowBlur: 2,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    },
-                    data: channelData
-                }
-            ]
-        };
-        myChart.setOption(option);
-
+        }
+        
 
         //  男女性别比例
-        var myChart = echarts.init(document.getElementById('sex'));
-        var sexData = { //标准参数
-            id: 'multipleThree',
-            title: '',
-            legend: ['男', '女'],
-            barWidth: 60,
-            yAxis: [''],
-            xAxis: [
-                [230],
-                [640]
-            ],
-            color: ['#4a91e2', '#43b748'],
+        function sexCharts(){
+        	var myChart = echarts.init(document.getElementById('sex'));
+	        var sexData = { //标准参数
+	            id: 'multipleThree',
+	            title: '',
+	            legend: ['男', '女'],
+	            barWidth: 60,
+	            yAxis: [''],
+	            xAxis: [
+	                [230],
+	                [640]
+	            ],
+	            color: ['#4a91e2', '#43b748'],
+	        }
+	
+	
+	        option1 = {
+	            backgroundColor: '#fff',
+	            legend: {
+	                bottom: 0,
+	                itemGap: 10,
+	                itemWidth: 10,
+	                itemHeight: 10,
+	                data: sexData.legend
+	            },
+	            color: sexData.color,
+	            grid: {
+	                left: 40,
+	                top: -30,
+	                right: 40,
+	                bottom: 50
+	            },
+	            xAxis: {
+	                // show: false
+	                splitLine: { show: false },//去除网格线
+	                color: "#687284",
+	                axisLine: {
+	                    show: false
+	                },
+	                axisTick: {
+	                    show: false
+	                },
+	                scale: false
+	
+	            },
+	            yAxis: [{
+	                show: false,
+	                type: 'category',
+	                axisLine: {
+	                    show: false
+	                },
+	                axisTick: {
+	                    show: false
+	                },
+	                axisLabel: {
+	                    show: true,
+	                    interval: '0',
+	                    textStyle: {
+	                        fontSize: 12,
+	                        color: '#687284',
+	                    },
+	                },
+	                data: sexData.yAxis
+	            }],
+	            series: [{
+	                name: sexData.legend[0],
+	                type: 'bar',
+	                barWidth: sexData.barWidth || 12,
+	                stack: '总量',
+	                label: {
+	                    normal: {
+	                        show: true,
+	                        position: 'left',
+	                        color: '#4a91e2',
+	                        fontSize: '10',
+	                        formatter: function (params) {
+	                            return '';
+	                        }
+	                    },
+	
+	                },
+	                data: sexData.xAxis[0]
+	            },
+	            {
+	                name: sexData.legend[1],
+	                type: 'bar',
+	                barWidth: sexData.barWidth || 12,
+	                stack: '总量',
+	                label: {
+	                    normal: {
+	                        show: true,
+	                        position: 'right',
+	                        color: 'red',
+	                        fontSize: '10',
+	                    },
+	
+	                },
+	                data: sexData.xAxis[1]
+	            },
+	            ]
+	        }
+	
+	        myChart.clear();
+	        myChart.setOption(option1);
         }
-
-
-        option1 = {
-            backgroundColor: '#fff',
-            legend: {
-                bottom: 0,
-                itemGap: 10,
-                itemWidth: 10,
-                itemHeight: 10,
-                data: sexData.legend
-            },
-            color: sexData.color,
-            grid: {
-                left: 40,
-                top: -30,
-                right: 40,
-                bottom: 50
-            },
-            xAxis: {
-                // show: false
-                splitLine: { show: false },//去除网格线
-                color: "#687284",
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                },
-                scale: false
-
-            },
-            yAxis: [{
-                show: false,
-                type: 'category',
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                },
-                axisLabel: {
-                    show: true,
-                    interval: '0',
-                    textStyle: {
-                        fontSize: 12,
-                        color: '#687284',
-                    },
-                },
-                data: sexData.yAxis
-            }],
-            series: [{
-                name: sexData.legend[0],
-                type: 'bar',
-                barWidth: sexData.barWidth || 12,
-                stack: '总量',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'left',
-                        color: '#4a91e2',
-                        fontSize: '10',
-                        formatter: function (params) {
-                            return '';
-                        }
-                    },
-
-                },
-                data: sexData.xAxis[0]
-            },
-            {
-                name: sexData.legend[1],
-                type: 'bar',
-                barWidth: sexData.barWidth || 12,
-                stack: '总量',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'right',
-                        color: 'red',
-                        fontSize: '10',
-                    },
-
-                },
-                data: sexData.xAxis[1]
-            },
-            ]
-        }
-
-        myChart.clear();
-        myChart.setOption(option1);
+        
 
         // 用户地区分布
-
-        var userData = [
-            { name: '北京', value: 2 },
-            { name: '天津', value: 321 },
-            { name: '上海', value: 312 },
-            { name: '重庆', value: 333 },
-            { name: '河北', value: 543 },
-            { name: '河南', value: 444 },
-            { name: '陕西', value: 312 },
-            { name: '山东', value: 23 },
-            { name: '浙江', value: 222 },
-            { name: '广东', value: 66 },
-        ];
-
-        var myChart = echarts.init(document.getElementById('user_area'));
-        var userDataArr = [];
-        userData.forEach(function (v, i) {
-            userDataArr.push(v.value);
-        })
-        var max = Math.max.apply(null, userDataArr);
-        var min = Math.min.apply(null, userDataArr);
-        option2 = {
-            // title: {
-            //     text: '企业销量',
-            //     subtext: '纯属虚构',
-            //     left: 'center'
-            // },
-            // tooltip: {
-            //     show: false,
-            //     trigger: 'item'
-            // },
-            legend: {
-                orient: 'vertical',
-                left: 'left',
-            },
-            visualMap: {
-                min: min,
-                max: max,
-                itemHeight: 600,
-                orient: 'horizontal',
-                left: '15%',
-                top: 'bottom',
-                inRange: {
-                    color: ['#a7cef2', '#6ba1dd']
-                },
-                calculable: true
-            },
-            series: [
-                {
-                    type: 'map',
-                    mapType: 'china',
-                    roam: false,
-                    itemStyle: {
-                        normal: {
-                            areaColor: 'RGB(163,200,237)'
-                        }
-                    },
-                    showLegendSymbol: false,
-                    label: {
-                        normal: {
-                            show: false
-                        },
-                        emphasis: {
-                            show: false
-                        }
-                    },
-                    data: userData
-                }
-            ]
-        };
-
-        myChart.clear();
-        myChart.setOption(option2);
-
+        function getUserData(){
+        	var userData = [
+	            { name: '北京', value: 2 },
+	            { name: '天津', value: 321 },
+	            { name: '上海', value: 312 },
+	            { name: '重庆', value: 333 },
+	            { name: '河北', value: 543 },
+	            { name: '河南', value: 444 },
+	            { name: '陕西', value: 312 },
+	            { name: '山东', value: 23 },
+	            { name: '浙江', value: 222 },
+	            { name: '广东', value: 66 },
+	        ];
+	        userDataCharts(userData);
+	        userDataSort(userData);
+	        userDataTable(userData);
+        }
+        function userDataCharts(userData){
+	        var myChart = echarts.init(document.getElementById('user_area'));
+	        var userDataArr = [];
+	        userData.forEach(function (v, i) {
+	            userDataArr.push(v.value);
+	        })
+	        var max = Math.max.apply(null, userDataArr);
+	        var min = Math.min.apply(null, userDataArr);
+	        option2 = {
+	            // title: {
+	            //     text: '企业销量',
+	            //     subtext: '纯属虚构',
+	            //     left: 'center'
+	            // },
+	            // tooltip: {
+	            //     show: false,
+	            //     trigger: 'item'
+	            // },
+	            legend: {
+	                orient: 'vertical',
+	                left: 'left',
+	            },
+	            visualMap: {
+	                min: min,
+	                max: max,
+	                itemHeight: 600,
+	                orient: 'horizontal',
+	                left: '15%',
+	                top: 'bottom',
+	                inRange: {
+	                    color: ['#a7cef2', '#6ba1dd']
+	                },
+	                calculable: true
+	            },
+	            series: [
+	                {
+	                    type: 'map',
+	                    mapType: 'china',
+	                    roam: false,
+	                    itemStyle: {
+	                        normal: {
+	                            areaColor: 'RGB(163,200,237)'
+	                        }
+	                    },
+	                    showLegendSymbol: false,
+	                    label: {
+	                        normal: {
+	                            show: false
+	                        },
+	                        emphasis: {
+	                            show: false
+	                        }
+	                    },
+	                    data: userData
+	                }
+	            ]
+	        };
+	
+	        myChart.clear();
+	        myChart.setOption(option2);
+        }
 
         // 用户列表
-        userData.sort(function (a, b) {
-            return b.value - a.value;
-        })
-        var listStr = `<table id="table1" style="border:0">
-                                    <thead>
-                                        <tr>
-                                            <th class="textC">省份</th>
-                                            <th class="textC wid20">用户数</th>
-                                            <th class="textC wid20"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>`;
-        userData.forEach(function (v, i) {
-            listStr += ` <tr>
-                            <td class="textC">${v.name}</td>
-                            <td class="textC">${v.value}</td>
-                            <td class="wid60">
-                                <div id="progressbar${i}"></div>
-                            </td>
-                        </tr>`
-        })
-        listStr += `</tbody>
-                </table>`;
-        // 设置进度条        
-        $("#user_list").html(listStr);
-        $(function () {
+        function userDataSort(userData){
+        	userData.sort(function (a, b) {
+	            return b.value - a.value;
+	        })
+	        var listStr = `<table id="table1" style="border:0">
+	                                    <thead>
+	                                        <tr>
+	                                            <th class="textC">省份</th>
+	                                            <th class="textC wid20">用户数</th>
+	                                            <th class="textC wid20"></th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>`;
+	        userData.forEach(function (v, i) {
+	            listStr += ` <tr>
+	                            <td class="textC">${v.name}</td>
+	                            <td class="textC">${v.value}</td>
+	                            <td class="wid60">
+	                                <div id="progressbar${i}"></div>
+	                            </td>
+	                        </tr>`
+	        })
+	        listStr += `</tbody>
+	                </table>`;
+	        // 设置进度条        
+	        $("#user_list").html(listStr);
+        }
+        
+        function userDataTable(userData) {
             $("#table1").DataTable({
                 "filter": false,
                 "lengthChange": false,
@@ -1116,104 +1139,112 @@
                     });
                 }     
             })
-        });
+        }
 
 
         // 用户地区分布趋势
         $(".headers li").unbind().click(function () {
             $(this).addClass("usre_active").siblings().removeClass("usre_active");
-        })
-        var userTrendData = {
-            time: ["2018-07-18", "2018-07-19", "2018-07-20", "2018-07-21", "2018-07-22", "2018-07-23", "2018-07-24", "2018-07-25", "2018-07-26", "2018-07-27", "2018-07-28", "2018-07-29", "2018-07-30", "2018-07-31", "2018-08-01", "2018-08-02", "2018-08-03", "2018-08-04", "2018-08-05", "2018-08-06",],
-            total: [21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541, 312, 76, 31, 65, 123, 1023, 321, 1300, 343],
-            count: [312, 76, 31, 65, 123, 1023, 321, 1300, 343, 21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541]
-        };
-        var myChart = echarts.init(document.getElementById('user_trend'));
-        option3 = {
-            grid: {
-                left: 50,
-                top: 40,
-                right: 40,
-                bottom: 40
-            },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    crossStyle: {
-                        color: '#999'
-                    }
-                }
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    data: userTrendData.time,
-                    splitLine: { show: false },
-                    axisTick: {
-                        show: false
-                    }, 
-                    axisPointer: {
-                        type: 'shadow'
-                    },
-                    axisLabel: {
-                        textStyle: {
-                            color: '#928b8d'
-                        }
-                    },
-                    axisLine: {
-                        lineStyle:{
-                            color: '#928b8d'
-                        }
-
-                    }
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    splitLine: { lineStyle:{ color: '#f3f3f3'} },
-                    axisLine: {
-                        show: false
-                    },
-                    axisTick: {
-                        show: false
-                    },
-                    axisLabel: {
-                        textStyle: {
-                            color: '#928b8d'
-                        }
-                    }
-                }
-            ],
-            series: [
-                {
-                    name: '蒸发量',
-                    type: 'line',
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#46af44"
-                        }
-                    },
-                    data: userTrendData.total
-                },
-                {
-                    name: '降水量',
-                    type: 'line',
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#4897d5"
-                        }
-                    },
-                    data: userTrendData.count
-                }
-
-            ]
-        };
-
-        myChart.clear();
-        myChart.setOption(option3);
-
+            getUserTrendData();
+        });
+        $(".headers li").eq(0).click();
+        //请求用户地区分布的数据
+        function getUserTrendData(){
+        	var userTrendData = {
+	            time: ["2018-07-18", "2018-07-19", "2018-07-20", "2018-07-21", "2018-07-22", "2018-07-23", "2018-07-24", "2018-07-25", "2018-07-26", "2018-07-27", "2018-07-28", "2018-07-29", "2018-07-30", "2018-07-31", "2018-08-01", "2018-08-02", "2018-08-03", "2018-08-04", "2018-08-05", "2018-08-06",],
+	            total: [21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541, 312, 76, 31, 65, 123, 1023, 321, 1300, 343],
+	            count: [312, 76, 31, 65, 123, 1023, 321, 1300, 343, 21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541]
+	        };
+	        userTrendCharts(userTrendData);
+        }
+        //用户地区数据画图表
+        function userTrendCharts(userTrendData){
+        	var myChart = echarts.init(document.getElementById('user_trend'));
+	        option3 = {
+	            grid: {
+	                left: 50,
+	                top: 40,
+	                right: 40,
+	                bottom: 40
+	            },
+	            tooltip: {
+	                trigger: 'axis',
+	                axisPointer: {
+	                    type: 'cross',
+	                    crossStyle: {
+	                        color: '#999'
+	                    }
+	                }
+	            },
+	            xAxis: [
+	                {
+	                    type: 'category',
+	                    data: userTrendData.time,
+	                    splitLine: { show: false },
+	                    axisTick: {
+	                        show: false
+	                    }, 
+	                    axisPointer: {
+	                        type: 'shadow'
+	                    },
+	                    axisLabel: {
+	                        textStyle: {
+	                            color: '#928b8d'
+	                        }
+	                    },
+	                    axisLine: {
+	                        lineStyle:{
+	                            color: '#928b8d'
+	                        }
+	
+	                    }
+	                }
+	            ],
+	            yAxis: [
+	                {
+	                    type: 'value',
+	                    splitLine: { lineStyle:{ color: '#f3f3f3'} },
+	                    axisLine: {
+	                        show: false
+	                    },
+	                    axisTick: {
+	                        show: false
+	                    },
+	                    axisLabel: {
+	                        textStyle: {
+	                            color: '#928b8d'
+	                        }
+	                    }
+	                }
+	            ],
+	            series: [
+	                {
+	                    name: '蒸发量',
+	                    type: 'line',
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#46af44"
+	                        }
+	                    },
+	                    data: userTrendData.total
+	                },
+	                {
+	                    name: '降水量',
+	                    type: 'line',
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#4897d5"
+	                        }
+	                    },
+	                    data: userTrendData.count
+	                }
+	
+	            ]
+	        };
+	        myChart.clear();
+	        myChart.setOption(option3);
+        }
+        
 
 
         ////////数据详细列表
