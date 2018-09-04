@@ -736,6 +736,7 @@
             getChannelData();
             sexCharts();
             getUserData();
+            userTrendDataFun();
         })
         $(".theme_list li").eq(0).click();
 
@@ -1000,8 +1001,6 @@
 	            { name: '广东', value: 66 },
 	        ];
 	        userDataCharts(userData);
-	        userDataSort(userData);
-	        userDataTable(userData);
         }
         function userDataCharts(userData){
 	        var myChart = echarts.init(document.getElementById('user_area'));
@@ -1063,10 +1062,13 @@
 	
 	        myChart.clear();
 	        myChart.setOption(option2);
+	        
+	        userDataTable(userData,max);
         }
 
         // 用户列表
-        function userDataSort(userData){
+        
+        function userDataTable(userData,max) {
         	userData.sort(function (a, b) {
 	            return b.value - a.value;
 	        })
@@ -1092,9 +1094,7 @@
 	                </table>`;
 	        // 设置进度条        
 	        $("#user_list").html(listStr);
-        }
-        
-        function userDataTable(userData) {
+        	
             $("#table1").DataTable({
                 "filter": false,
                 "lengthChange": false,
@@ -1143,108 +1143,109 @@
 
 
         // 用户地区分布趋势
-        $(".headers li").unbind().click(function () {
-            $(this).addClass("usre_active").siblings().removeClass("usre_active");
-            getUserTrendData();
-        });
-        $(".headers li").eq(0).click();
-        //请求用户地区分布的数据
-        function getUserTrendData(){
-        	var userTrendData = {
-	            time: ["2018-07-18", "2018-07-19", "2018-07-20", "2018-07-21", "2018-07-22", "2018-07-23", "2018-07-24", "2018-07-25", "2018-07-26", "2018-07-27", "2018-07-28", "2018-07-29", "2018-07-30", "2018-07-31", "2018-08-01", "2018-08-02", "2018-08-03", "2018-08-04", "2018-08-05", "2018-08-06",],
-	            total: [21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541, 312, 76, 31, 65, 123, 1023, 321, 1300, 343],
-	            count: [312, 76, 31, 65, 123, 1023, 321, 1300, 343, 21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541]
-	        };
-	        userTrendCharts(userTrendData);
+        function userTrendDataFun(){
+	        $(".headers li").unbind().click(function () {
+	            $(this).addClass("usre_active").siblings().removeClass("usre_active");
+	            getUserTrendData();
+	        });
+	        $(".headers li").eq(0).click();
+	        //请求用户地区分布的数据
+	        function getUserTrendData(){
+	        	var userTrendData = {
+		            time: ["2018-07-18", "2018-07-19", "2018-07-20", "2018-07-21", "2018-07-22", "2018-07-23", "2018-07-24", "2018-07-25", "2018-07-26", "2018-07-27", "2018-07-28", "2018-07-29", "2018-07-30", "2018-07-31", "2018-08-01", "2018-08-02", "2018-08-03", "2018-08-04", "2018-08-05", "2018-08-06",],
+		            total: [21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541, 312, 76, 31, 65, 123, 1023, 321, 1300, 343],
+		            count: [312, 76, 31, 65, 123, 1023, 321, 1300, 343, 21, 32, 54, 54, 76, 1, 65, 888, 432, 545, 541]
+		        };
+		        userTrendCharts(userTrendData);
+	        }
+	        //用户地区数据画图表
+	        function userTrendCharts(userTrendData){
+	        	var myChart = echarts.init(document.getElementById('user_trend'));
+		        option3 = {
+		            grid: {
+		                left: 50,
+		                top: 40,
+		                right: 40,
+		                bottom: 40
+		            },
+		            tooltip: {
+		                trigger: 'axis',
+		                axisPointer: {
+		                    type: 'cross',
+		                    crossStyle: {
+		                        color: '#999'
+		                    }
+		                }
+		            },
+		            xAxis: [
+		                {
+		                    type: 'category',
+		                    data: userTrendData.time,
+		                    splitLine: { show: false },
+		                    axisTick: {
+		                        show: false
+		                    }, 
+		                    axisPointer: {
+		                        type: 'shadow'
+		                    },
+		                    axisLabel: {
+		                        textStyle: {
+		                            color: '#928b8d'
+		                        }
+		                    },
+		                    axisLine: {
+		                        lineStyle:{
+		                            color: '#928b8d'
+		                        }
+		
+		                    }
+		                }
+		            ],
+		            yAxis: [
+		                {
+		                    type: 'value',
+		                    splitLine: { lineStyle:{ color: '#f3f3f3'} },
+		                    axisLine: {
+		                        show: false
+		                    },
+		                    axisTick: {
+		                        show: false
+		                    },
+		                    axisLabel: {
+		                        textStyle: {
+		                            color: '#928b8d'
+		                        }
+		                    }
+		                }
+		            ],
+		            series: [
+		                {
+		                    name: '蒸发量',
+		                    type: 'line',
+		                    "itemStyle": {
+		                        "normal": {
+		                            "color": "#46af44"
+		                        }
+		                    },
+		                    data: userTrendData.total
+		                },
+		                {
+		                    name: '降水量',
+		                    type: 'line',
+		                    "itemStyle": {
+		                        "normal": {
+		                            "color": "#4897d5"
+		                        }
+		                    },
+		                    data: userTrendData.count
+		                }
+		
+		            ]
+		        };
+		        myChart.clear();
+		        myChart.setOption(option3);
+	        }
         }
-        //用户地区数据画图表
-        function userTrendCharts(userTrendData){
-        	var myChart = echarts.init(document.getElementById('user_trend'));
-	        option3 = {
-	            grid: {
-	                left: 50,
-	                top: 40,
-	                right: 40,
-	                bottom: 40
-	            },
-	            tooltip: {
-	                trigger: 'axis',
-	                axisPointer: {
-	                    type: 'cross',
-	                    crossStyle: {
-	                        color: '#999'
-	                    }
-	                }
-	            },
-	            xAxis: [
-	                {
-	                    type: 'category',
-	                    data: userTrendData.time,
-	                    splitLine: { show: false },
-	                    axisTick: {
-	                        show: false
-	                    }, 
-	                    axisPointer: {
-	                        type: 'shadow'
-	                    },
-	                    axisLabel: {
-	                        textStyle: {
-	                            color: '#928b8d'
-	                        }
-	                    },
-	                    axisLine: {
-	                        lineStyle:{
-	                            color: '#928b8d'
-	                        }
-	
-	                    }
-	                }
-	            ],
-	            yAxis: [
-	                {
-	                    type: 'value',
-	                    splitLine: { lineStyle:{ color: '#f3f3f3'} },
-	                    axisLine: {
-	                        show: false
-	                    },
-	                    axisTick: {
-	                        show: false
-	                    },
-	                    axisLabel: {
-	                        textStyle: {
-	                            color: '#928b8d'
-	                        }
-	                    }
-	                }
-	            ],
-	            series: [
-	                {
-	                    name: '蒸发量',
-	                    type: 'line',
-	                    "itemStyle": {
-	                        "normal": {
-	                            "color": "#46af44"
-	                        }
-	                    },
-	                    data: userTrendData.total
-	                },
-	                {
-	                    name: '降水量',
-	                    type: 'line',
-	                    "itemStyle": {
-	                        "normal": {
-	                            "color": "#4897d5"
-	                        }
-	                    },
-	                    data: userTrendData.count
-	                }
-	
-	            ]
-	        };
-	        myChart.clear();
-	        myChart.setOption(option3);
-        }
-        
 
 
         ////////数据详细列表

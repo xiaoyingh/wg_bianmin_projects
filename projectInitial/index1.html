@@ -713,467 +713,480 @@
             } else {
                 $(this).css({ "background": "#3699cd" });
             }
-        })
-        // 热词服务数据
-        var datas = [
-            {
-                hot: 20,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "重庆永川煤矿"
-            },
-            {
-                hot: 43,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "致15死全市"
-            },
-            {
-                hot: 22,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "生死求援重庆"
-            },
-            {
-                hot: 32,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "重庆金山沟煤"
-            },
-            {
-                hot: 16,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "重庆永川煤矿"
-            },
-            {
-                hot: 50,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "致15死全市"
-            },
-            {
-                hot: 32,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "致15死全市"
-            },
-            {
-                hot: 20,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "致15死全市"
-            },
-            {
-                hot: 15,
-                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
-                kw: "致15死全市"
-            }
-        ]
-        // 热词服务加载
-        $("#timeTrend_container_one").empty();
-
-        var num = datas.length;
-
-        if (num > 15) { num = 15; }//最多显示20块
-
-        var data = [];//存放数据        模块的大小和颜色已经按照从1开始的顺序默认排序   如果有热度或者权重，最好提前按照从大到小排序
-
-        var daa = {};
-
-        $.each(datas, function (i, n) {
-
-            daa = {};
-
-            daa.img = 0;//是否显示图片
-
-            daa.content = n.kw;
-
-            daa.title = n.kw
-
-            //daa.title=n.kw.length>6?n.kw.substring(0,6):n.kw;
-
-            daa.idList = n.ids;
-
-            daa.kg = n.kg;
-
-            daa.kw = n.kw.replace(/\"/g, "**");
-
-            data.push(daa);
-
         });
-        //调用函数
-
-        ShowTime(num, data, "#timeTrend_container_one");
-        function ShowTime(num, data, h) {
-            var appe = "";
-
-            for (var i = 0; i < num; i++) {
-
-                appe = "";
-
-                var k = num + "_" + (i + 1);
-
-                if (parseInt(data[i].img) == 1) {
-
-                    appe = '<li class="a' + k + '"><img  src="' + data[i].picpath + '" alt="' + data[i].title + '"  />' +
-
-                        '</li>';
-
-                } else {
-
-                    appe = '<li class="a' + k + '"><label><span style="cursor: pointer;"  class="nameInfo" idList="' + data[i].idList + '" kw="' + data[i].kw + '"  kg="' + data[i].kg + '"  tooltip="' + data[i].content.replace(new RegExp(/\"/g), '\'') + '">' + data[i].title + '</span></label>' +
-
-                        '</li>';
-
-                }
-
-                $(h).append(appe);
-
-                var divH = $("#timeTrend_container_one li").eq(i).height();
-
-                var $p = $("span", $("#timeTrend_container_one li").eq(i)).eq(0);
-
-                var $labelH = $("label", $("#timeTrend_container_one li").eq(i)).eq(0).height();
-
-                if ($p.outerHeight() > divH) {
-
-                    var lh = parseInt($("span", $("#timeTrend_container_one li").eq(i)).eq(0).css('line-height'))
-
-                    var clamp = parseInt($labelH / lh)
-
-                    $p.css('-webkit-line-clamp', JSON.stringify(clamp));
-
-                };
-
-            }
-
+        getHotData();
+        // 热词服务数据
+        function getHotData(){
+        	var datas = [
+	            {
+	                hot: 20,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "重庆永川煤矿"
+	            },
+	            {
+	                hot: 43,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "致15死全市"
+	            },
+	            {
+	                hot: 22,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "生死求援重庆"
+	            },
+	            {
+	                hot: 32,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "重庆金山沟煤"
+	            },
+	            {
+	                hot: 16,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "重庆永川煤矿"
+	            },
+	            {
+	                hot: 50,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "致15死全市"
+	            },
+	            {
+	                hot: 32,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "致15死全市"
+	            },
+	            {
+	                hot: 20,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "致15死全市"
+	            },
+	            {
+	                hot: 15,
+	                ids: "4034463400198914,4035948856623872,4035944299250437,4037283637216000,4034475797857024",
+	                kw: "致15死全市"
+	            }
+	        ]
+            hotDataLoad(datas);
         }
+        function hotDataLoad(datas){
+        	// 热词服务加载
+	        $("#timeTrend_container_one").empty();
+	
+	        var num = datas.length;
+	
+	        if (num > 15) { num = 15; }//最多显示20块
+	
+	        var data = [];//存放数据        模块的大小和颜色已经按照从1开始的顺序默认排序   如果有热度或者权重，最好提前按照从大到小排序
+	
+	        var daa = {};
+	
+	        $.each(datas, function (i, n) {
+	
+	            daa = {};
+	
+	            daa.img = 0;//是否显示图片
+	
+	            daa.content = n.kw;
+	
+	            daa.title = n.kw
+	
+	            //daa.title=n.kw.length>6?n.kw.substring(0,6):n.kw;
+	
+	            daa.idList = n.ids;
+	
+	            daa.kg = n.kg;
+	
+	            daa.kw = n.kw.replace(/\"/g, "**");
+	
+	            data.push(daa);
+	
+	        });
+	        //调用函数
+	        ShowTime(num, data, "#timeTrend_container_one");
+	        function ShowTime(num, data, h) {
+	            var appe = "";
+	
+	            for (var i = 0; i < num; i++) {
+	
+	                appe = "";
+	
+	                var k = num + "_" + (i + 1);
+	
+	                if (parseInt(data[i].img) == 1) {
+	
+	                    appe = '<li class="a' + k + '"><img  src="' + data[i].picpath + '" alt="' + data[i].title + '"  />' +
+	
+	                        '</li>';
+	
+	                } else {
+	
+	                    appe = '<li class="a' + k + '"><label><span style="cursor: pointer;"  class="nameInfo" idList="' + data[i].idList + '" kw="' + data[i].kw + '"  kg="' + data[i].kg + '"  tooltip="' + data[i].content.replace(new RegExp(/\"/g), '\'') + '">' + data[i].title + '</span></label>' +
+	
+	                        '</li>';
+	
+	                }
+	
+	                $(h).append(appe);
+	
+	                var divH = $("#timeTrend_container_one li").eq(i).height();
+	
+	                var $p = $("span", $("#timeTrend_container_one li").eq(i)).eq(0);
+	
+	                var $labelH = $("label", $("#timeTrend_container_one li").eq(i)).eq(0).height();
+	
+	                if ($p.outerHeight() > divH) {
+	
+	                    var lh = parseInt($("span", $("#timeTrend_container_one li").eq(i)).eq(0).css('line-height'))
+	
+	                    var clamp = parseInt($labelH / lh)
+	
+	                    $p.css('-webkit-line-clamp', JSON.stringify(clamp));
+	
+	                };
+	
+	            }
+	
+	        }
+        }
+        
 
-
+        getTimeData();
         // 服务访问时长echarts 
-
-        var timeData = {
-            data: ["228", "656", "765", "694", "813", "832", "861", "767", "659", "701", "842", "865", "762", "768", "658", "599", "593", "666", "910", "882", "611"],
-            time: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
-        };
-        var myChart = echarts.init(document.getElementById('timeLength'));
-        var option = {
-            color: ['#55acee', '#42505a', "#4fa4eb", "#3b840c", "#910d0b", "#7de6f2", "#a08f28", "#3a59c0"],
-            tooltip: {
-                trigger: 'axis'
-            },
-            grid: {
-                x: 50,
-                y: 30,
-                x2: 10,
-                y2: 40
-            },
-            toolbox: {
-                feature: {
-                    saveAsImage: { title: "下载" }
-                },
-                right: 0
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                splitLine: { show: false },
-                axisTick: {
-                    show: false
-                },  
-                data: timeData.time
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                }
-            }],
-            series: [{
-                //name : '数据量',
-                name: '数据量',
-                type: 'line',
-                itemStyle: {
-                    normal: {
-                        areaStyle: {
-                            type: 'default',
-                            color: "#e6f8fd"
-                        },
-                        color: "#61cdea"
-                    }
-                },
-                data: timeData.data
-            }]
-        };
-        myChart.clear();
-        myChart.setOption(option);
+        function getTimeData(){
+        	var timeData = {
+	            data: ["228", "656", "765", "694", "813", "832", "861", "767", "659", "701", "842", "865", "762", "768", "658", "599", "593", "666", "910", "882", "611"],
+	            time: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+	        };
+	        timeDataCharts(timeData);
+        }
+        function timeDataCharts(timeData){
+        	var myChart = echarts.init(document.getElementById('timeLength'));
+	        var option = {
+	            color: ['#55acee', '#42505a', "#4fa4eb", "#3b840c", "#910d0b", "#7de6f2", "#a08f28", "#3a59c0"],
+	            tooltip: {
+	                trigger: 'axis'
+	            },
+	            grid: {
+	                x: 50,
+	                y: 30,
+	                x2: 10,
+	                y2: 40
+	            },
+	            toolbox: {
+	                feature: {
+	                    saveAsImage: { title: "下载" }
+	                },
+	                right: 0
+	            },
+	            xAxis: [{
+	                type: 'category',
+	                boundaryGap: false,
+	                splitLine: { show: false },
+	                axisTick: {
+	                    show: false
+	                },  
+	                data: timeData.time
+	            }],
+	            yAxis: [{
+	                type: 'value',
+	                axisLine: {
+	                    show: false
+	                },
+	                axisTick: {
+	                    show: false
+	                }
+	            }],
+	            series: [{
+	                //name : '数据量',
+	                name: '数据量',
+	                type: 'line',
+	                itemStyle: {
+	                    normal: {
+	                        areaStyle: {
+	                            type: 'default',
+	                            color: "#e6f8fd"
+	                        },
+	                        color: "#61cdea"
+	                    }
+	                },
+	                data: timeData.data
+	            }]
+	        };
+	        myChart.clear();
+	        myChart.setOption(option);
+        }
+        
+        systemDataCharts();
         // 服务使用操作系统
-        var myChart = echarts.init(document.getElementById('system'));
-        option1 = {
-            title: {
-                text: ''
-            },
-            grid: {
-                left: 50,
-                top: 20,
-                right: 40,
-                bottom: 40
-            },
-            tooltip: {
-                show: false,
-            },
-            toolbox: {
-                feature: {
-                    saveAsImage: { title: "下载" }
-                },
-                right: 0
-            },
-            radar: {
-                // shape: 'circle',
-                indicator: [
-                    { name: 'Windows', max: 6500 },
-                    { name: 'Windows7', max: 16000 },
-                    { name: 'IOS', max: 30000 },
-                    { name: 'Mac OS', max: 38000 },
-                    { name: 'Windows8', max: 52000 },
-                    { name: 'Windows Yota', max: 25000 },
-                    { name: 'dows 10', max: 52000 },
-                    { name: 'WindowsXP', max: 52000 },
-                    { name: 'Windows8', max: 52000 },
-                    { name: 'Cheome OS', max: 52000 },
-                    { name: 'Android', max: 52000 },
-                ]
-            },
-            series: [{
-                name: '',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                data: [
-                    {
-                        value: [4300, 0, 0, 0, 50000, 0, 4300, 0, 0, 35000, 3, 0, 0],
-                        name: '系统使用数据量'
-                    }
-                ]
-            }]
-        };
+        function systemDataCharts(){
+        	var myChart = echarts.init(document.getElementById('system'));
+	        option1 = {
+	            title: {
+	                text: ''
+	            },
+	            grid: {
+	                left: 50,
+	                top: 20,
+	                right: 40,
+	                bottom: 40
+	            },
+	            tooltip: {
+	                show: false,
+	            },
+	            toolbox: {
+	                feature: {
+	                    saveAsImage: { title: "下载" }
+	                },
+	                right: 0
+	            },
+	            radar: {
+	                // shape: 'circle',
+	                indicator: [
+	                    { name: 'Windows', max: 6500 },
+	                    { name: 'Windows7', max: 16000 },
+	                    { name: 'IOS', max: 30000 },
+	                    { name: 'Mac OS', max: 38000 },
+	                    { name: 'Windows8', max: 52000 },
+	                    { name: 'Windows Yota', max: 25000 },
+	                    { name: 'dows 10', max: 52000 },
+	                    { name: 'WindowsXP', max: 52000 },
+	                    { name: 'Windows8', max: 52000 },
+	                    { name: 'Cheome OS', max: 52000 },
+	                    { name: 'Android', max: 52000 },
+	                ]
+	            },
+	            series: [{
+	                name: '',
+	                type: 'radar',
+	                // areaStyle: {normal: {}},
+	                data: [
+	                    {
+	                        value: [4300, 0, 0, 0, 50000, 0, 4300, 0, 0, 35000, 3, 0, 0],
+	                        name: '系统使用数据量'
+	                    }
+	                ]
+	            }]
+	        };
+	        myChart.clear();
+	        myChart.setOption(option1);
+        }
+        
 
-        myChart.clear();
-        myChart.setOption(option1);
-
-
-
+        terminalDataCharts();
         // 服务访问终端
-        var myChart = echarts.init(document.getElementById('terminal'));
-
-        option2 = {
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    crossStyle: {
-                        color: '#999'
-                    }
-                }
-            },
-            grid: {
-                left: 50,
-                top: 40,
-                right: 40,
-                bottom: 40
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    data: ['1', '2', '3', '4', '5'],
-                    axisPointer: {
-                        type: 'shadow'
-                    },
-                    splitLine: { show: false },
-                    axisTick: {
-                        show: false
-                    },
-                    axisLine: {
-                        show: false
-                    },
-                    axisLabel: {
-                        show: false
-                    }
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    splitLine: { show: false },
-                    axisTick: {
-                        show: false
-                    },
-                    axisLine: {
-                        show: false
-                    },
-                    axisLabel: {
-                        textStyle: {
-                            color: '#afb4c3'
-                        }
-                    }
-                }
-            ],
-            series: [
-                {
-                    name: '蒸发量',
-                    type: 'bar',
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#73c6e9"
-                        }
-                    },
-                    data: [2.0, 4.9, 7.0, 6.4, 3.3]
-                },
-                {
-                    name: '降水量',
-                    type: 'bar',
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#af8ed0"
-                        }
-                    },
-                    data: [2.6, 5.9, 4, 6.0, 2.3]
-                },
-                {
-                    "name": "已办结",
-                    "type": "bar",
-                    "barMaxWidth": "40",
-                    "barGap": "0%",
-                    "z": 10,
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#58d79d"
-                        }
-                    },
-                    "data": [2.0, 2.2, 3.3, 12.0, 6.2]
-                },
-                {
-                    name: '平均温度',
-                    type: 'line',
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#ff9080"
-                        }
-                    },
-                    data: [6.0, 7.2, 10.3, 12.0, 6.2]
-                }
-
-            ]
-        };
-
-        myChart.clear();
-        myChart.setOption(option2);
-
-
+        function terminalDataCharts(){
+	        var myChart = echarts.init(document.getElementById('terminal'));
+	
+	        option2 = {
+	            tooltip: {
+	                trigger: 'axis',
+	                axisPointer: {
+	                    type: 'cross',
+	                    crossStyle: {
+	                        color: '#999'
+	                    }
+	                }
+	            },
+	            grid: {
+	                left: 50,
+	                top: 40,
+	                right: 40,
+	                bottom: 40
+	            },
+	            xAxis: [
+	                {
+	                    type: 'category',
+	                    data: ['1', '2', '3', '4', '5'],
+	                    axisPointer: {
+	                        type: 'shadow'
+	                    },
+	                    splitLine: { show: false },
+	                    axisTick: {
+	                        show: false
+	                    },
+	                    axisLine: {
+	                        show: false
+	                    },
+	                    axisLabel: {
+	                        show: false
+	                    }
+	                }
+	            ],
+	            yAxis: [
+	                {
+	                    type: 'value',
+	                    splitLine: { show: false },
+	                    axisTick: {
+	                        show: false
+	                    },
+	                    axisLine: {
+	                        show: false
+	                    },
+	                    axisLabel: {
+	                        textStyle: {
+	                            color: '#afb4c3'
+	                        }
+	                    }
+	                }
+	            ],
+	            series: [
+	                {
+	                    name: '蒸发量',
+	                    type: 'bar',
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#73c6e9"
+	                        }
+	                    },
+	                    data: [2.0, 4.9, 7.0, 6.4, 3.3]
+	                },
+	                {
+	                    name: '降水量',
+	                    type: 'bar',
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#af8ed0"
+	                        }
+	                    },
+	                    data: [2.6, 5.9, 4, 6.0, 2.3]
+	                },
+	                {
+	                    "name": "已办结",
+	                    "type": "bar",
+	                    "barMaxWidth": "40",
+	                    "barGap": "0%",
+	                    "z": 10,
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#58d79d"
+	                        }
+	                    },
+	                    "data": [2.0, 2.2, 3.3, 12.0, 6.2]
+	                },
+	                {
+	                    name: '平均温度',
+	                    type: 'line',
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#ff9080"
+	                        }
+	                    },
+	                    data: [6.0, 7.2, 10.3, 12.0, 6.2]
+	                }
+	
+	            ]
+	        };
+	        myChart.clear();
+	        myChart.setOption(option2);
+        }
+        
+		trendDataCharts();
         // 服务访问趋势
-
-        var myChart = echarts.init(document.getElementById('trend'));
-
-        option3 = {
-            grid: {
-                left: 50,
-                top: 40,
-                right: 40,
-                bottom: 40
-            },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    crossStyle: {
-                        color: '#999'
-                    }
-                }
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    data: ['5月11日', '5月12日', '5月13日', '5月14日', '5月15日', '5月16日', '5月17日', '5月18日', '5月19日', '5月20日', '5月21日', '5月22日', '5月23日'],
-                    axisPointer: {
-                        type: 'shadow'
-                    }
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    name: '值',
-                }
-            ],
-            series: [
-                {
-                    name: '蒸发量',
-                    type: 'line',
-                    smooth: true,
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#b8a5e0"
-                        }
-                    },
-                    markPoint: {
-                        data: [
-                            { type: 'max', name: '最大值' },
-                        ]
-                    },
-                    data: [2.0, 4.9, 7.0, 6.4, 3.3, 2.0, 4.9, 7.0, 6.4, 3.3, 3.6, 6, 9]
-                },
-                {
-                    name: '降水量',
-                    type: 'line',
-                    smooth: true,
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#5ab2ef"
-                        }
-                    },
-                    markPoint: {
-                        data: [
-                            { type: 'max', name: '最大值' },
-                        ]
-                    },
-                    data: [2.6, 5.9, 4, 6.0, 2.3, 2.6, 5.9, 4, 6.0, 2.3, 6, 4, 1]
-                },
-                {
-                    "name": "已办结",
-                    "type": "line",
-                    smooth: true,
-                    "barMaxWidth": "40",
-                    "barGap": "0%",
-                    "z": 10,
-                    markPoint: {
-                        data: [
-                            { type: 'max', name: '最大值' },
-                        ]
-                    },
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#2dc8c7"
-                        }
-                    },
-                    "data": [2.0, 2.2, 3.3, 12.0, 6.2, 2.6, 5.9, 4, 6.0, 2.3, 9, 1, 8]
-                },
-                {
-                    name: '平均温度',
-                    type: 'line',
-                    smooth: true,
-                    markPoint: {
-                        data: [
-                            { type: 'max', name: '最大值' },
-                        ]
-                    },
-                    "itemStyle": {
-                        "normal": {
-                            "color": "#ffba81"
-                        }
-                    },
-                    data: [6.0, 7.2, 10.3, 12.0, 6.2, 13, 5.9, 4, 6.0, 2.3, 3, 7, 10]
-                }
-
-            ]
-        };
-
-        myChart.clear();
-        myChart.setOption(option3);
+        function trendDataCharts(){
+	        var myChart = echarts.init(document.getElementById('trend'));
+	        option3 = {
+	            grid: {
+	                left: 50,
+	                top: 40,
+	                right: 40,
+	                bottom: 40
+	            },
+	            tooltip: {
+	                trigger: 'axis',
+	                axisPointer: {
+	                    type: 'cross',
+	                    crossStyle: {
+	                        color: '#999'
+	                    }
+	                }
+	            },
+	            xAxis: [
+	                {
+	                    type: 'category',
+	                    data: ['5月11日', '5月12日', '5月13日', '5月14日', '5月15日', '5月16日', '5月17日', '5月18日', '5月19日', '5月20日', '5月21日', '5月22日', '5月23日'],
+	                    axisPointer: {
+	                        type: 'shadow'
+	                    }
+	                }
+	            ],
+	            yAxis: [
+	                {
+	                    type: 'value',
+	                    name: '值',
+	                }
+	            ],
+	            series: [
+	                {
+	                    name: '蒸发量',
+	                    type: 'line',
+	                    smooth: true,
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#b8a5e0"
+	                        }
+	                    },
+	                    markPoint: {
+	                        data: [
+	                            { type: 'max', name: '最大值' },
+	                        ]
+	                    },
+	                    data: [2.0, 4.9, 7.0, 6.4, 3.3, 2.0, 4.9, 7.0, 6.4, 3.3, 3.6, 6, 9]
+	                },
+	                {
+	                    name: '降水量',
+	                    type: 'line',
+	                    smooth: true,
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#5ab2ef"
+	                        }
+	                    },
+	                    markPoint: {
+	                        data: [
+	                            { type: 'max', name: '最大值' },
+	                        ]
+	                    },
+	                    data: [2.6, 5.9, 4, 6.0, 2.3, 2.6, 5.9, 4, 6.0, 2.3, 6, 4, 1]
+	                },
+	                {
+	                    "name": "已办结",
+	                    "type": "line",
+	                    smooth: true,
+	                    "barMaxWidth": "40",
+	                    "barGap": "0%",
+	                    "z": 10,
+	                    markPoint: {
+	                        data: [
+	                            { type: 'max', name: '最大值' },
+	                        ]
+	                    },
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#2dc8c7"
+	                        }
+	                    },
+	                    "data": [2.0, 2.2, 3.3, 12.0, 6.2, 2.6, 5.9, 4, 6.0, 2.3, 9, 1, 8]
+	                },
+	                {
+	                    name: '平均温度',
+	                    type: 'line',
+	                    smooth: true,
+	                    markPoint: {
+	                        data: [
+	                            { type: 'max', name: '最大值' },
+	                        ]
+	                    },
+	                    "itemStyle": {
+	                        "normal": {
+	                            "color": "#ffba81"
+	                        }
+	                    },
+	                    data: [6.0, 7.2, 10.3, 12.0, 6.2, 13, 5.9, 4, 6.0, 2.3, 3, 7, 10]
+	                }
+	
+	            ]
+	        };
+	        myChart.clear();
+	        myChart.setOption(option3);
+	    }
     </script>
 </body>
 
